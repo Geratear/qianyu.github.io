@@ -728,6 +728,10 @@
     
       <!-- 弹幕所需的css和js -->
 
+  <!-- 弹幕插件 -->
+  <link href="/js/danmu/barrager.css" rel="stylesheet">
+  <script src="/js/danmu/jquery.barrager.js"></script>
+
 <!-- 具体js，请前往valine.ejs查看 -->
 
 
@@ -738,15 +742,15 @@
 	<script src="https://cdn.jsdelivr.net/gh/HCLonely/Valine@latest/dist/Valine.min.js"></script>
 	<script>
 
-		var requiredFields = '';
+		var requiredFields = 'nick';
   		requiredFields  = requiredFields.split(',');
 
 		var valine = new Valine({
 			el: '#vcomment',
 			notify: false,
 			verify: false,
-			app_id: "",
-			app_key: "",
+			app_id: "rdrI4BwgFSOKQskvsfsPixYq-gzGzoHsz",
+			app_key: "LvhLdiVWwMAXPjTUtNh9HdDH",
 			placeholder: "客官，说点什么吧",
 			avatar: "",
 			master: "",   //博主邮箱md5
@@ -1444,7 +1448,7 @@
 			}
 		}
 		//查询评论 valine.Q('*').limit(7) -- 查询所有，限制7条, 下面的的代码是查询当前页面
-		let themeDanmu = eval('false');
+		let themeDanmu = eval('true');
 		let themeLoop = eval('false');
 		let themeLooperTime = '5000' || 5000;
 		let speed = '20' || 20;
