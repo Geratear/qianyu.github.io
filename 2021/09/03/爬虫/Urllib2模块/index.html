@@ -11,7 +11,7 @@
   <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-  <title>Windows系统下的进程或跨平台的进程 | 千～葉(GeraTear)</title>
+  <title>爬虫基础篇——之Urllib2模块 | 千～葉(GeraTear)</title>
 
   
     
@@ -530,14 +530,14 @@
 
 
 
-<div class="post-detail-header lazyload" id="thumbnail_canvas" data-original="/medias/13.jpg" style="background-repeat: no-repeat; background-size: cover; 
+<div class="post-detail-header lazyload" id="thumbnail_canvas" data-original="/medias/10.jpg" style="background-repeat: no-repeat; background-size: cover; 
   background-position: center center;position: relative;">
   <div class="post-detail-header-mask"></div>
   <canvas id="header_canvas"style="position:absolute;bottom:0;pointer-events:none;"></canvas>
   
   <div class="title-box">
     <span class="title">
-      Windows系统下的进程或跨平台的进程
+      爬虫基础篇——之Urllib2模块
     </span>
   </div>
   
@@ -554,7 +554,7 @@
       
       <div class="post-meta">
         <i class="fa fa-clock-o" aria-hidden="true"></i>
-        <span class="post-time">2021-07-04</span>
+        <span class="post-time">2021-09-03</span>
       </div>
       
       <div class="post-tags-categories">
@@ -562,8 +562,8 @@
         <div class="tags">
           <i class="iconfont icontag"></i>
           
-            <a href="/tags/%E6%8A%80%E6%9C%AF/" class="">
-              技术
+            <a href="/tags/%E7%88%AC%E8%99%AB/" class="">
+              爬虫
             </a>
           
         </div>
@@ -571,9 +571,16 @@
         
       </div>
       <div class="post-content">
-        <p>由于Python是跨平台的，Unix/Linux用fork函数。但是windows系统下没有fork函数，所以为支持多平台进程提供multiProcessing模块。</p>
-<h2 id="multiProcessing模块"><a href="#multiProcessing模块" class="headerlink" title="multiProcessing模块"></a>multiProcessing模块</h2><p>multiProcessing模块提供一个Process类代表进程对象</p>
-<p>栗子：<br> <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">from multiProcessing import Process</span><br><span class="line"></span><br><span class="line">def   task():</span><br><span class="line"></span><br><span class="line"> for i in range(3):</span><br><span class="line"></span><br><span class="line"> print(&#x27;子进程Pid = %d  i =%d&#x27; %(os.getpid(),i))</span><br><span class="line"></span><br><span class="line"> time.Sleep(1)</span><br><span class="line"></span><br><span class="line">def  main():</span><br><span class="line"></span><br><span class="line"> p = process(target = task)    #创建Process对象，指定Process进程对象</span><br><span class="line"></span><br><span class="line"> p.start()</span><br><span class="line"></span><br><span class="line"> print(p.is_alive())</span><br></pre></td></tr></table></figure></p>
+        <p>urllib2模块用于网络爬虫、抓取网页，urllib2支持Python2</p>
+<p>Python3中Urllib2被改为Urllib.request</p>
+<p>模块安装：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip intsall urllib2</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 导入模块</span></span><br><span class="line"><span class="keyword">import</span> urllib2</span><br><span class="line"><span class="comment"># urllib2.urlopen 向指定的URL发送请求，并返回服务器响应的类文件对象</span></span><br><span class="line">respnse = urllib2.urlopen(<span class="string">&#x27;http://www.bixuan.xyz&#x27;</span>)</span><br><span class="line"><span class="comment"># read()方法读取文件全部内容，返回字符串</span></span><br><span class="line">html =response.read()</span><br><span class="line"><span class="built_in">print</span> html</span><br></pre></td></tr></table></figure>
+
+<p>栗子2：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 导入urllib2模块</span></span><br><span class="line"><span class="keyword">import</span> urllib2</span><br><span class="line"><span class="comment"># url作为Request()方法的参数，构造并返回一个Request对象</span></span><br><span class="line">request = urllib2.Request(<span class="string">&#x27;http://www.bixuan.xyz&#x27;</span>)</span><br><span class="line"><span class="comment"># request对象作为urlopen()方法参数，发送给服务器并接收响应</span></span><br><span class="line">response = urllib2.urlopen(request)</span><br><span class="line"><span class="comment"># 读取文件</span></span><br><span class="line">html = response.read()</span><br><span class="line"><span class="built_in">print</span> html</span><br></pre></td></tr></table></figure>
+
 
       </div>
       
@@ -584,7 +591,7 @@
     </li>
     <li class="post-copyright-link">
     <strong>文章链接:  </strong>
-    <a href="/2021/07/04/Windows系统下的进程或跨平台的进程/" target="_blank" title="Windows系统下的进程或跨平台的进程">http://example.com/2021/07/04/Windows系统下的进程或跨平台的进程/</a>
+    <a href="/2021/09/03/爬虫/Urllib2模块/" target="_blank" title="爬虫基础篇——之Urllib2模块">http://example.com/2021/09/03/爬虫/Urllib2模块/</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明:   </strong>
@@ -604,17 +611,18 @@
 
   
   <div class="post-nav-prev post-nav-item">
-    <div class="post-nav-img lazyload" data-original="/medias/3.jpg" style="background-size: cover; 
+    <div class="post-nav-img lazyload" data-original="/medias/13.jpg" style="background-size: cover; 
       background-position: center center;">
     </div>
-    <a href="/2021/07/04/%E6%BC%AB%E6%AD%A5%E8%A1%8C%E8%80%85/" class="post-nav-link">
+    <a href="/2021/09/03/%E7%88%AC%E8%99%AB/%E5%A4%84%E7%90%86HTTPS%E8%AF%B7%E6%B1%82%20SSL%E8%AF%81%E4%B9%A6%E9%AA%8C%E8%AF%81/" class="post-nav-link">
       <div class="title">
         <i class="fa fa-angle-left"></i> 上一篇:
-        <div>漫步行者</div>
+        <div>爬虫基础篇—之User-Agent</div>
       </div>
       
       <!-- <div class="content">
-        漫步行者我行黑夜里的雨步黑夜里迷失自我是我拥有了黑夜还是黑夜拥有了我我们只是黑夜里的独行者雨点是黑夜里的见证者滴答雨滴划
+        urllib2可以为HTTP请求验证SSL证书，如果网站的SSL证书是经过CA认证的，则能正常访问。
+如：https:/
       </div> -->
     </a>
   </div>
@@ -623,18 +631,17 @@
 
   
   <div class="post-nav-next post-nav-item">
-    <div class="post-nav-img lazyload" data-original="/medias/2.jpg" style="background-size: cover; 
+    <div class="post-nav-img lazyload" data-original="/medias/6.jpg" style="background-size: cover; 
       background-position: center center;">
     </div>
-    <a href="/2021/07/04/%E4%BA%86%E8%A7%A3%E6%88%91/" class="post-nav-link">
+    <a href="/2021/08/29/%E7%88%AC%E8%99%AB/%E7%88%AC%E8%99%AB%E5%9F%BA%E7%A1%80%E7%AF%87%E2%80%94%E4%B9%8B%E7%90%86%E8%AE%BA%E7%AF%87/" class="post-nav-link">
       <div class="title">
         下一篇: <i class="fa fa-angle-right"></i>
-        <div>了解我</div>
+        <div>爬虫基础篇——之理论篇</div>
       </div>
       <!-- <div class="content">
-        博客的初心希望记录平时遇到的问题和知识或所思所想！
-
-其实一直以来喜欢瞎折腾;(Ps):其实我弄水晶头、拉网线、配 IP
+        1.网络爬虫又称网络蜘蛛、网络机器人是一种按照一定的规则，自动抓取万维网信息的程序或脚本
+2.搜索引擎就是通用网络爬虫，
       </div> -->
     </a>
   </div>

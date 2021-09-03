@@ -11,7 +11,7 @@
   <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-  <title>Windows系统下的进程或跨平台的进程 | 千～葉(GeraTear)</title>
+  <title>爬虫基础篇—之User-Agent | 千～葉(GeraTear)</title>
 
   
     
@@ -537,7 +537,7 @@
   
   <div class="title-box">
     <span class="title">
-      Windows系统下的进程或跨平台的进程
+      爬虫基础篇—之User-Agent
     </span>
   </div>
   
@@ -554,7 +554,7 @@
       
       <div class="post-meta">
         <i class="fa fa-clock-o" aria-hidden="true"></i>
-        <span class="post-time">2021-07-04</span>
+        <span class="post-time">2021-09-03</span>
       </div>
       
       <div class="post-tags-categories">
@@ -562,8 +562,8 @@
         <div class="tags">
           <i class="iconfont icontag"></i>
           
-            <a href="/tags/%E6%8A%80%E6%9C%AF/" class="">
-              技术
+            <a href="/tags/%E7%88%AC%E8%99%AB/" class="">
+              爬虫
             </a>
           
         </div>
@@ -571,9 +571,11 @@
         
       </div>
       <div class="post-content">
-        <p>由于Python是跨平台的，Unix/Linux用fork函数。但是windows系统下没有fork函数，所以为支持多平台进程提供multiProcessing模块。</p>
-<h2 id="multiProcessing模块"><a href="#multiProcessing模块" class="headerlink" title="multiProcessing模块"></a>multiProcessing模块</h2><p>multiProcessing模块提供一个Process类代表进程对象</p>
-<p>栗子：<br> <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">from multiProcessing import Process</span><br><span class="line"></span><br><span class="line">def   task():</span><br><span class="line"></span><br><span class="line"> for i in range(3):</span><br><span class="line"></span><br><span class="line"> print(&#x27;子进程Pid = %d  i =%d&#x27; %(os.getpid(),i))</span><br><span class="line"></span><br><span class="line"> time.Sleep(1)</span><br><span class="line"></span><br><span class="line">def  main():</span><br><span class="line"></span><br><span class="line"> p = process(target = task)    #创建Process对象，指定Process进程对象</span><br><span class="line"></span><br><span class="line"> p.start()</span><br><span class="line"></span><br><span class="line"> print(p.is_alive())</span><br></pre></td></tr></table></figure></p>
+        <p>Urllib2默认的User-Agent 头为：Python-Urllib/x.y (python-urllib/2.7)</p>
+<p>伪装成一个合法的身份，用不同浏览器发送请求时，会有不同的User-Agnet报头</p>
+<p>栗子：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib2</span><br><span class="line">url = <span class="string">&#x27;http://www.bixuan.xyz&#x27;</span></span><br><span class="line"><span class="comment"># 添加 User-Agent报头</span></span><br><span class="line">User-agent =&#123;<span class="string">&#x27;User-Agent&#x27;</span>:<span class="string">&#x27;Mozilla/5.0(compatible;MSIE9.0;Windows NT6.1;Trident/5.0)&#x27;</span>&#125;</span><br><span class="line">request =urllib2.Request(url,headers = User_agent)</span><br><span class="line"><span class="comment"># 向服务器发送这个请求</span></span><br><span class="line">response = urllib2.urlopen(request)</span><br><span class="line">html = response.read()</span><br><span class="line"><span class="built_in">print</span> html</span><br></pre></td></tr></table></figure>
+
 
       </div>
       
@@ -584,7 +586,7 @@
     </li>
     <li class="post-copyright-link">
     <strong>文章链接:  </strong>
-    <a href="/2021/07/04/Windows系统下的进程或跨平台的进程/" target="_blank" title="Windows系统下的进程或跨平台的进程">http://example.com/2021/07/04/Windows系统下的进程或跨平台的进程/</a>
+    <a href="/2021/09/03/爬虫/User-Agent/" target="_blank" title="爬虫基础篇—之User-Agent">http://example.com/2021/09/03/爬虫/User-Agent/</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明:   </strong>
@@ -602,39 +604,21 @@
 
 
 
-  
-  <div class="post-nav-prev post-nav-item">
-    <div class="post-nav-img lazyload" data-original="/medias/3.jpg" style="background-size: cover; 
-      background-position: center center;">
-    </div>
-    <a href="/2021/07/04/%E6%BC%AB%E6%AD%A5%E8%A1%8C%E8%80%85/" class="post-nav-link">
-      <div class="title">
-        <i class="fa fa-angle-left"></i> 上一篇:
-        <div>漫步行者</div>
-      </div>
-      
-      <!-- <div class="content">
-        漫步行者我行黑夜里的雨步黑夜里迷失自我是我拥有了黑夜还是黑夜拥有了我我们只是黑夜里的独行者雨点是黑夜里的见证者滴答雨滴划
-      </div> -->
-    </a>
-  </div>
-
 
 
   
   <div class="post-nav-next post-nav-item">
-    <div class="post-nav-img lazyload" data-original="/medias/2.jpg" style="background-size: cover; 
+    <div class="post-nav-img lazyload" data-original="/medias/15.jpg" style="background-size: cover; 
       background-position: center center;">
     </div>
-    <a href="/2021/07/04/%E4%BA%86%E8%A7%A3%E6%88%91/" class="post-nav-link">
+    <a href="/2021/09/03/%E7%88%AC%E8%99%AB/Heder/" class="post-nav-link">
       <div class="title">
         下一篇: <i class="fa fa-angle-right"></i>
-        <div>了解我</div>
+        <div>爬虫基础篇—之Header</div>
       </div>
       <!-- <div class="content">
-        博客的初心希望记录平时遇到的问题和知识或所思所想！
-
-其实一直以来喜欢瞎折腾;(Ps):其实我弄水晶头、拉网线、配 IP
+        在发送HTTP Request 中添加特定的Header，来构造一个完整的HTTP请求消息
+可以通过调用Request.
       </div> -->
     </a>
   </div>

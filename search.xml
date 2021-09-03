@@ -4,6 +4,120 @@
   
     
     <entry>
+      <title>爬虫基础篇—之User-Agent</title>
+      <link href="2021/09/03/%E7%88%AC%E8%99%AB/User-Agent/"/>
+      <url>2021/09/03/%E7%88%AC%E8%99%AB/User-Agent/</url>
+      
+        <content type="html"><![CDATA[<p>Urllib2默认的User-Agent 头为：Python-Urllib/x.y (python-urllib/2.7)</p><p>伪装成一个合法的身份，用不同浏览器发送请求时，会有不同的User-Agnet报头</p><p>栗子：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib2</span><br><span class="line">url = <span class="string">&#x27;http://www.bixuan.xyz&#x27;</span></span><br><span class="line"><span class="comment"># 添加 User-Agent报头</span></span><br><span class="line">User-agent =&#123;<span class="string">&#x27;User-Agent&#x27;</span>:<span class="string">&#x27;Mozilla/5.0(compatible;MSIE9.0;Windows NT6.1;Trident/5.0)&#x27;</span>&#125;</span><br><span class="line">request =urllib2.Request(url,headers = User_agent)</span><br><span class="line"><span class="comment"># 向服务器发送这个请求</span></span><br><span class="line">response = urllib2.urlopen(request)</span><br><span class="line">html = response.read()</span><br><span class="line"><span class="built_in">print</span> html</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 爬虫 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>爬虫基础篇—之Header</title>
+      <link href="2021/09/03/%E7%88%AC%E8%99%AB/Heder/"/>
+      <url>2021/09/03/%E7%88%AC%E8%99%AB/Heder/</url>
+      
+        <content type="html"><![CDATA[<p>在发送HTTP Request 中添加特定的Header，来构造一个完整的HTTP请求消息</p><p>可以通过调用Request.add_header()添加/修改</p><p>也可以用Request.get_header()</p><p>添加一个特定header</p><p>栗子:</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib2</span><br><span class="line">url =<span class="string">&quot;http://www.bixuan.xyz&quot;</span></span><br><span class="line"><span class="comment"># 添加User-Agent报头</span></span><br><span class="line">User_agent =&#123;<span class="string">&#x27;User-Agent&#x27;</span>:<span class="string">&#x27;Mozilla/5.0(compatible;MSIE9.0;Windows NT6.1;Trident/5.0)&#x27;</span>&#125;</span><br><span class="line">request = urllib2.Request(url,headers = User_agent)</span><br><span class="line"><span class="comment"># 通过调用Request.add_header()添加/修改header</span></span><br><span class="line">request.add_header(<span class="string">&#x27;Connection&#x27;</span>,<span class="string">&#x27;keep-alive&#x27;</span>)</span><br><span class="line"><span class="comment"># 通过调用Request.get_header()查看header信息</span></span><br><span class="line"><span class="comment"># Request.get_geader(head_name = &#x27;Connection&#x27;)</span></span><br><span class="line">response = urllib2.urlopen(request)</span><br><span class="line"><span class="comment"># 可以查看响应状态码</span></span><br><span class="line"><span class="built_in">print</span> response.code</span><br><span class="line">html = response.read()</span><br><span class="line"><span class="built_in">print</span> html</span><br></pre></td></tr></table></figure><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">随机添加/修改User-Agent</span><br></pre></td></tr></table></figure><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib2</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line">url = <span class="string">&quot;http://www.bixuan.xyz&quot;</span></span><br><span class="line"></span><br><span class="line">ua_list = [</span><br><span class="line">    <span class="string">&quot;Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/22.0.1207.1 Safari/537.1&quot;</span>,</span><br><span class="line">    <span class="string">&quot;Mozilla/5.0 (X11; CrOS i686 2268.111.0) AppleWebKit/536.11 (KHTML, like Gecko) Chrome/20.0.1132.57 Safari/536.11&quot;</span>,</span><br><span class="line">    <span class="string">&quot;Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/536.6 (KHTML, like Gecko) Chrome/20.0.1092.0 Safari/536.6&quot;</span>,</span><br><span class="line">    <span class="string">&quot;Mozilla/5.0 (Windows NT 6.1) AppleWebKit/536.6 (KHTML, like Gecko) Chrome/20.0.1090.0 Safari/536.6&quot;</span></span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">user_agent = random.choice(ua_list)</span><br><span class="line"></span><br><span class="line">request = urllib2.Request(url)</span><br><span class="line"></span><br><span class="line"><span class="comment">#也可以通过调用Request.add_header() 添加/修改一个特定的header</span></span><br><span class="line">request.add_header(<span class="string">&quot;User-Agent&quot;</span>, user_agent)</span><br><span class="line"></span><br><span class="line"><span class="comment"># get_header()的字符串参数，第一个字母大写，后面的全部小写</span></span><br><span class="line">request.get_header(<span class="string">&quot;User-agent&quot;</span>)</span><br><span class="line"></span><br><span class="line">response = urllib2.urlopen(request)</span><br><span class="line"></span><br><span class="line">html = response.read()</span><br><span class="line"><span class="built_in">print</span> html</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 爬虫 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>爬虫基础篇—之Get和Post方法</title>
+      <link href="2021/09/03/%E7%88%AC%E8%99%AB/Get%E5%92%8CPost%E6%96%B9%E6%B3%95/"/>
+      <url>2021/09/03/%E7%88%AC%E8%99%AB/Get%E5%92%8CPost%E6%96%B9%E6%B3%95/</url>
+      
+        <content type="html"><![CDATA[<h2 id="urllib2默认只支持HTTP-HTTPS的GET和POST方法"><a href="#urllib2默认只支持HTTP-HTTPS的GET和POST方法" class="headerlink" title="urllib2默认只支持HTTP/HTTPS的GET和POST方法"></a>urllib2默认只支持HTTP/HTTPS的<code>GET</code>和<code>POST</code>方法</h2><h3 id="URL编码转换：urllib的urlencode"><a href="#URL编码转换：urllib的urlencode" class="headerlink" title="URL编码转换：urllib的urlencode()"></a>URL编码转换：urllib的urlencode()</h3><p>Urlencode方法用来产生get查询字符串，而urllib2则没有（这是urllib和urllib2经常一起使用主要原因）</p><p>Urlencode()函数，将key：value 键值对，转换成’key = value’ 这样的字符串</p><p>urllib 的Unquote()函数</p><p>栗子：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">import urllib</span><br><span class="line">word = &#123;&#x27;wd&#x27;:&#x27;轩轩&#x27;&#125;</span><br><span class="line">urllib.urlencode(word)</span><br><span class="line">#运行结果：wd =%DO%F9DO%F9%DO%F9%DO%F9</span><br><span class="line">print urllib.unquote(&#x27;wd=%DO%F9%DO%F9 )</span><br><span class="line">#运行结果：wd = 轩轩</span><br></pre></td></tr></table></figure><h5 id="一般HTTP请求提交数据，需要编码成-URL编码格式，然后做为url的一部分，或者作为参数传到Request对象中。"><a href="#一般HTTP请求提交数据，需要编码成-URL编码格式，然后做为url的一部分，或者作为参数传到Request对象中。" class="headerlink" title="一般HTTP请求提交数据，需要编码成 URL编码格式，然后做为url的一部分，或者作为参数传到Request对象中。"></a>一般HTTP请求提交数据，需要编码成 URL编码格式，然后做为url的一部分，或者作为参数传到Request对象中。</h5><p>Get方式</p><p>get请求一般用于服务器获取数据 ，比如用百度搜索  轩轩: <a href="https://www.baidu.com/">https://www.baidu.com/</a>? wd = 轩轩</p><p>浏览器的url跳转成：<a href="https://www.baidu.com/s%EF%BC%9Fwd">https://www.baidu.com/s？wd</a> =轩轩</p><p><a href="http://www.baidu.com/s">http://www.baidu.com/s</a>? wd=%DO%F9%D%F9</p><p><a href="http://www.baidu.com/S">http://www.baidu.com/S</a>? 之后出现长字符串，其中就包含要查询的关键字，于是尝试用默认get方式发送请求</p><p>例子：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib</span><br><span class="line"><span class="keyword">import</span> urllib2</span><br><span class="line">url = <span class="string">&#x27;http://www.baidu.com/S&#x27;</span></span><br><span class="line">word = &#123;<span class="string">&#x27;wd&#x27;</span>:<span class="string">&#x27;轩轩&#x27;</span>&#125;</span><br><span class="line">word = urllib.urlencode(word) <span class="comment">#转换成url编码格式（字符串）</span></span><br><span class="line">newurl = url +<span class="string">&#x27;?&#x27;</span>+word  <span class="comment"># url首个分隔符就是？</span></span><br><span class="line">headers = &#123;<span class="string">&#x27;User-Agent&#x27;</span>:<span class="string">&#x27;&quot;Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36&quot;&#x27;</span>&#125;</span><br><span class="line">request = urllib2.Request(newurl, headers=headers)</span><br><span class="line"></span><br><span class="line">response = urllib2.urlopen(request)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span> response.read()</span><br><span class="line"></span><br></pre></td></tr></table></figure><p>Post方式：</p><p>Request请求对象的里有data参数，它就是用在POST里的，我们要传送的数据就是这个参数data，data是一个字典，里面要匹配键值对。</p><p>Post请求向服务器发送请求数据并不是在url里</p><ul><li>POST方式则不会在网址上显示所有的参数，服务器端用Request.Form获取提交的数据，在Form提交的时候。但是HTML代码里如果不指定 method 属性，则默认为GET请求，Form中提交的数据将会附加在url之后，以<code>?</code>分开与url分开。</li><li>表单数据可以作为 URL 字段（method=”get”）或者 HTTP POST （method=”post”）的方式来发送。</li><li>GET方式是直接以链接形式访问，链接中包含了所有的参数，服务器端用Request.QueryString获取变量的值。如果包含了密码的话是一种不安全的选择，不过你可以直观地看到自己提交了什么内容。</li></ul>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 爬虫 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>爬虫基础篇—之User-Agent</title>
+      <link href="2021/09/03/%E7%88%AC%E8%99%AB/%E5%A4%84%E7%90%86HTTPS%E8%AF%B7%E6%B1%82%20SSL%E8%AF%81%E4%B9%A6%E9%AA%8C%E8%AF%81/"/>
+      <url>2021/09/03/%E7%88%AC%E8%99%AB/%E5%A4%84%E7%90%86HTTPS%E8%AF%B7%E6%B1%82%20SSL%E8%AF%81%E4%B9%A6%E9%AA%8C%E8%AF%81/</url>
+      
+        <content type="html"><![CDATA[<p>urllib2可以为HTTP请求验证SSL证书，如果网站的SSL证书是经过CA认证的，则能正常访问。</p><p>如：<a href="https://www.baidu.com/">https://www.baidu.com</a></p><p>栗子：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib2</span><br><span class="line">url = <span class="string">&quot;https//www.12306.cn/mormhweb/&quot;</span></span><br><span class="line">request =  urllib2.Request(url,headers = headers)</span><br><span class="line">headers =&#123;<span class="string">&#x27;User-Aget&#x27;</span>:<span class="string">&#x27;Mozilla/5.0(windows NT10.0;win64;x64) chrome/54.0.2840.99 safari/577.36&#x27;</span>&#125;</span><br><span class="line">response = urllib2.urlopen(request,context = context)</span><br><span class="line"><span class="built_in">print</span> response.read()</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 爬虫 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>爬虫基础篇——之Urllib2模块</title>
+      <link href="2021/09/03/%E7%88%AC%E8%99%AB/Urllib2%E6%A8%A1%E5%9D%97/"/>
+      <url>2021/09/03/%E7%88%AC%E8%99%AB/Urllib2%E6%A8%A1%E5%9D%97/</url>
+      
+        <content type="html"><![CDATA[<p>urllib2模块用于网络爬虫、抓取网页，urllib2支持Python2</p><p>Python3中Urllib2被改为Urllib.request</p><p>模块安装：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip intsall urllib2</span><br></pre></td></tr></table></figure><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 导入模块</span></span><br><span class="line"><span class="keyword">import</span> urllib2</span><br><span class="line"><span class="comment"># urllib2.urlopen 向指定的URL发送请求，并返回服务器响应的类文件对象</span></span><br><span class="line">respnse = urllib2.urlopen(<span class="string">&#x27;http://www.bixuan.xyz&#x27;</span>)</span><br><span class="line"><span class="comment"># read()方法读取文件全部内容，返回字符串</span></span><br><span class="line">html =response.read()</span><br><span class="line"><span class="built_in">print</span> html</span><br></pre></td></tr></table></figure><p>栗子2：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 导入urllib2模块</span></span><br><span class="line"><span class="keyword">import</span> urllib2</span><br><span class="line"><span class="comment"># url作为Request()方法的参数，构造并返回一个Request对象</span></span><br><span class="line">request = urllib2.Request(<span class="string">&#x27;http://www.bixuan.xyz&#x27;</span>)</span><br><span class="line"><span class="comment"># request对象作为urlopen()方法参数，发送给服务器并接收响应</span></span><br><span class="line">response = urllib2.urlopen(request)</span><br><span class="line"><span class="comment"># 读取文件</span></span><br><span class="line">html = response.read()</span><br><span class="line"><span class="built_in">print</span> html</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 爬虫 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>爬虫基础篇——之理论篇</title>
+      <link href="2021/08/29/%E7%88%AC%E8%99%AB/%E7%88%AC%E8%99%AB%E5%9F%BA%E7%A1%80%E7%AF%87%E2%80%94%E4%B9%8B%E7%90%86%E8%AE%BA%E7%AF%87/"/>
+      <url>2021/08/29/%E7%88%AC%E8%99%AB/%E7%88%AC%E8%99%AB%E5%9F%BA%E7%A1%80%E7%AF%87%E2%80%94%E4%B9%8B%E7%90%86%E8%AE%BA%E7%AF%87/</url>
+      
+        <content type="html"><![CDATA[<p>1.网络爬虫又称网络蜘蛛、网络机器人是一种按照一定的规则，自动抓取万维网信息的程序或脚本</p><p>2.搜索引擎就是通用网络爬虫，如：google、百度（通用爬虫）     通用爬虫具有一定的局限性<br>3.网络爬虫类型：<strong>通用网络爬虫</strong>、<strong>聚集网络爬虫</strong>、<strong>分布式网络爬</strong><br>4.爬虫主要步骤：</p><ul><li><p>1.对爬取目标的 url 定义</p></li><li><p>2.对网页数据分析与协议获取对应 HTML</p></li><li><p>3.对页面进行提取 HTML 页面有价值的数据<br><img "" class="lazyload placeholder" data-original="https://img-blog.csdnimg.cn/20190422003146166.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM1NjU5ODEy,size_16,color_FFFFFF,t_70" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="爬虫流程图"></p></li></ul><ol start="5"><li> 通用爬虫需要遵守一定规则（nofollow 协议或 Robots 协议），全称是网络爬虫排除标准</li><li>通用爬虫只能抓取 HTML、PDF、word、wps、XLP、PPT、TXflash、音频、脚本程序</li><li>HTTP 协议（Hyper Text Transfer Protocl，超文本传输协议）是面的规则</li><li>HTTPS 协议（Hypertext Transfer Protocl oVer Secure Socket Laye层（安全套接层）主要用于安全传输协议，在网络传输层进行加密</li></ol><ul><li>HTTP 的端口号：80</li><li>HTTPS 的端口号：443</li></ul><ol start="9"><li>HTTP 请求与响应：浏览器发送请求等待服务器响应并返回数流程图 浏览器 发送请求数据 响应并返回数据<br><img "" class="lazyload placeholder" data-original="https://img-blog.csdnimg.cn/20190422004510653.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="客户端与服务端连接流程图"></li><li>统一资源定位符 URL:如 <a href="http://www.baidu.com:8080/a">http://www.baidu.com:8080/a</a><br><img "" class="lazyload placeholder" data-original="https://img-blog.csdnimg.cn/2019042200484918.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="统一资源定位符"></li></ol><p>11.客户端 HTTP 请求：</p><ul><li>浏览器发送一个 HTTP 请求到服务器</li><li>请求格式: 请求行、请求头、空行.请求数据</li><li>GET： http:// <a href="http://www.baidu.com/HTTP/1.1">www.baidu.com/HTTP/1.1</a></li><li>Host:：<a href="http://www.baidu.com/">www.baidu.com</a></li><li>User-Aget: Mozilla/chrome</li><li>Cookie：</li></ul><p>12.HTTP 请求主要分为 get 和 postGet 请求：</p><ul><li>Get请求：是从服务器上获取页面信息</li><li>Post 请求：是向服务器提交数据并获取页面信息</li><li><strong>Get 请求参数都显示在 URL 上，服务器根据请求 URL 的参数产生响的一部分</strong></li><li><strong>Post 请求参数在请求体中，消息长度没有限制而且隐式方式进行在 URL 中，而是在请求体中因此 Get 请求方式不安全，而 Post 请求方式相对来说比较安全</strong></li></ul><p>13.请求报头</p><ul><li>Host（主机和端口号）</li><li>UPgrade-lnsecure-Reuqusts(升级为 HTTPS 请求)</li><li>User-agent(浏览器名称)</li><li>Accept(传输文件类型)</li><li>Referer(页面跳转来源)</li><li>Accept-Encoding(文件编解码格式)</li><li>Accept-Language(语言类型)</li><li>Accept-charset(字符编码)</li><li>CookieContent-Type(Post 数据类型)</li><li>服务端 HTTP 响应</li></ul><p>14.响应报头</p><ul><li>Cache-Control:must-revalidate,no-cache,Private</li><li>Connection:Keep-alive</li><li>Content-Encoding:gzip</li><li>Content-Type:text/html;charset = utf-8</li><li>Date:sun,21 sep 2017.01:06.21 GMT<br>服务器端发送资源时的时间，不同时区在相互请求资源时间混乱，http 协议中发送时间都<br>是 GMT</li><li>Server : Tengine/1.4.6<br>服务器和相对应的版本，只是告诉浏览器服务器的信息</li><li>Transfer-Encoding:chunked</li></ul><ol start="15"><li>响应状态码：</li></ol><ul><li>200:访问成功正常</li><li>404:访问失败，没有找到请求信息</li><li>500:服务器端出现错误，请求未完成</li></ul>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 爬虫 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>未定义</title>
       <link href="2021/07/12/%E7%94%9F%E6%B4%BB/%E6%9C%AA%E5%AE%9A%E4%B9%89/"/>
       <url>2021/07/12/%E7%94%9F%E6%B4%BB/%E6%9C%AA%E5%AE%9A%E4%B9%89/</url>
@@ -205,25 +319,6 @@
         <tags>
             
             <tag> 生活 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>爬虫基础篇——之理论篇</title>
-      <link href="2021/07/04/%E7%88%AC%E8%99%AB%E5%9F%BA%E7%A1%80%E7%AF%87%E2%80%94%E4%B9%8B%E7%90%86%E8%AE%BA%E7%AF%87/"/>
-      <url>2021/07/04/%E7%88%AC%E8%99%AB%E5%9F%BA%E7%A1%80%E7%AF%87%E2%80%94%E4%B9%8B%E7%90%86%E8%AE%BA%E7%AF%87/</url>
-      
-        <content type="html"><![CDATA[<p>1.网络爬虫又称网络蜘蛛、网络机器人是一种按照一定的规则，自动抓取万维网信息的程序或脚本</p><p>2.搜索引擎就是通用网络爬虫，如：google、百度（通用爬虫）     通用爬虫具有一定的局限性<br>3.网络爬虫类型：<strong>通用网络爬虫</strong>、<strong>聚集网络爬虫</strong>、<strong>分布式网络爬</strong><br>4.爬虫主要步骤：</p><ul><li><p>1.对爬取目标的 url 定义</p></li><li><p>2.对网页数据分析与协议获取对应 HTML</p></li><li><p>3.对页面进行提取 HTML 页面有价值的数据<br><img "" class="lazyload placeholder" data-original="https://img-blog.csdnimg.cn/20190422003146166.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM1NjU5ODEy,size_16,color_FFFFFF,t_70" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="爬虫流程图"></p></li></ul><ol start="5"><li> 通用爬虫需要遵守一定规则（nofollow 协议或 Robots 协议），全称是网络爬虫排除标准</li><li>通用爬虫只能抓取 HTML、PDF、word、wps、XLP、PPT、TXflash、音频、脚本程序</li><li>HTTP 协议（Hyper Text Transfer Protocl，超文本传输协议）是面的规则</li><li>HTTPS 协议（Hypertext Transfer Protocl oVer Secure Socket Laye层（安全套接层）主要用于安全传输协议，在网络传输层进行加密</li></ol><ul><li>HTTP 的端口号：80</li><li>HTTPS 的端口号：443</li></ul><ol start="9"><li>HTTP 请求与响应：浏览器发送请求等待服务器响应并返回数流程图 浏览器 发送请求数据 响应并返回数据<br><img "" class="lazyload placeholder" data-original="https://img-blog.csdnimg.cn/20190422004510653.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="客户端与服务端连接流程图"></li><li>统一资源定位符 URL:如 <a href="http://www.baidu.com:8080/a">http://www.baidu.com:8080/a</a><br><img "" class="lazyload placeholder" data-original="https://img-blog.csdnimg.cn/2019042200484918.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="统一资源定位符"></li></ol><p>11.客户端 HTTP 请求：</p><ul><li>浏览器发送一个 HTTP 请求到服务器</li><li>请求格式: 请求行、请求头、空行.请求数据</li><li>GET： http:// <a href="http://www.baidu.com/HTTP/1.1">www.baidu.com/HTTP/1.1</a></li><li>Host:：<a href="http://www.baidu.com/">www.baidu.com</a></li><li>User-Aget: Mozilla/chrome</li><li>Cookie：</li></ul><p>12.HTTP 请求主要分为 get 和 postGet 请求：</p><ul><li>Get请求：是从服务器上获取页面信息</li><li>Post 请求：是向服务器提交数据并获取页面信息</li><li><strong>Get 请求参数都显示在 URL 上，服务器根据请求 URL 的参数产生响的一部分</strong></li><li><strong>Post 请求参数在请求体中，消息长度没有限制而且隐式方式进行在 URL 中，而是在请求体中因此 Get 请求方式不安全，而 Post 请求方式相对来说比较安全</strong></li></ul><p>13.请求报头</p><ul><li>Host（主机和端口号）</li><li>UPgrade-lnsecure-Reuqusts(升级为 HTTPS 请求)</li><li>User-agent(浏览器名称)</li><li>Accept(传输文件类型)</li><li>Referer(页面跳转来源)</li><li>Accept-Encoding(文件编解码格式)</li><li>Accept-Language(语言类型)</li><li>Accept-charset(字符编码)</li><li>CookieContent-Type(Post 数据类型)</li><li>服务端 HTTP 响应</li></ul><p>14.响应报头</p><ul><li>Cache-Control:must-revalidate,no-cache,Private</li><li>Connection:Keep-alive</li><li>Content-Encoding:gzip</li><li>Content-Type:text/html;charset = utf-8</li><li>Date:sun,21 sep 2017.01:06.21 GMT<br>服务器端发送资源时的时间，不同时区在相互请求资源时间混乱，http 协议中发送时间都<br>是 GMT</li><li>Server : Tengine/1.4.6<br>服务器和相对应的版本，只是告诉浏览器服务器的信息</li><li>Transfer-Encoding:chunked</li></ul><ol start="15"><li>响应状态码：</li></ol><ul><li>200:访问成功正常</li><li>404:访问失败，没有找到请求信息</li><li>500:服务器端出现错误，请求未完成</li></ul>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> 爬虫 </tag>
             
         </tags>
       

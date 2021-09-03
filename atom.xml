@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-07-12T13:21:45.223Z</updated>
+  <updated>2021-09-03T13:47:51.186Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,151 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>爬虫基础篇—之User-Agent</title>
+    <link href="http://example.com/2021/09/03/%E7%88%AC%E8%99%AB/User-Agent/"/>
+    <id>http://example.com/2021/09/03/%E7%88%AC%E8%99%AB/User-Agent/</id>
+    <published>2021-09-03T13:21:32.000Z</published>
+    <updated>2021-09-03T13:47:51.186Z</updated>
+    
+    <content type="html"><![CDATA[<p>Urllib2默认的User-Agent 头为：Python-Urllib/x.y (python-urllib/2.7)</p><p>伪装成一个合法的身份，用不同浏览器发送请求时，会有不同的User-Agnet报头</p><p>栗子：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib2</span><br><span class="line">url = <span class="string">&#x27;http://www.bixuan.xyz&#x27;</span></span><br><span class="line"><span class="comment"># 添加 User-Agent报头</span></span><br><span class="line">User-agent =&#123;<span class="string">&#x27;User-Agent&#x27;</span>:<span class="string">&#x27;Mozilla/5.0(compatible;MSIE9.0;Windows NT6.1;Trident/5.0)&#x27;</span>&#125;</span><br><span class="line">request =urllib2.Request(url,headers = User_agent)</span><br><span class="line"><span class="comment"># 向服务器发送这个请求</span></span><br><span class="line">response = urllib2.urlopen(request)</span><br><span class="line">html = response.read()</span><br><span class="line"><span class="built_in">print</span> html</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;Urllib2默认的User-Agent 头为：Python-Urllib/x.y (python-urllib/2.7)&lt;/p&gt;
+&lt;p&gt;伪装成一个合法的身份，用不同浏览器发送请求时，会有不同的User-Agnet报头&lt;/p&gt;
+&lt;p&gt;栗子：&lt;/p&gt;
+&lt;figure clas</summary>
+      
+    
+    
+    
+    
+    <category term="爬虫" scheme="http://example.com/tags/%E7%88%AC%E8%99%AB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>爬虫基础篇—之Header</title>
+    <link href="http://example.com/2021/09/03/%E7%88%AC%E8%99%AB/Heder/"/>
+    <id>http://example.com/2021/09/03/%E7%88%AC%E8%99%AB/Heder/</id>
+    <published>2021-09-03T13:21:32.000Z</published>
+    <updated>2021-09-03T13:53:55.200Z</updated>
+    
+    <content type="html"><![CDATA[<p>在发送HTTP Request 中添加特定的Header，来构造一个完整的HTTP请求消息</p><p>可以通过调用Request.add_header()添加/修改</p><p>也可以用Request.get_header()</p><p>添加一个特定header</p><p>栗子:</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib2</span><br><span class="line">url =<span class="string">&quot;http://www.bixuan.xyz&quot;</span></span><br><span class="line"><span class="comment"># 添加User-Agent报头</span></span><br><span class="line">User_agent =&#123;<span class="string">&#x27;User-Agent&#x27;</span>:<span class="string">&#x27;Mozilla/5.0(compatible;MSIE9.0;Windows NT6.1;Trident/5.0)&#x27;</span>&#125;</span><br><span class="line">request = urllib2.Request(url,headers = User_agent)</span><br><span class="line"><span class="comment"># 通过调用Request.add_header()添加/修改header</span></span><br><span class="line">request.add_header(<span class="string">&#x27;Connection&#x27;</span>,<span class="string">&#x27;keep-alive&#x27;</span>)</span><br><span class="line"><span class="comment"># 通过调用Request.get_header()查看header信息</span></span><br><span class="line"><span class="comment"># Request.get_geader(head_name = &#x27;Connection&#x27;)</span></span><br><span class="line">response = urllib2.urlopen(request)</span><br><span class="line"><span class="comment"># 可以查看响应状态码</span></span><br><span class="line"><span class="built_in">print</span> response.code</span><br><span class="line">html = response.read()</span><br><span class="line"><span class="built_in">print</span> html</span><br></pre></td></tr></table></figure><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">随机添加/修改User-Agent</span><br></pre></td></tr></table></figure><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib2</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line">url = <span class="string">&quot;http://www.bixuan.xyz&quot;</span></span><br><span class="line"></span><br><span class="line">ua_list = [</span><br><span class="line">    <span class="string">&quot;Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/22.0.1207.1 Safari/537.1&quot;</span>,</span><br><span class="line">    <span class="string">&quot;Mozilla/5.0 (X11; CrOS i686 2268.111.0) AppleWebKit/536.11 (KHTML, like Gecko) Chrome/20.0.1132.57 Safari/536.11&quot;</span>,</span><br><span class="line">    <span class="string">&quot;Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/536.6 (KHTML, like Gecko) Chrome/20.0.1092.0 Safari/536.6&quot;</span>,</span><br><span class="line">    <span class="string">&quot;Mozilla/5.0 (Windows NT 6.1) AppleWebKit/536.6 (KHTML, like Gecko) Chrome/20.0.1090.0 Safari/536.6&quot;</span></span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">user_agent = random.choice(ua_list)</span><br><span class="line"></span><br><span class="line">request = urllib2.Request(url)</span><br><span class="line"></span><br><span class="line"><span class="comment">#也可以通过调用Request.add_header() 添加/修改一个特定的header</span></span><br><span class="line">request.add_header(<span class="string">&quot;User-Agent&quot;</span>, user_agent)</span><br><span class="line"></span><br><span class="line"><span class="comment"># get_header()的字符串参数，第一个字母大写，后面的全部小写</span></span><br><span class="line">request.get_header(<span class="string">&quot;User-agent&quot;</span>)</span><br><span class="line"></span><br><span class="line">response = urllib2.urlopen(request)</span><br><span class="line"></span><br><span class="line">html = response.read()</span><br><span class="line"><span class="built_in">print</span> html</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;在发送HTTP Request 中添加特定的Header，来构造一个完整的HTTP请求消息&lt;/p&gt;
+&lt;p&gt;可以通过调用Request.add_header()添加/修改&lt;/p&gt;
+&lt;p&gt;也可以用Request.get_header()&lt;/p&gt;
+&lt;p&gt;添加一个特定header&lt;</summary>
+      
+    
+    
+    
+    
+    <category term="爬虫" scheme="http://example.com/tags/%E7%88%AC%E8%99%AB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>爬虫基础篇—之Get和Post方法</title>
+    <link href="http://example.com/2021/09/03/%E7%88%AC%E8%99%AB/Get%E5%92%8CPost%E6%96%B9%E6%B3%95/"/>
+    <id>http://example.com/2021/09/03/%E7%88%AC%E8%99%AB/Get%E5%92%8CPost%E6%96%B9%E6%B3%95/</id>
+    <published>2021-09-03T13:21:32.000Z</published>
+    <updated>2021-09-03T14:35:37.154Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="urllib2默认只支持HTTP-HTTPS的GET和POST方法"><a href="#urllib2默认只支持HTTP-HTTPS的GET和POST方法" class="headerlink" title="urllib2默认只支持HTTP/HTTPS的GET和POST方法"></a>urllib2默认只支持HTTP/HTTPS的<code>GET</code>和<code>POST</code>方法</h2><h3 id="URL编码转换：urllib的urlencode"><a href="#URL编码转换：urllib的urlencode" class="headerlink" title="URL编码转换：urllib的urlencode()"></a>URL编码转换：urllib的urlencode()</h3><p>Urlencode方法用来产生get查询字符串，而urllib2则没有（这是urllib和urllib2经常一起使用主要原因）</p><p>Urlencode()函数，将key：value 键值对，转换成’key = value’ 这样的字符串</p><p>urllib 的Unquote()函数</p><p>栗子：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">import urllib</span><br><span class="line">word = &#123;&#x27;wd&#x27;:&#x27;轩轩&#x27;&#125;</span><br><span class="line">urllib.urlencode(word)</span><br><span class="line">#运行结果：wd =%DO%F9DO%F9%DO%F9%DO%F9</span><br><span class="line">print urllib.unquote(&#x27;wd=%DO%F9%DO%F9 )</span><br><span class="line">#运行结果：wd = 轩轩</span><br></pre></td></tr></table></figure><h5 id="一般HTTP请求提交数据，需要编码成-URL编码格式，然后做为url的一部分，或者作为参数传到Request对象中。"><a href="#一般HTTP请求提交数据，需要编码成-URL编码格式，然后做为url的一部分，或者作为参数传到Request对象中。" class="headerlink" title="一般HTTP请求提交数据，需要编码成 URL编码格式，然后做为url的一部分，或者作为参数传到Request对象中。"></a>一般HTTP请求提交数据，需要编码成 URL编码格式，然后做为url的一部分，或者作为参数传到Request对象中。</h5><p>Get方式</p><p>get请求一般用于服务器获取数据 ，比如用百度搜索  轩轩: <a href="https://www.baidu.com/">https://www.baidu.com/</a>? wd = 轩轩</p><p>浏览器的url跳转成：<a href="https://www.baidu.com/s%EF%BC%9Fwd">https://www.baidu.com/s？wd</a> =轩轩</p><p><a href="http://www.baidu.com/s">http://www.baidu.com/s</a>? wd=%DO%F9%D%F9</p><p><a href="http://www.baidu.com/S">http://www.baidu.com/S</a>? 之后出现长字符串，其中就包含要查询的关键字，于是尝试用默认get方式发送请求</p><p>例子：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib</span><br><span class="line"><span class="keyword">import</span> urllib2</span><br><span class="line">url = <span class="string">&#x27;http://www.baidu.com/S&#x27;</span></span><br><span class="line">word = &#123;<span class="string">&#x27;wd&#x27;</span>:<span class="string">&#x27;轩轩&#x27;</span>&#125;</span><br><span class="line">word = urllib.urlencode(word) <span class="comment">#转换成url编码格式（字符串）</span></span><br><span class="line">newurl = url +<span class="string">&#x27;?&#x27;</span>+word  <span class="comment"># url首个分隔符就是？</span></span><br><span class="line">headers = &#123;<span class="string">&#x27;User-Agent&#x27;</span>:<span class="string">&#x27;&quot;Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36&quot;&#x27;</span>&#125;</span><br><span class="line">request = urllib2.Request(newurl, headers=headers)</span><br><span class="line"></span><br><span class="line">response = urllib2.urlopen(request)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span> response.read()</span><br><span class="line"></span><br></pre></td></tr></table></figure><p>Post方式：</p><p>Request请求对象的里有data参数，它就是用在POST里的，我们要传送的数据就是这个参数data，data是一个字典，里面要匹配键值对。</p><p>Post请求向服务器发送请求数据并不是在url里</p><ul><li>POST方式则不会在网址上显示所有的参数，服务器端用Request.Form获取提交的数据，在Form提交的时候。但是HTML代码里如果不指定 method 属性，则默认为GET请求，Form中提交的数据将会附加在url之后，以<code>?</code>分开与url分开。</li><li>表单数据可以作为 URL 字段（method=”get”）或者 HTTP POST （method=”post”）的方式来发送。</li><li>GET方式是直接以链接形式访问，链接中包含了所有的参数，服务器端用Request.QueryString获取变量的值。如果包含了密码的话是一种不安全的选择，不过你可以直观地看到自己提交了什么内容。</li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;urllib2默认只支持HTTP-HTTPS的GET和POST方法&quot;&gt;&lt;a href=&quot;#urllib2默认只支持HTTP-HTTPS的GET和POST方法&quot; class=&quot;headerlink&quot; title=&quot;urllib2默认只支持HTTP/HTTPS的GET</summary>
+      
+    
+    
+    
+    
+    <category term="爬虫" scheme="http://example.com/tags/%E7%88%AC%E8%99%AB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>爬虫基础篇—之User-Agent</title>
+    <link href="http://example.com/2021/09/03/%E7%88%AC%E8%99%AB/%E5%A4%84%E7%90%86HTTPS%E8%AF%B7%E6%B1%82%20SSL%E8%AF%81%E4%B9%A6%E9%AA%8C%E8%AF%81/"/>
+    <id>http://example.com/2021/09/03/%E7%88%AC%E8%99%AB/%E5%A4%84%E7%90%86HTTPS%E8%AF%B7%E6%B1%82%20SSL%E8%AF%81%E4%B9%A6%E9%AA%8C%E8%AF%81/</id>
+    <published>2021-09-03T13:21:32.000Z</published>
+    <updated>2021-09-03T14:48:10.932Z</updated>
+    
+    <content type="html"><![CDATA[<p>urllib2可以为HTTP请求验证SSL证书，如果网站的SSL证书是经过CA认证的，则能正常访问。</p><p>如：<a href="https://www.baidu.com/">https://www.baidu.com</a></p><p>栗子：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib2</span><br><span class="line">url = <span class="string">&quot;https//www.12306.cn/mormhweb/&quot;</span></span><br><span class="line">request =  urllib2.Request(url,headers = headers)</span><br><span class="line">headers =&#123;<span class="string">&#x27;User-Aget&#x27;</span>:<span class="string">&#x27;Mozilla/5.0(windows NT10.0;win64;x64) chrome/54.0.2840.99 safari/577.36&#x27;</span>&#125;</span><br><span class="line">response = urllib2.urlopen(request,context = context)</span><br><span class="line"><span class="built_in">print</span> response.read()</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;urllib2可以为HTTP请求验证SSL证书，如果网站的SSL证书是经过CA认证的，则能正常访问。&lt;/p&gt;
+&lt;p&gt;如：&lt;a href=&quot;https://www.baidu.com/&quot;&gt;https://www.baidu.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;栗子：&lt;/p&gt;
+&lt;fi</summary>
+      
+    
+    
+    
+    
+    <category term="爬虫" scheme="http://example.com/tags/%E7%88%AC%E8%99%AB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>爬虫基础篇——之Urllib2模块</title>
+    <link href="http://example.com/2021/09/03/%E7%88%AC%E8%99%AB/Urllib2%E6%A8%A1%E5%9D%97/"/>
+    <id>http://example.com/2021/09/03/%E7%88%AC%E8%99%AB/Urllib2%E6%A8%A1%E5%9D%97/</id>
+    <published>2021-09-02T22:49:38.772Z</published>
+    <updated>2021-09-03T13:03:15.250Z</updated>
+    
+    <content type="html"><![CDATA[<p>urllib2模块用于网络爬虫、抓取网页，urllib2支持Python2</p><p>Python3中Urllib2被改为Urllib.request</p><p>模块安装：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip intsall urllib2</span><br></pre></td></tr></table></figure><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 导入模块</span></span><br><span class="line"><span class="keyword">import</span> urllib2</span><br><span class="line"><span class="comment"># urllib2.urlopen 向指定的URL发送请求，并返回服务器响应的类文件对象</span></span><br><span class="line">respnse = urllib2.urlopen(<span class="string">&#x27;http://www.bixuan.xyz&#x27;</span>)</span><br><span class="line"><span class="comment"># read()方法读取文件全部内容，返回字符串</span></span><br><span class="line">html =response.read()</span><br><span class="line"><span class="built_in">print</span> html</span><br></pre></td></tr></table></figure><p>栗子2：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 导入urllib2模块</span></span><br><span class="line"><span class="keyword">import</span> urllib2</span><br><span class="line"><span class="comment"># url作为Request()方法的参数，构造并返回一个Request对象</span></span><br><span class="line">request = urllib2.Request(<span class="string">&#x27;http://www.bixuan.xyz&#x27;</span>)</span><br><span class="line"><span class="comment"># request对象作为urlopen()方法参数，发送给服务器并接收响应</span></span><br><span class="line">response = urllib2.urlopen(request)</span><br><span class="line"><span class="comment"># 读取文件</span></span><br><span class="line">html = response.read()</span><br><span class="line"><span class="built_in">print</span> html</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;urllib2模块用于网络爬虫、抓取网页，urllib2支持Python2&lt;/p&gt;
+&lt;p&gt;Python3中Urllib2被改为Urllib.request&lt;/p&gt;
+&lt;p&gt;模块安装：&lt;/p&gt;
+&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;t</summary>
+      
+    
+    
+    
+    
+    <category term="爬虫" scheme="http://example.com/tags/%E7%88%AC%E8%99%AB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>爬虫基础篇——之理论篇</title>
+    <link href="http://example.com/2021/08/29/%E7%88%AC%E8%99%AB/%E7%88%AC%E8%99%AB%E5%9F%BA%E7%A1%80%E7%AF%87%E2%80%94%E4%B9%8B%E7%90%86%E8%AE%BA%E7%AF%87/"/>
+    <id>http://example.com/2021/08/29/%E7%88%AC%E8%99%AB/%E7%88%AC%E8%99%AB%E5%9F%BA%E7%A1%80%E7%AF%87%E2%80%94%E4%B9%8B%E7%90%86%E8%AE%BA%E7%AF%87/</id>
+    <published>2021-08-29T09:38:37.686Z</published>
+    <updated>2021-07-09T04:58:50.906Z</updated>
+    
+    <content type="html"><![CDATA[<p>1.网络爬虫又称网络蜘蛛、网络机器人是一种按照一定的规则，自动抓取万维网信息的程序或脚本</p><p>2.搜索引擎就是通用网络爬虫，如：google、百度（通用爬虫）     通用爬虫具有一定的局限性<br>3.网络爬虫类型：<strong>通用网络爬虫</strong>、<strong>聚集网络爬虫</strong>、<strong>分布式网络爬</strong><br>4.爬虫主要步骤：</p><ul><li><p>1.对爬取目标的 url 定义</p></li><li><p>2.对网页数据分析与协议获取对应 HTML</p></li><li><p>3.对页面进行提取 HTML 页面有价值的数据<br><img "" class="lazyload placeholder" data-original="https://img-blog.csdnimg.cn/20190422003146166.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM1NjU5ODEy,size_16,color_FFFFFF,t_70" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="爬虫流程图"></p></li></ul><ol start="5"><li> 通用爬虫需要遵守一定规则（nofollow 协议或 Robots 协议），全称是网络爬虫排除标准</li><li>通用爬虫只能抓取 HTML、PDF、word、wps、XLP、PPT、TXflash、音频、脚本程序</li><li>HTTP 协议（Hyper Text Transfer Protocl，超文本传输协议）是面的规则</li><li>HTTPS 协议（Hypertext Transfer Protocl oVer Secure Socket Laye层（安全套接层）主要用于安全传输协议，在网络传输层进行加密</li></ol><ul><li>HTTP 的端口号：80</li><li>HTTPS 的端口号：443</li></ul><ol start="9"><li>HTTP 请求与响应：浏览器发送请求等待服务器响应并返回数流程图 浏览器 发送请求数据 响应并返回数据<br><img "" class="lazyload placeholder" data-original="https://img-blog.csdnimg.cn/20190422004510653.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="客户端与服务端连接流程图"></li><li>统一资源定位符 URL:如 <a href="http://www.baidu.com:8080/a">http://www.baidu.com:8080/a</a><br><img "" class="lazyload placeholder" data-original="https://img-blog.csdnimg.cn/2019042200484918.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="统一资源定位符"></li></ol><p>11.客户端 HTTP 请求：</p><ul><li>浏览器发送一个 HTTP 请求到服务器</li><li>请求格式: 请求行、请求头、空行.请求数据</li><li>GET： http:// <a href="http://www.baidu.com/HTTP/1.1">www.baidu.com/HTTP/1.1</a></li><li>Host:：<a href="http://www.baidu.com/">www.baidu.com</a></li><li>User-Aget: Mozilla/chrome</li><li>Cookie：</li></ul><p>12.HTTP 请求主要分为 get 和 postGet 请求：</p><ul><li>Get请求：是从服务器上获取页面信息</li><li>Post 请求：是向服务器提交数据并获取页面信息</li><li><strong>Get 请求参数都显示在 URL 上，服务器根据请求 URL 的参数产生响的一部分</strong></li><li><strong>Post 请求参数在请求体中，消息长度没有限制而且隐式方式进行在 URL 中，而是在请求体中因此 Get 请求方式不安全，而 Post 请求方式相对来说比较安全</strong></li></ul><p>13.请求报头</p><ul><li>Host（主机和端口号）</li><li>UPgrade-lnsecure-Reuqusts(升级为 HTTPS 请求)</li><li>User-agent(浏览器名称)</li><li>Accept(传输文件类型)</li><li>Referer(页面跳转来源)</li><li>Accept-Encoding(文件编解码格式)</li><li>Accept-Language(语言类型)</li><li>Accept-charset(字符编码)</li><li>CookieContent-Type(Post 数据类型)</li><li>服务端 HTTP 响应</li></ul><p>14.响应报头</p><ul><li>Cache-Control:must-revalidate,no-cache,Private</li><li>Connection:Keep-alive</li><li>Content-Encoding:gzip</li><li>Content-Type:text/html;charset = utf-8</li><li>Date:sun,21 sep 2017.01:06.21 GMT<br>服务器端发送资源时的时间，不同时区在相互请求资源时间混乱，http 协议中发送时间都<br>是 GMT</li><li>Server : Tengine/1.4.6<br>服务器和相对应的版本，只是告诉浏览器服务器的信息</li><li>Transfer-Encoding:chunked</li></ul><ol start="15"><li>响应状态码：</li></ol><ul><li>200:访问成功正常</li><li>404:访问失败，没有找到请求信息</li><li>500:服务器端出现错误，请求未完成</li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;1.网络爬虫又称网络蜘蛛、网络机器人是一种按照一定的规则，自动抓取万维网信息的程序或脚本&lt;/p&gt;
+&lt;p&gt;2.搜索引擎就是通用网络爬虫，如：google、百度（通用爬虫）     通用爬虫具有一定的局限性&lt;br&gt;3.网络爬虫类型：&lt;strong&gt;通用网络爬虫&lt;/strong&gt;</summary>
+      
+    
+    
+    
+    
+    <category term="爬虫" scheme="http://example.com/tags/%E7%88%AC%E8%99%AB/"/>
+    
+  </entry>
   
   <entry>
     <title>未定义</title>
@@ -257,29 +402,6 @@
   </entry>
   
   <entry>
-    <title>爬虫基础篇——之理论篇</title>
-    <link href="http://example.com/2021/07/04/%E7%88%AC%E8%99%AB%E5%9F%BA%E7%A1%80%E7%AF%87%E2%80%94%E4%B9%8B%E7%90%86%E8%AE%BA%E7%AF%87/"/>
-    <id>http://example.com/2021/07/04/%E7%88%AC%E8%99%AB%E5%9F%BA%E7%A1%80%E7%AF%87%E2%80%94%E4%B9%8B%E7%90%86%E8%AE%BA%E7%AF%87/</id>
-    <published>2021-07-04T15:55:21.626Z</published>
-    <updated>2021-07-09T04:58:50.906Z</updated>
-    
-    <content type="html"><![CDATA[<p>1.网络爬虫又称网络蜘蛛、网络机器人是一种按照一定的规则，自动抓取万维网信息的程序或脚本</p><p>2.搜索引擎就是通用网络爬虫，如：google、百度（通用爬虫）     通用爬虫具有一定的局限性<br>3.网络爬虫类型：<strong>通用网络爬虫</strong>、<strong>聚集网络爬虫</strong>、<strong>分布式网络爬</strong><br>4.爬虫主要步骤：</p><ul><li><p>1.对爬取目标的 url 定义</p></li><li><p>2.对网页数据分析与协议获取对应 HTML</p></li><li><p>3.对页面进行提取 HTML 页面有价值的数据<br><img "" class="lazyload placeholder" data-original="https://img-blog.csdnimg.cn/20190422003146166.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM1NjU5ODEy,size_16,color_FFFFFF,t_70" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="爬虫流程图"></p></li></ul><ol start="5"><li> 通用爬虫需要遵守一定规则（nofollow 协议或 Robots 协议），全称是网络爬虫排除标准</li><li>通用爬虫只能抓取 HTML、PDF、word、wps、XLP、PPT、TXflash、音频、脚本程序</li><li>HTTP 协议（Hyper Text Transfer Protocl，超文本传输协议）是面的规则</li><li>HTTPS 协议（Hypertext Transfer Protocl oVer Secure Socket Laye层（安全套接层）主要用于安全传输协议，在网络传输层进行加密</li></ol><ul><li>HTTP 的端口号：80</li><li>HTTPS 的端口号：443</li></ul><ol start="9"><li>HTTP 请求与响应：浏览器发送请求等待服务器响应并返回数流程图 浏览器 发送请求数据 响应并返回数据<br><img "" class="lazyload placeholder" data-original="https://img-blog.csdnimg.cn/20190422004510653.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="客户端与服务端连接流程图"></li><li>统一资源定位符 URL:如 <a href="http://www.baidu.com:8080/a">http://www.baidu.com:8080/a</a><br><img "" class="lazyload placeholder" data-original="https://img-blog.csdnimg.cn/2019042200484918.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="统一资源定位符"></li></ol><p>11.客户端 HTTP 请求：</p><ul><li>浏览器发送一个 HTTP 请求到服务器</li><li>请求格式: 请求行、请求头、空行.请求数据</li><li>GET： http:// <a href="http://www.baidu.com/HTTP/1.1">www.baidu.com/HTTP/1.1</a></li><li>Host:：<a href="http://www.baidu.com/">www.baidu.com</a></li><li>User-Aget: Mozilla/chrome</li><li>Cookie：</li></ul><p>12.HTTP 请求主要分为 get 和 postGet 请求：</p><ul><li>Get请求：是从服务器上获取页面信息</li><li>Post 请求：是向服务器提交数据并获取页面信息</li><li><strong>Get 请求参数都显示在 URL 上，服务器根据请求 URL 的参数产生响的一部分</strong></li><li><strong>Post 请求参数在请求体中，消息长度没有限制而且隐式方式进行在 URL 中，而是在请求体中因此 Get 请求方式不安全，而 Post 请求方式相对来说比较安全</strong></li></ul><p>13.请求报头</p><ul><li>Host（主机和端口号）</li><li>UPgrade-lnsecure-Reuqusts(升级为 HTTPS 请求)</li><li>User-agent(浏览器名称)</li><li>Accept(传输文件类型)</li><li>Referer(页面跳转来源)</li><li>Accept-Encoding(文件编解码格式)</li><li>Accept-Language(语言类型)</li><li>Accept-charset(字符编码)</li><li>CookieContent-Type(Post 数据类型)</li><li>服务端 HTTP 响应</li></ul><p>14.响应报头</p><ul><li>Cache-Control:must-revalidate,no-cache,Private</li><li>Connection:Keep-alive</li><li>Content-Encoding:gzip</li><li>Content-Type:text/html;charset = utf-8</li><li>Date:sun,21 sep 2017.01:06.21 GMT<br>服务器端发送资源时的时间，不同时区在相互请求资源时间混乱，http 协议中发送时间都<br>是 GMT</li><li>Server : Tengine/1.4.6<br>服务器和相对应的版本，只是告诉浏览器服务器的信息</li><li>Transfer-Encoding:chunked</li></ul><ol start="15"><li>响应状态码：</li></ol><ul><li>200:访问成功正常</li><li>404:访问失败，没有找到请求信息</li><li>500:服务器端出现错误，请求未完成</li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;1.网络爬虫又称网络蜘蛛、网络机器人是一种按照一定的规则，自动抓取万维网信息的程序或脚本&lt;/p&gt;
-&lt;p&gt;2.搜索引擎就是通用网络爬虫，如：google、百度（通用爬虫）     通用爬虫具有一定的局限性&lt;br&gt;3.网络爬虫类型：&lt;strong&gt;通用网络爬虫&lt;/strong&gt;</summary>
-      
-    
-    
-    
-    
-    <category term="爬虫" scheme="http://example.com/tags/%E7%88%AC%E8%99%AB/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Windows系统下的进程或跨平台的进程</title>
     <link href="http://example.com/2021/07/04/Windows%E7%B3%BB%E7%BB%9F%E4%B8%8B%E7%9A%84%E8%BF%9B%E7%A8%8B%E6%88%96%E8%B7%A8%E5%B9%B3%E5%8F%B0%E7%9A%84%E8%BF%9B%E7%A8%8B/"/>
     <id>http://example.com/2021/07/04/Windows%E7%B3%BB%E7%BB%9F%E4%B8%8B%E7%9A%84%E8%BF%9B%E7%A8%8B%E6%88%96%E8%B7%A8%E5%B9%B3%E5%8F%B0%E7%9A%84%E8%BF%9B%E7%A8%8B/</id>
@@ -338,123 +460,6 @@
       
     <summary type="html">&lt;h2 id=&quot;互斥和互斥锁&quot;&gt;&lt;a href=&quot;#互斥和互斥锁&quot; class=&quot;headerlink&quot; title=&quot;互斥和互斥锁&quot;&gt;&lt;/a&gt;互斥和互斥锁&lt;/h2&gt;&lt;p&gt;线程的互斥：要求一次一个线程的执行访问资源&lt;/p&gt;
 &lt;p&gt;互斥锁：每个线程访问公共资源之前都要先申请锁。如果</summary>
-      
-    
-    
-    
-    
-    <category term="技术" scheme="http://example.com/tags/%E6%8A%80%E6%9C%AF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python的装饰器</title>
-    <link href="http://example.com/2021/07/04/Python%E7%9A%84%E8%A3%85%E9%A5%B0%E5%99%A8/"/>
-    <id>http://example.com/2021/07/04/Python%E7%9A%84%E8%A3%85%E9%A5%B0%E5%99%A8/</id>
-    <published>2021-07-04T15:55:21.595Z</published>
-    <updated>2021-05-25T05:42:05.213Z</updated>
-    
-    <content type="html"><![CDATA[<p>装饰器的作用就是为已经存在的对象添加其它功能。<br>使用装饰器可以在函数执行前和执行后添加相应操作。<br>装饰器是函数，只是函数可以具有特殊含义，装饰器用来装饰函数或类，使用装饰器可以在函数执行前和执行后添加相应操作。</p><p>装饰器常用于插入日志，性能测试，事物处理验证<br>例子1：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">def A(test):</span><br><span class="line">    def B():</span><br><span class="line">        return test()</span><br><span class="line">    return B</span><br><span class="line"></span><br><span class="line">@ A</span><br><span class="line">def test1():</span><br><span class="line">    print(&#x27;功能1&#x27;)</span><br><span class="line">@A</span><br><span class="line">def test2():</span><br><span class="line">    print(&#x27;功能2&#x27;)</span><br></pre></td></tr></table></figure><p>1.自动执行A函数并且将下面的函数名test1当作参数传递</p><p>2.将A函数的返回值，重复赋值test1</p><p>装饰器就是@调用封装名</p><p>例子2,无参数的函数：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">from time import ctime,sleep</span><br><span class="line">def tiemfun(func)</span><br><span class="line">    def wrappendfunc():</span><br><span class="line">        print(&#x27;%s called at %s&#x27;%(func.__name__,ctime()))</span><br><span class="line">        func()</span><br><span class="line">   return wrappendfunc</span><br><span class="line">@timefunc</span><br><span class="line">def foo():</span><br><span class="line">print(&#x27;打印&#x27;)</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;装饰器的作用就是为已经存在的对象添加其它功能。&lt;br&gt;使用装饰器可以在函数执行前和执行后添加相应操作。&lt;br&gt;装饰器是函数，只是函数可以具有特殊含义，装饰器用来装饰函数或类，使用装饰器可以在函数执行前和执行后添加相应操作。&lt;/p&gt;
-&lt;p&gt;装饰器常用于插入日志，性能测试，事物</summary>
-      
-    
-    
-    
-    
-    <category term="技术" scheme="http://example.com/tags/%E6%8A%80%E6%9C%AF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python的迭代器</title>
-    <link href="http://example.com/2021/07/04/Python%E7%9A%84%E8%BF%AD%E4%BB%A3%E5%99%A8/"/>
-    <id>http://example.com/2021/07/04/Python%E7%9A%84%E8%BF%AD%E4%BB%A3%E5%99%A8/</id>
-    <published>2021-07-04T15:55:21.595Z</published>
-    <updated>2021-05-25T06:11:27.707Z</updated>
-    
-    <content type="html"><![CDATA[<p>迭代器是访问集合元素的一种方式。迭代器对像从集合的第一个访问元素开始，直到所有的元素被访问结束。</p><p>作用：用于记录当前访问的位置，提供下一个元素。<br>特点：1.访问者不需要关心迭代器内部的结构，仅需要通过next()方法不断去获取下一个内容<br>      2.不能随机访问集合中的某个值，只能从头到尾依次访问<br>      3.访问到一半时不能往回退<br>      4.便于循环比较大的数据集合，节省内存</p><p>例子：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">a = __iter__([1,2,3,4])</span><br><span class="line">a.__next__()</span><br><span class="line">结果：1</span><br><span class="line">a.__next__()</span><br><span class="line">结果: 2</span><br><span class="line">a.__next__()</span><br><span class="line">结果：3</span><br><span class="line">a.__next__()</span><br><span class="line">结果：4</span><br><span class="line">a.__next__() #出现异常</span><br><span class="line">结果：出现异常</span><br></pre></td></tr></table></figure><p>list、tuple、str等数据类型可以使用for…in 循环进行顺序依次提取元素的遍历，也称为迭代器</p><p>判断是否可迭代：isinstance()<br>__iter__向外提供迭代<br>__next()__和__iter()_<em>函数作用：<br>next()获取数据，前数据不存在时出现异常<br>iter()获取迭代器对象中的迭代对象，返回迭代器<br>使用_next</em>()函数时候就是调用迭代器的对象__next__方法<br>区别：Python3:<strong>next</strong>,Python2:next<br>函数_next()_和_iter()_与next和iter作用相同，有下划线是魔法方法</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;迭代器是访问集合元素的一种方式。迭代器对像从集合的第一个访问元素开始，直到所有的元素被访问结束。&lt;/p&gt;
-&lt;p&gt;作用：用于记录当前访问的位置，提供下一个元素。&lt;br&gt;特点：1.访问者不需要关心迭代器内部的结构，仅需要通过next()方法不断去获取下一个内容&lt;br&gt;     </summary>
-      
-    
-    
-    
-    
-    <category term="技术" scheme="http://example.com/tags/%E6%8A%80%E6%9C%AF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python的闭包</title>
-    <link href="http://example.com/2021/07/04/Python%E7%9A%84%E9%97%AD%E5%8C%85/"/>
-    <id>http://example.com/2021/07/04/Python%E7%9A%84%E9%97%AD%E5%8C%85/</id>
-    <published>2021-07-04T15:55:21.595Z</published>
-    <updated>2021-05-25T04:45:20.611Z</updated>
-    
-    <content type="html"><![CDATA[<p>在函数内部再定义一个函数，并且这个函数用到外边的函数的变量，那么将这个函数以及用到的一些变量称为闭包</p><p>例子1:</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">def test(A):</span><br><span class="line">    def test_in(A_in):</span><br><span class="line">        print(&#x27;in test_in函数,A_in is%d&#x27; %A_in)</span><br><span class="line">        return A+A_in</span><br><span class="line"></span><br><span class="line">return A_in     #返回其实就是闭包结果</span><br><span class="line">ret = test(20)</span><br><span class="line">print(ret(100))</span><br><span class="line">print(ret(200))</span><br><span class="line"></span><br></pre></td></tr></table></figure><p>例子2:</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">def test A(a,b):</span><br><span class="line">    def test(x):</span><br><span class="line">        return a*x+b</span><br><span class="line">    return test</span><br><span class="line">test1 = test_A(1,1)</span><br><span class="line">test2 = test_A(4,5)</span><br><span class="line">print(test1(5))</span><br><span class="line">print(test2(5))</span><br></pre></td></tr></table></figure><p>函数test与变量a,b构成闭包，创建闭包时通过，test_A的参数a,b 说明两个变量的取值，确定函数最终形成（y =x + 1 和 y =4x + 5）只需要变换参数a,b 就可以获得不同的直线表达函数。</p><p>闭包也具有提高代码可复用性的作用。</p><p>如果没有闭包，需要更多的参数传递，也减少代码可移植性，由于闭包引用外部函数的局部变量，则外部函数的局部变量没有及时释放，消耗内存。<br>函数里嵌套定义函数，并且内层函数使用外层函数的变量或参数，外层函数要返回这个内层函数。<br>内层函数及使用外层函数的变量或参数形成一个闭包。</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;在函数内部再定义一个函数，并且这个函数用到外边的函数的变量，那么将这个函数以及用到的一些变量称为闭包&lt;/p&gt;
-&lt;p&gt;例子1:&lt;/p&gt;
-&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre</summary>
-      
-    
-    
-    
-    
-    <category term="技术" scheme="http://example.com/tags/%E6%8A%80%E6%9C%AF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python的生成器</title>
-    <link href="http://example.com/2021/07/04/Python%E7%9A%84%E7%94%9F%E6%88%90%E5%99%A8/"/>
-    <id>http://example.com/2021/07/04/Python%E7%9A%84%E7%94%9F%E6%88%90%E5%99%A8/</id>
-    <published>2021-07-04T15:55:21.425Z</published>
-    <updated>2021-05-25T07:27:48.540Z</updated>
-    
-    <content type="html"><![CDATA[<p>生成器（yield函数）</p><h1 id="yield介绍"><a href="#yield介绍" class="headerlink" title="yield介绍"></a>yield介绍</h1><p>带有yield的函数在Python中称为生成器（generator）<br>生成斐波那契（Fibonacci）数列是一个非常简单的递归数列，除第一个和第二个数外，任意一个数都可由前两个数相加得到。</p><p>列子1：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">def A(max):</span><br><span class="line">    a,b,c = 0,0,1</span><br><span class="line">    while a &lt; max:</span><br><span class="line">        print(C)</span><br><span class="line">        b,c = c,b+c</span><br><span class="line">        a = a +1</span><br><span class="line">a(5)</span><br><span class="line"></span><br><span class="line">结果：1</span><br><span class="line">      1</span><br><span class="line">      2</span><br><span class="line">      3</span><br><span class="line">      5</span><br><span class="line"></span><br></pre></td></tr></table></figure><p>直接在A函数中用print导致函数可复用性较差，因为A函数返回None,其它函数无法获得函数生成的数列。要提高A函数的可复用性，需返回一个列表（list）</p><p>列子2：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">def A(max):</span><br><span class="line">    a,b,c = 0,0,1</span><br><span class="line">    L = []</span><br><span class="line">    while a &lt; max:</span><br><span class="line">        L.append(c)</span><br><span class="line">        b,c = c, b+c</span><br><span class="line">        a = a + 1</span><br><span class="line">    return L</span><br><span class="line"></span><br><span class="line">结果： for a in A(5):</span><br><span class="line">        1</span><br><span class="line">        1</span><br><span class="line">        2</span><br><span class="line">        3</span><br><span class="line">        5</span><br></pre></td></tr></table></figure><p>函数在运行中占用的内存随着参数增大而增大，如果要控制内存占用，不要用列表保存中间结果，而是通过iterable对象来迭代</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">        for i in range(1000)： #会导致生成一个1000个元素的列表</span><br><span class="line">            pass                </span><br><span class="line">        yield</span><br><span class="line"></span><br><span class="line">        def A(max)：</span><br><span class="line">            a,b,c = 0,0,1</span><br><span class="line">            while a &lt; max:</span><br><span class="line">                yield ｃ　＃　打印Ｃ</span><br><span class="line">                b,c = c,b + c</span><br><span class="line">                a = a + 1</span><br><span class="line"></span><br><span class="line">结果：for a in A(5):</span><br><span class="line">        print(a)</span><br><span class="line">      1</span><br><span class="line">      1</span><br><span class="line">      2</span><br><span class="line">      3</span><br><span class="line">      5</span><br></pre></td></tr></table></figure><p>yiled作用就是把一个函数变成生成器，带有yield函数不再是普通函数，解释会认为是一个生成器，调用A(5)不会执行A函数，而是返回一个生成器对象。</p><h1 id="生成器的唤醒（next-函数和send-函数）"><a href="#生成器的唤醒（next-函数和send-函数）" class="headerlink" title="生成器的唤醒（next()函数和send()函数）"></a>生成器的唤醒（next()函数和send()函数）</h1><p>例子1：使用send()函数</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">def A():</span><br><span class="line">    i = 0</span><br><span class="line">    while i &lt; 5:</span><br><span class="line">        t = yield i</span><br><span class="line">        print(t)</span><br><span class="line">        i += 1</span><br><span class="line"></span><br><span class="line">    f = A()</span><br><span class="line">    next(f)</span><br><span class="line">    0</span><br><span class="line">    f.send(&#x27;111&#x27;)</span><br><span class="line">111</span><br><span class="line">    1</span><br><span class="line">    next(f)</span><br><span class="line">None</span><br><span class="line">    2</span><br><span class="line">    f.send(&#x27;000&#x27;)</span><br><span class="line">000</span><br><span class="line">    3</span><br></pre></td></tr></table></figure><p>使用send（）函数可以在唤醒同时断点处传入一个附加数据执行到yield时，A函数作用暂时保存，返回i的值，t接收send发送的值<br>例子2：使用next函数</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">    f = A()</span><br><span class="line">    next(f)</span><br><span class="line">    0</span><br><span class="line">    next(f)</span><br><span class="line">None</span><br><span class="line">     1</span><br><span class="line">    next(f)</span><br><span class="line">None</span><br><span class="line">    2</span><br><span class="line">    next(f)</span><br><span class="line">None</span><br><span class="line">    3</span><br><span class="line">    next(f)</span><br><span class="line">None</span><br><span class="line">    4</span><br><span class="line">    next(f)</span><br><span class="line">None            #超出范围</span><br></pre></td></tr></table></figure><p>例子3：使用__next__()函数</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">    f = A</span><br><span class="line">    f.__next__()</span><br><span class="line">    0</span><br><span class="line">    f.__next__()</span><br><span class="line">None</span><br><span class="line">    1</span><br><span class="line">    f.__next__()</span><br><span class="line">None </span><br><span class="line">    2</span><br><span class="line">    f.__next__()</span><br><span class="line">None</span><br><span class="line">    3</span><br><span class="line">    f.__next__()</span><br><span class="line">None</span><br><span class="line">    4</span><br><span class="line">    f.__next__() #超出比较，报出异常</span><br><span class="line">None</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;生成器（yield函数）&lt;/p&gt;
-&lt;h1 id=&quot;yield介绍&quot;&gt;&lt;a href=&quot;#yield介绍&quot; class=&quot;headerlink&quot; title=&quot;yield介绍&quot;&gt;&lt;/a&gt;yield介绍&lt;/h1&gt;&lt;p&gt;带有yield的函数在Python中称为生成器（genera</summary>
-      
-    
-    
-    
-    
-    <category term="技术" scheme="http://example.com/tags/%E6%8A%80%E6%9C%AF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>MySQL数据库</title>
-    <link href="http://example.com/2021/07/04/MySQL/"/>
-    <id>http://example.com/2021/07/04/MySQL/</id>
-    <published>2021-07-04T15:55:21.424Z</published>
-    <updated>2021-05-16T04:36:07.735Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h2><p>MySQL数据库是一个关系型数据库<br>MySQL数据库特点</p><ul><li>使用C和C++编写，并使用多种编译器进行测试，保证可移植性</li><li>支持多种系统：如Linux、Windows、MacOS、AIX</li><li>为多种编程语言提供API、如C、C++、php、Java、Python、Ruby</li><li>支持多线程，充分利用CPU资源</li><li>支持SQL查询语句优化，有效提高查询速度</li><li>提供多语言编码如GB2312、UTF-8</li><li>支持多种存储</li><li>支持大型数据、能处理拥有上千万条记录</li><li>提供用于管理、优化、检查数据的管理工具</li><li>MySQL数据库分为社区版和商业版，体积小、速度快、成本低尤其是开源代码</li><li>MySQL使用标准sql数据语言形式</li><li>复制全局事物标识</li><li>复制无崩溃从机</li></ul><h2 id="服务端（server）"><a href="#服务端（server）" class="headerlink" title="服务端（server）"></a>服务端（server）</h2><ul><li><p>开启服务</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service mysql start</span><br></pre></td></tr></table></figure></li><li><p>停止服务</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service mysql stop</span><br></pre></td></tr></table></figure></li><li><p>重启服务</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service mysql restart</span><br></pre></td></tr></table></figure></li></ul><h2 id="数据库操作命令"><a href="#数据库操作命令" class="headerlink" title="数据库操作命令"></a>数据库操作命令</h2><ul><li><p>Mysql安装命令</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install mysql-server</span><br></pre></td></tr></table></figure></li><li><p>mysql启动运行</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service mysql start</span><br></pre></td></tr></table></figure></li><li><p>查看mysql是否运行进程</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps ajx|grep mysql</span><br></pre></td></tr></table></figure></li><li><p>Mysql数据库连接登陆</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -u 用户名 -p 密码</span><br></pre></td></tr></table></figure></li><li><p>mysql数据库退出</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">quit或者exit或者ctrl+d</span><br></pre></td></tr></table></figure></li><li><p>查看mysql版本和目前时间</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select version()；</span><br><span class="line">select now()；</span><br></pre></td></tr></table></figure></li><li><p>修改输入提示符</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Prompt &gt;&gt;&gt;</span><br></pre></td></tr></table></figure></li><li><p>查看Mysql所有数据库</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show databases;</span><br></pre></td></tr></table></figure></li><li><p>使用数据库</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">user 数据库名称;</span><br></pre></td></tr></table></figure></li><li><p>查看当前使用的数据库名称</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select database();</span><br></pre></td></tr></table></figure></li><li><p>创建数据库</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create database 数据库名 chareset = utf8;</span><br></pre></td></tr></table></figure></li><li><p>删除数据库</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">drop database 数据库名</span><br></pre></td></tr></table></figure></li></ul><h2 id="数据表操作"><a href="#数据表操作" class="headerlink" title="数据表操作"></a>数据表操作</h2><ul><li><p>查看当前数据库中所有表</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show tables;</span><br></pre></td></tr></table></figure></li><li><p>查看表结构</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">desc  表名;</span><br><span class="line">desc  classes;</span><br></pre></td></tr></table></figure></li><li><p>创建表并表单自动增长(auto_increment)</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">create table 表名(</span><br><span class="line">id int unsigned primar key not null auto_increment</span><br><span class="line">);</span><br></pre></td></tr></table></figure></li><li><p>修改表数据——添加字段</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter table 表名 add 列名 类型;</span><br></pre></td></tr></table></figure></li><li><p>修改表数据——重命名修改(change)</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter table 表名 change 原名  新名 类型及约束;</span><br></pre></td></tr></table></figure></li><li><p>修改表数据——修改字段——不重命名版（modify）</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter table 表名 modify 列名 类型及约束;</span><br></pre></td></tr></table></figure></li><li><p>删除字段——修改表</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter  table  表名  drop  列名;</span><br></pre></td></tr></table></figure></li><li><p>删除数据表</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">drop table  表名;</span><br></pre></td></tr></table></figure></li><li><p>查看表的创建</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show create  table  表名;</span><br></pre></td></tr></table></figure></li></ul><h2 id="数据操作"><a href="#数据操作" class="headerlink" title="数据操作"></a>数据操作</h2><ul><li><p>数据增加<br>格式：Insert [into] 表名 values(…);<br>全列插入：insert into 表名 values(0，”小明”,1,”汉族”,”2010-1-1”);<br>指定列插入：insert into 表名(name,age,gender)values(“小明”,”18”,”4”);<br>批量插入: insert into 表名(列1，…) values(值1,…),(值1,…)…;</p></li><li><p>数据修改<br>格式：updata 表名 set 列1=值1，列2=值2 … where条件;<br>栗子：updata A1 set  L1 = 0, L2=”值” where id = 5;</p></li><li><p>数据删除<br>格式：delete from 表名 where 条件判断<br>栗子：delete from  A1 where id =5;</p></li></ul><p>注：逻辑删除本质就是修改操作<br>updata A1 set 列1= 1 where id =1;</p><p>提示：如果数据删除时不加where条件判断会删除表里的所有数据</p><ul><li><p>数据备份<br>mysqldump -u用户名   -p数据库名 &gt; 新文件.SQL</p></li><li><p>数据恢复<br>mysql -u用户名 -p新数据库名 &lt; 文件名.SQL</p></li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;MySQL&quot;&gt;&lt;a href=&quot;#MySQL&quot; class=&quot;headerlink&quot; title=&quot;MySQL&quot;&gt;&lt;/a&gt;MySQL&lt;/h2&gt;&lt;p&gt;MySQL数据库是一个关系型数据库&lt;br&gt;MySQL数据库特点&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;使用C和C++编写，并使用</summary>
       
     
     

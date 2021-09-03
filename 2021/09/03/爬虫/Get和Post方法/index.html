@@ -11,7 +11,7 @@
   <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-  <title>Windows系统下的进程或跨平台的进程 | 千～葉(GeraTear)</title>
+  <title>爬虫基础篇—之Get和Post方法 | 千～葉(GeraTear)</title>
 
   
     
@@ -530,14 +530,14 @@
 
 
 
-<div class="post-detail-header lazyload" id="thumbnail_canvas" data-original="/medias/13.jpg" style="background-repeat: no-repeat; background-size: cover; 
+<div class="post-detail-header lazyload" id="thumbnail_canvas" data-original="/medias/14.jpg" style="background-repeat: no-repeat; background-size: cover; 
   background-position: center center;position: relative;">
   <div class="post-detail-header-mask"></div>
   <canvas id="header_canvas"style="position:absolute;bottom:0;pointer-events:none;"></canvas>
   
   <div class="title-box">
     <span class="title">
-      Windows系统下的进程或跨平台的进程
+      爬虫基础篇—之Get和Post方法
     </span>
   </div>
   
@@ -554,7 +554,7 @@
       
       <div class="post-meta">
         <i class="fa fa-clock-o" aria-hidden="true"></i>
-        <span class="post-time">2021-07-04</span>
+        <span class="post-time">2021-09-03</span>
       </div>
       
       <div class="post-tags-categories">
@@ -562,8 +562,8 @@
         <div class="tags">
           <i class="iconfont icontag"></i>
           
-            <a href="/tags/%E6%8A%80%E6%9C%AF/" class="">
-              技术
+            <a href="/tags/%E7%88%AC%E8%99%AB/" class="">
+              爬虫
             </a>
           
         </div>
@@ -571,9 +571,28 @@
         
       </div>
       <div class="post-content">
-        <p>由于Python是跨平台的，Unix/Linux用fork函数。但是windows系统下没有fork函数，所以为支持多平台进程提供multiProcessing模块。</p>
-<h2 id="multiProcessing模块"><a href="#multiProcessing模块" class="headerlink" title="multiProcessing模块"></a>multiProcessing模块</h2><p>multiProcessing模块提供一个Process类代表进程对象</p>
-<p>栗子：<br> <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">from multiProcessing import Process</span><br><span class="line"></span><br><span class="line">def   task():</span><br><span class="line"></span><br><span class="line"> for i in range(3):</span><br><span class="line"></span><br><span class="line"> print(&#x27;子进程Pid = %d  i =%d&#x27; %(os.getpid(),i))</span><br><span class="line"></span><br><span class="line"> time.Sleep(1)</span><br><span class="line"></span><br><span class="line">def  main():</span><br><span class="line"></span><br><span class="line"> p = process(target = task)    #创建Process对象，指定Process进程对象</span><br><span class="line"></span><br><span class="line"> p.start()</span><br><span class="line"></span><br><span class="line"> print(p.is_alive())</span><br></pre></td></tr></table></figure></p>
+        <h2 id="urllib2默认只支持HTTP-HTTPS的GET和POST方法"><a href="#urllib2默认只支持HTTP-HTTPS的GET和POST方法" class="headerlink" title="urllib2默认只支持HTTP/HTTPS的GET和POST方法"></a>urllib2默认只支持HTTP/HTTPS的<code>GET</code>和<code>POST</code>方法</h2><h3 id="URL编码转换：urllib的urlencode"><a href="#URL编码转换：urllib的urlencode" class="headerlink" title="URL编码转换：urllib的urlencode()"></a>URL编码转换：urllib的urlencode()</h3><p>Urlencode方法用来产生get查询字符串，而urllib2则没有（这是urllib和urllib2经常一起使用主要原因）</p>
+<p>Urlencode()函数，将key：value 键值对，转换成’key = value’ 这样的字符串</p>
+<p>urllib 的Unquote()函数</p>
+<p>栗子：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">import urllib</span><br><span class="line">word = &#123;&#x27;wd&#x27;:&#x27;轩轩&#x27;&#125;</span><br><span class="line">urllib.urlencode(word)</span><br><span class="line">#运行结果：wd =%DO%F9DO%F9%DO%F9%DO%F9</span><br><span class="line">print urllib.unquote(&#x27;wd=%DO%F9%DO%F9 )</span><br><span class="line">#运行结果：wd = 轩轩</span><br></pre></td></tr></table></figure>
+
+<h5 id="一般HTTP请求提交数据，需要编码成-URL编码格式，然后做为url的一部分，或者作为参数传到Request对象中。"><a href="#一般HTTP请求提交数据，需要编码成-URL编码格式，然后做为url的一部分，或者作为参数传到Request对象中。" class="headerlink" title="一般HTTP请求提交数据，需要编码成 URL编码格式，然后做为url的一部分，或者作为参数传到Request对象中。"></a>一般HTTP请求提交数据，需要编码成 URL编码格式，然后做为url的一部分，或者作为参数传到Request对象中。</h5><p>Get方式</p>
+<p>get请求一般用于服务器获取数据 ，比如用百度搜索  轩轩: <a target="_blank" rel="noopener" href="https://www.baidu.com/">https://www.baidu.com/</a>? wd = 轩轩</p>
+<p>浏览器的url跳转成：<a target="_blank" rel="noopener" href="https://www.baidu.com/s%EF%BC%9Fwd">https://www.baidu.com/s？wd</a> =轩轩</p>
+<p><a target="_blank" rel="noopener" href="http://www.baidu.com/s">http://www.baidu.com/s</a>? wd=%DO%F9%D%F9</p>
+<p><a target="_blank" rel="noopener" href="http://www.baidu.com/S">http://www.baidu.com/S</a>? 之后出现长字符串，其中就包含要查询的关键字，于是尝试用默认get方式发送请求</p>
+<p>例子：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib</span><br><span class="line"><span class="keyword">import</span> urllib2</span><br><span class="line">url = <span class="string">&#x27;http://www.baidu.com/S&#x27;</span></span><br><span class="line">word = &#123;<span class="string">&#x27;wd&#x27;</span>:<span class="string">&#x27;轩轩&#x27;</span>&#125;</span><br><span class="line">word = urllib.urlencode(word) <span class="comment">#转换成url编码格式（字符串）</span></span><br><span class="line">newurl = url +<span class="string">&#x27;?&#x27;</span>+word  <span class="comment"># url首个分隔符就是？</span></span><br><span class="line">headers = &#123;<span class="string">&#x27;User-Agent&#x27;</span>:<span class="string">&#x27;&quot;Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36&quot;&#x27;</span>&#125;</span><br><span class="line">request = urllib2.Request(newurl, headers=headers)</span><br><span class="line"></span><br><span class="line">response = urllib2.urlopen(request)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span> response.read()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>Post方式：</p>
+<p>Request请求对象的里有data参数，它就是用在POST里的，我们要传送的数据就是这个参数data，data是一个字典，里面要匹配键值对。</p>
+<p>Post请求向服务器发送请求数据并不是在url里</p>
+<ul>
+<li>POST方式则不会在网址上显示所有的参数，服务器端用Request.Form获取提交的数据，在Form提交的时候。但是HTML代码里如果不指定 method 属性，则默认为GET请求，Form中提交的数据将会附加在url之后，以<code>?</code>分开与url分开。</li>
+<li>表单数据可以作为 URL 字段（method=”get”）或者 HTTP POST （method=”post”）的方式来发送。</li>
+<li>GET方式是直接以链接形式访问，链接中包含了所有的参数，服务器端用Request.QueryString获取变量的值。如果包含了密码的话是一种不安全的选择，不过你可以直观地看到自己提交了什么内容。</li>
+</ul>
 
       </div>
       
@@ -584,7 +603,7 @@
     </li>
     <li class="post-copyright-link">
     <strong>文章链接:  </strong>
-    <a href="/2021/07/04/Windows系统下的进程或跨平台的进程/" target="_blank" title="Windows系统下的进程或跨平台的进程">http://example.com/2021/07/04/Windows系统下的进程或跨平台的进程/</a>
+    <a href="/2021/09/03/爬虫/Get和Post方法/" target="_blank" title="爬虫基础篇—之Get和Post方法">http://example.com/2021/09/03/爬虫/Get和Post方法/</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明:   </strong>
@@ -604,17 +623,18 @@
 
   
   <div class="post-nav-prev post-nav-item">
-    <div class="post-nav-img lazyload" data-original="/medias/3.jpg" style="background-size: cover; 
+    <div class="post-nav-img lazyload" data-original="/medias/15.jpg" style="background-size: cover; 
       background-position: center center;">
     </div>
-    <a href="/2021/07/04/%E6%BC%AB%E6%AD%A5%E8%A1%8C%E8%80%85/" class="post-nav-link">
+    <a href="/2021/09/03/%E7%88%AC%E8%99%AB/Heder/" class="post-nav-link">
       <div class="title">
         <i class="fa fa-angle-left"></i> 上一篇:
-        <div>漫步行者</div>
+        <div>爬虫基础篇—之Header</div>
       </div>
       
       <!-- <div class="content">
-        漫步行者我行黑夜里的雨步黑夜里迷失自我是我拥有了黑夜还是黑夜拥有了我我们只是黑夜里的独行者雨点是黑夜里的见证者滴答雨滴划
+        在发送HTTP Request 中添加特定的Header，来构造一个完整的HTTP请求消息
+可以通过调用Request.
       </div> -->
     </a>
   </div>
@@ -623,18 +643,17 @@
 
   
   <div class="post-nav-next post-nav-item">
-    <div class="post-nav-img lazyload" data-original="/medias/2.jpg" style="background-size: cover; 
+    <div class="post-nav-img lazyload" data-original="/medias/13.jpg" style="background-size: cover; 
       background-position: center center;">
     </div>
-    <a href="/2021/07/04/%E4%BA%86%E8%A7%A3%E6%88%91/" class="post-nav-link">
+    <a href="/2021/09/03/%E7%88%AC%E8%99%AB/%E5%A4%84%E7%90%86HTTPS%E8%AF%B7%E6%B1%82%20SSL%E8%AF%81%E4%B9%A6%E9%AA%8C%E8%AF%81/" class="post-nav-link">
       <div class="title">
         下一篇: <i class="fa fa-angle-right"></i>
-        <div>了解我</div>
+        <div>爬虫基础篇—之User-Agent</div>
       </div>
       <!-- <div class="content">
-        博客的初心希望记录平时遇到的问题和知识或所思所想！
-
-其实一直以来喜欢瞎折腾;(Ps):其实我弄水晶头、拉网线、配 IP
+        urllib2可以为HTTP请求验证SSL证书，如果网站的SSL证书是经过CA认证的，则能正常访问。
+如：https:/
       </div> -->
     </a>
   </div>
