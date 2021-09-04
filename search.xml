@@ -4,11 +4,49 @@
   
     
     <entry>
+      <title>爬虫基础篇——之请求报头的添加或修改</title>
+      <link href="2021/09/04/%E7%88%AC%E8%99%AB/%E8%AF%B7%E6%B1%82%E6%8A%A5%E5%A4%B4%E7%9A%84%E6%B7%BB%E5%8A%A0%E6%88%96%E4%BF%AE%E6%94%B9/"/>
+      <url>2021/09/04/%E7%88%AC%E8%99%AB/%E8%AF%B7%E6%B1%82%E6%8A%A5%E5%A4%B4%E7%9A%84%E6%B7%BB%E5%8A%A0%E6%88%96%E4%BF%AE%E6%94%B9/</url>
+      
+        <content type="html"><![CDATA[<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#-*- coding:utf-8 -*-</span></span><br><span class="line"><span class="comment">#   作者:轩</span></span><br><span class="line"><span class="comment">#   日期:2021年9月4日</span></span><br><span class="line"><span class="comment">#   说明:User_agnet请求报头的添加或修改</span></span><br><span class="line"><span class="keyword">import</span>  urllib2</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 请求报头, 字典类型</span></span><br><span class="line">headers =&#123;<span class="string">&quot;User-Agent&quot;</span>: <span class="string">&quot;Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36&quot;</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将url和headers 封装为请求对象</span></span><br><span class="line">request = urllib2.Request(<span class="string">&quot;http://www.baidu.com/&quot;</span>,headers= headers )</span><br><span class="line"></span><br><span class="line"><span class="comment"># get_header()获取指定请求报头的值,字符串只能第一个字母大写,后面的必须全部小写</span></span><br><span class="line"><span class="built_in">print</span> request.get_header(<span class="string">&quot;User-agent&quot;</span>)</span><br><span class="line"><span class="built_in">print</span> request.get_header(<span class="string">&quot;Connection&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Add_header() 添加/修改一个请求报头</span></span><br><span class="line">request.add_header(<span class="string">&quot;Connection&quot;</span>,<span class="string">&quot;keep-alive&quot;</span>)</span><br><span class="line"><span class="built_in">print</span> request.get_header(<span class="string">&quot;Connection&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># urlopen() 发送请求对象,返回服务器的响应</span></span><br><span class="line">response = urllib2.urlopen(request)</span><br><span class="line"></span><br><span class="line"><span class="comment"># print response.read()</span></span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 爬虫 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>爬虫基础篇——之百度贴吧爬取</title>
+      <link href="2021/09/04/%E7%88%AC%E8%99%AB/%E7%99%BE%E5%BA%A6%E8%B4%B4%E5%90%A7%E7%88%AC%E5%8F%96/"/>
+      <url>2021/09/04/%E7%88%AC%E8%99%AB/%E7%99%BE%E5%BA%A6%E8%B4%B4%E5%90%A7%E7%88%AC%E5%8F%96/</url>
+      
+        <content type="html"><![CDATA[<p>百度贴吧爬虫案例</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#-*- coding:utf-8 -*-</span></span><br><span class="line"><span class="comment">#   作者:轩</span></span><br><span class="line"><span class="comment">#   日期:2021年9月3日</span></span><br><span class="line"><span class="comment">#   说明: 百度贴吧爬虫</span></span><br><span class="line"><span class="keyword">import</span> urllib</span><br><span class="line"><span class="keyword">import</span> urllib2</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">load_page</span>(<span class="params">url,filename</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    发送请求,返回响应</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span> <span class="string">&quot;[INFO]正在爬取 %...&quot;</span> % filename</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        response = urllib2.urlopen(url)</span><br><span class="line">        <span class="keyword">return</span> response.read()</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        <span class="built_in">print</span> <span class="string">&quot;[ERRoR]:%s 爬取失败&quot;</span> % filename</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">write_page</span>(<span class="params">html,filename</span>):</span></span><br><span class="line">    <span class="built_in">print</span> <span class="string">&quot;[info] 正在保存 %s ...&quot;</span>% filename</span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(filename,<span class="string">&#x27;w&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">        f.write(html)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">start_work</span>(<span class="params">tieba_name,start_page,end_page</span>):</span></span><br><span class="line">    base_url =<span class="string">&quot;http://tieba.baidu.com/f?&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> page <span class="keyword">in</span> <span class="built_in">range</span>(start_page,end_page +<span class="number">1</span>):</span><br><span class="line">        pn = (page -<span class="number">1</span>) *<span class="number">50</span></span><br><span class="line"></span><br><span class="line">        dict_kw =&#123;<span class="string">&quot;kw&quot;</span>:tieba_name,<span class="string">&quot;pn&quot;</span>:pn&#125;</span><br><span class="line">        str_kw = urllib.urlencode(dict_kw)</span><br><span class="line"></span><br><span class="line">        full_url = base_url +str_kw</span><br><span class="line"></span><br><span class="line">        <span class="built_in">print</span> full_url</span><br><span class="line">    <span class="built_in">print</span> <span class="string">&quot;\n爬取完成,谢谢使用&quot;</span></span><br><span class="line"><span class="keyword">if</span> __name__== <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    tieba_name = raw_input(<span class="string">&quot;请输入需要的爬取的贴吧名:&quot;</span>)</span><br><span class="line">    start_page = <span class="built_in">int</span>(raw_input(<span class="string">&quot;请输入爬取的起始页&quot;</span>))</span><br><span class="line">    end_page = <span class="built_in">int</span>(raw_input(<span class="string">&#x27;请输入爬取的结束页&#x27;</span>))</span><br><span class="line">    start_work(tieba_name,start_page,end_page)</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 爬虫 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>爬虫基础篇—之User-Agent</title>
       <link href="2021/09/03/%E7%88%AC%E8%99%AB/User-Agent/"/>
       <url>2021/09/03/%E7%88%AC%E8%99%AB/User-Agent/</url>
       
-        <content type="html"><![CDATA[<p>Urllib2默认的User-Agent 头为：Python-Urllib/x.y (python-urllib/2.7)</p><p>伪装成一个合法的身份，用不同浏览器发送请求时，会有不同的User-Agnet报头</p><p>栗子：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib2</span><br><span class="line">url = <span class="string">&#x27;http://www.bixuan.xyz&#x27;</span></span><br><span class="line"><span class="comment"># 添加 User-Agent报头</span></span><br><span class="line">User-agent =&#123;<span class="string">&#x27;User-Agent&#x27;</span>:<span class="string">&#x27;Mozilla/5.0(compatible;MSIE9.0;Windows NT6.1;Trident/5.0)&#x27;</span>&#125;</span><br><span class="line">request =urllib2.Request(url,headers = User_agent)</span><br><span class="line"><span class="comment"># 向服务器发送这个请求</span></span><br><span class="line">response = urllib2.urlopen(request)</span><br><span class="line">html = response.read()</span><br><span class="line"><span class="built_in">print</span> html</span><br></pre></td></tr></table></figure>]]></content>
+        <content type="html"><![CDATA[<p>Urllib2默认的User-Agent 头为：Python-Urllib/x.y (python-urllib/2.7)</p><p>伪装成一个合法的身份，用不同浏览器发送请求时，会有不同的User-Agnet报头</p><p>栗子：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib2</span><br><span class="line">url = <span class="string">&#x27;http://www.bixuan.xyz&#x27;</span></span><br><span class="line"><span class="comment"># 添加 User-Agent报头</span></span><br><span class="line">User_agent =&#123;<span class="string">&#x27;User-Agent&#x27;</span>:<span class="string">&#x27;Mozilla/5.0(compatible;MSIE9.0;Windows NT6.1;Trident/5.0)&#x27;</span>&#125;</span><br><span class="line">request =urllib2.Request(url,headers = User_agent)</span><br><span class="line"><span class="comment"># 向服务器发送这个请求</span></span><br><span class="line">response = urllib2.urlopen(request)</span><br><span class="line">html = response.read()</span><br><span class="line"><span class="built_in">print</span> html</span><br></pre></td></tr></table></figure>]]></content>
       
       
       
@@ -110,6 +148,25 @@
         <tags>
             
             <tag> 爬虫 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>了解我</title>
+      <link href="2021/08/29/%E4%BA%86%E8%A7%A3%E6%88%91/"/>
+      <url>2021/08/29/%E4%BA%86%E8%A7%A3%E6%88%91/</url>
+      
+        <content type="html"><![CDATA[<h2 id="博客的初心"><a href="#博客的初心" class="headerlink" title="博客的初心"></a>博客的初心</h2><p>希望记录平时遇到的问题和知识或所思所想！</p><ul><li>其实一直以来喜欢瞎折腾;(Ps):其实我弄水晶头、拉网线、配 IP、装系统、给手机贴膜的技术还算可以的，其它都不行。</li></ul><h2 id="兴趣"><a href="#兴趣" class="headerlink" title="兴趣"></a>兴趣</h2><ul><li>运动：跑步、溜冰、羽毛球都喜欢</li><li>摄影：任何时候都有美好的一瞬间</li><li>唱歌：五音不全的我也能成为麦霸</li><li>哲学：人生是一场无止境的哲学</li><li>音乐：许嵩、轻音乐</li><li>旅行：遇到不一样的人和风景</li><li>读书：历史，专业书籍</li><li>动漫：哆啦A梦、纳米核心、全职高手、末世觉醒等等</li><li>分享：喜欢把自己的经验分享给大家</li><li>DIY：一切皆可创造<h2 id="欢迎留言"><a href="#欢迎留言" class="headerlink" title="欢迎留言"></a>欢迎留言</h2>曾就职于朵莓网络，实习僧一枚。如果有什么建议和想法，都可以和我留言，就算留言未必有回响————By:轩</li><li>电子邮箱：<a href="mailto:&#x47;&#x65;&#x72;&#97;&#84;&#x65;&#97;&#114;&#64;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#x63;&#111;&#x6d;">&#x47;&#x65;&#x72;&#97;&#84;&#x65;&#97;&#114;&#64;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#x63;&#111;&#x6d;</a></li></ul>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 生活 </tag>
             
         </tags>
       
@@ -340,19 +397,6 @@
             <tag> 技术 </tag>
             
         </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>了解我</title>
-      <link href="2021/07/04/%E4%BA%86%E8%A7%A3%E6%88%91/"/>
-      <url>2021/07/04/%E4%BA%86%E8%A7%A3%E6%88%91/</url>
-      
-        <content type="html"><![CDATA[<h2 id="博客的初心"><a href="#博客的初心" class="headerlink" title="博客的初心"></a>博客的初心</h2><p>希望记录平时遇到的问题和知识或所思所想！</p><ul><li>其实一直以来喜欢瞎折腾;(Ps):其实我弄水晶头、拉网线、配 IP、装系统、给手机贴膜的技术还算可以的，其它都不行。</li></ul><h2 id="兴趣"><a href="#兴趣" class="headerlink" title="兴趣"></a>兴趣</h2><ul><li>运动：跑步、溜冰、羽毛球都喜欢</li><li>摄影：任何时候都有美好的一瞬间</li><li>唱歌：五音不全的我也能成为麦霸</li><li>哲学：人生是一场无止境的哲学</li><li>音乐：许嵩、轻音乐</li><li>旅行：遇到不一样的人和风景</li><li>读书：历史，专业书籍</li><li>动漫：哆啦A梦、纳米核心、全职高手、末世觉醒等等</li><li>分享：喜欢把自己的经验分享给大家</li><li>DIY：一切皆可创造<h2 id="欢迎留言"><a href="#欢迎留言" class="headerlink" title="欢迎留言"></a>欢迎留言</h2>曾就职于朵莓网络，实习僧一枚。如果有什么建议和想法，都可以和我留言，就算留言未必有回响————By:轩</li><li>电子邮箱：<a href="mailto:&#71;&#x65;&#114;&#x61;&#84;&#101;&#x61;&#x72;&#64;&#x67;&#109;&#97;&#x69;&#x6c;&#x2e;&#x63;&#111;&#109;">&#71;&#x65;&#114;&#x61;&#84;&#101;&#x61;&#x72;&#64;&#x67;&#109;&#97;&#x69;&#x6c;&#x2e;&#x63;&#111;&#109;</a></li></ul>]]></content>
-      
-      
       
     </entry>
     

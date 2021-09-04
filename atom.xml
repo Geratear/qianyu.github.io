@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-09-03T13:47:51.186Z</updated>
+  <updated>2021-09-04T13:18:13.306Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,13 +17,58 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>爬虫基础篇——之请求报头的添加或修改</title>
+    <link href="http://example.com/2021/09/04/%E7%88%AC%E8%99%AB/%E8%AF%B7%E6%B1%82%E6%8A%A5%E5%A4%B4%E7%9A%84%E6%B7%BB%E5%8A%A0%E6%88%96%E4%BF%AE%E6%94%B9/"/>
+    <id>http://example.com/2021/09/04/%E7%88%AC%E8%99%AB/%E8%AF%B7%E6%B1%82%E6%8A%A5%E5%A4%B4%E7%9A%84%E6%B7%BB%E5%8A%A0%E6%88%96%E4%BF%AE%E6%94%B9/</id>
+    <published>2021-09-04T13:13:30.963Z</published>
+    <updated>2021-09-04T13:18:13.306Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#-*- coding:utf-8 -*-</span></span><br><span class="line"><span class="comment">#   作者:轩</span></span><br><span class="line"><span class="comment">#   日期:2021年9月4日</span></span><br><span class="line"><span class="comment">#   说明:User_agnet请求报头的添加或修改</span></span><br><span class="line"><span class="keyword">import</span>  urllib2</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 请求报头, 字典类型</span></span><br><span class="line">headers =&#123;<span class="string">&quot;User-Agent&quot;</span>: <span class="string">&quot;Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36&quot;</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将url和headers 封装为请求对象</span></span><br><span class="line">request = urllib2.Request(<span class="string">&quot;http://www.baidu.com/&quot;</span>,headers= headers )</span><br><span class="line"></span><br><span class="line"><span class="comment"># get_header()获取指定请求报头的值,字符串只能第一个字母大写,后面的必须全部小写</span></span><br><span class="line"><span class="built_in">print</span> request.get_header(<span class="string">&quot;User-agent&quot;</span>)</span><br><span class="line"><span class="built_in">print</span> request.get_header(<span class="string">&quot;Connection&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Add_header() 添加/修改一个请求报头</span></span><br><span class="line">request.add_header(<span class="string">&quot;Connection&quot;</span>,<span class="string">&quot;keep-alive&quot;</span>)</span><br><span class="line"><span class="built_in">print</span> request.get_header(<span class="string">&quot;Connection&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># urlopen() 发送请求对象,返回服务器的响应</span></span><br><span class="line">response = urllib2.urlopen(request)</span><br><span class="line"></span><br><span class="line"><span class="comment"># print response.read()</span></span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span clas</summary>
+      
+    
+    
+    
+    
+    <category term="爬虫" scheme="http://example.com/tags/%E7%88%AC%E8%99%AB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>爬虫基础篇——之百度贴吧爬取</title>
+    <link href="http://example.com/2021/09/04/%E7%88%AC%E8%99%AB/%E7%99%BE%E5%BA%A6%E8%B4%B4%E5%90%A7%E7%88%AC%E5%8F%96/"/>
+    <id>http://example.com/2021/09/04/%E7%88%AC%E8%99%AB/%E7%99%BE%E5%BA%A6%E8%B4%B4%E5%90%A7%E7%88%AC%E5%8F%96/</id>
+    <published>2021-09-04T12:33:06.709Z</published>
+    <updated>2021-09-04T12:39:50.778Z</updated>
+    
+    <content type="html"><![CDATA[<p>百度贴吧爬虫案例</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#-*- coding:utf-8 -*-</span></span><br><span class="line"><span class="comment">#   作者:轩</span></span><br><span class="line"><span class="comment">#   日期:2021年9月3日</span></span><br><span class="line"><span class="comment">#   说明: 百度贴吧爬虫</span></span><br><span class="line"><span class="keyword">import</span> urllib</span><br><span class="line"><span class="keyword">import</span> urllib2</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">load_page</span>(<span class="params">url,filename</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    发送请求,返回响应</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span> <span class="string">&quot;[INFO]正在爬取 %...&quot;</span> % filename</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        response = urllib2.urlopen(url)</span><br><span class="line">        <span class="keyword">return</span> response.read()</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        <span class="built_in">print</span> <span class="string">&quot;[ERRoR]:%s 爬取失败&quot;</span> % filename</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">write_page</span>(<span class="params">html,filename</span>):</span></span><br><span class="line">    <span class="built_in">print</span> <span class="string">&quot;[info] 正在保存 %s ...&quot;</span>% filename</span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(filename,<span class="string">&#x27;w&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">        f.write(html)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">start_work</span>(<span class="params">tieba_name,start_page,end_page</span>):</span></span><br><span class="line">    base_url =<span class="string">&quot;http://tieba.baidu.com/f?&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> page <span class="keyword">in</span> <span class="built_in">range</span>(start_page,end_page +<span class="number">1</span>):</span><br><span class="line">        pn = (page -<span class="number">1</span>) *<span class="number">50</span></span><br><span class="line"></span><br><span class="line">        dict_kw =&#123;<span class="string">&quot;kw&quot;</span>:tieba_name,<span class="string">&quot;pn&quot;</span>:pn&#125;</span><br><span class="line">        str_kw = urllib.urlencode(dict_kw)</span><br><span class="line"></span><br><span class="line">        full_url = base_url +str_kw</span><br><span class="line"></span><br><span class="line">        <span class="built_in">print</span> full_url</span><br><span class="line">    <span class="built_in">print</span> <span class="string">&quot;\n爬取完成,谢谢使用&quot;</span></span><br><span class="line"><span class="keyword">if</span> __name__== <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    tieba_name = raw_input(<span class="string">&quot;请输入需要的爬取的贴吧名:&quot;</span>)</span><br><span class="line">    start_page = <span class="built_in">int</span>(raw_input(<span class="string">&quot;请输入爬取的起始页&quot;</span>))</span><br><span class="line">    end_page = <span class="built_in">int</span>(raw_input(<span class="string">&#x27;请输入爬取的结束页&#x27;</span>))</span><br><span class="line">    start_work(tieba_name,start_page,end_page)</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;百度贴吧爬虫案例&lt;/p&gt;
+&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/spa</summary>
+      
+    
+    
+    
+    
+    <category term="爬虫" scheme="http://example.com/tags/%E7%88%AC%E8%99%AB/"/>
+    
+  </entry>
+  
+  <entry>
     <title>爬虫基础篇—之User-Agent</title>
     <link href="http://example.com/2021/09/03/%E7%88%AC%E8%99%AB/User-Agent/"/>
     <id>http://example.com/2021/09/03/%E7%88%AC%E8%99%AB/User-Agent/</id>
     <published>2021-09-03T13:21:32.000Z</published>
-    <updated>2021-09-03T13:47:51.186Z</updated>
+    <updated>2021-09-04T05:55:55.329Z</updated>
     
-    <content type="html"><![CDATA[<p>Urllib2默认的User-Agent 头为：Python-Urllib/x.y (python-urllib/2.7)</p><p>伪装成一个合法的身份，用不同浏览器发送请求时，会有不同的User-Agnet报头</p><p>栗子：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib2</span><br><span class="line">url = <span class="string">&#x27;http://www.bixuan.xyz&#x27;</span></span><br><span class="line"><span class="comment"># 添加 User-Agent报头</span></span><br><span class="line">User-agent =&#123;<span class="string">&#x27;User-Agent&#x27;</span>:<span class="string">&#x27;Mozilla/5.0(compatible;MSIE9.0;Windows NT6.1;Trident/5.0)&#x27;</span>&#125;</span><br><span class="line">request =urllib2.Request(url,headers = User_agent)</span><br><span class="line"><span class="comment"># 向服务器发送这个请求</span></span><br><span class="line">response = urllib2.urlopen(request)</span><br><span class="line">html = response.read()</span><br><span class="line"><span class="built_in">print</span> html</span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<p>Urllib2默认的User-Agent 头为：Python-Urllib/x.y (python-urllib/2.7)</p><p>伪装成一个合法的身份，用不同浏览器发送请求时，会有不同的User-Agnet报头</p><p>栗子：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib2</span><br><span class="line">url = <span class="string">&#x27;http://www.bixuan.xyz&#x27;</span></span><br><span class="line"><span class="comment"># 添加 User-Agent报头</span></span><br><span class="line">User_agent =&#123;<span class="string">&#x27;User-Agent&#x27;</span>:<span class="string">&#x27;Mozilla/5.0(compatible;MSIE9.0;Windows NT6.1;Trident/5.0)&#x27;</span>&#125;</span><br><span class="line">request =urllib2.Request(url,headers = User_agent)</span><br><span class="line"><span class="comment"># 向服务器发送这个请求</span></span><br><span class="line">response = urllib2.urlopen(request)</span><br><span class="line">html = response.read()</span><br><span class="line"><span class="built_in">print</span> html</span><br></pre></td></tr></table></figure>]]></content>
     
     
       
@@ -158,6 +203,30 @@
     
     
     <category term="爬虫" scheme="http://example.com/tags/%E7%88%AC%E8%99%AB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>了解我</title>
+    <link href="http://example.com/2021/08/29/%E4%BA%86%E8%A7%A3%E6%88%91/"/>
+    <id>http://example.com/2021/08/29/%E4%BA%86%E8%A7%A3%E6%88%91/</id>
+    <published>2021-08-29T09:38:37.630Z</published>
+    <updated>2021-09-04T05:49:46.830Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="博客的初心"><a href="#博客的初心" class="headerlink" title="博客的初心"></a>博客的初心</h2><p>希望记录平时遇到的问题和知识或所思所想！</p><ul><li>其实一直以来喜欢瞎折腾;(Ps):其实我弄水晶头、拉网线、配 IP、装系统、给手机贴膜的技术还算可以的，其它都不行。</li></ul><h2 id="兴趣"><a href="#兴趣" class="headerlink" title="兴趣"></a>兴趣</h2><ul><li>运动：跑步、溜冰、羽毛球都喜欢</li><li>摄影：任何时候都有美好的一瞬间</li><li>唱歌：五音不全的我也能成为麦霸</li><li>哲学：人生是一场无止境的哲学</li><li>音乐：许嵩、轻音乐</li><li>旅行：遇到不一样的人和风景</li><li>读书：历史，专业书籍</li><li>动漫：哆啦A梦、纳米核心、全职高手、末世觉醒等等</li><li>分享：喜欢把自己的经验分享给大家</li><li>DIY：一切皆可创造<h2 id="欢迎留言"><a href="#欢迎留言" class="headerlink" title="欢迎留言"></a>欢迎留言</h2>曾就职于朵莓网络，实习僧一枚。如果有什么建议和想法，都可以和我留言，就算留言未必有回响————By:轩</li><li>电子邮箱：<a href="mailto:&#x47;&#x65;&#x72;&#97;&#84;&#x65;&#97;&#114;&#64;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#x63;&#111;&#x6d;">&#x47;&#x65;&#x72;&#97;&#84;&#x65;&#97;&#114;&#64;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#x63;&#111;&#x6d;</a></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;博客的初心&quot;&gt;&lt;a href=&quot;#博客的初心&quot; class=&quot;headerlink&quot; title=&quot;博客的初心&quot;&gt;&lt;/a&gt;博客的初心&lt;/h2&gt;&lt;p&gt;希望记录平时遇到的问题和知识或所思所想！&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;其实一直以来喜欢瞎折腾;(Ps):其实我弄水晶头</summary>
+      
+    
+    
+    
+    
+    <category term="生活" scheme="http://example.com/tags/%E7%94%9F%E6%B4%BB/"/>
     
   </entry>
   
@@ -398,74 +467,6 @@
     
     
     <category term="生活" scheme="http://example.com/tags/%E7%94%9F%E6%B4%BB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Windows系统下的进程或跨平台的进程</title>
-    <link href="http://example.com/2021/07/04/Windows%E7%B3%BB%E7%BB%9F%E4%B8%8B%E7%9A%84%E8%BF%9B%E7%A8%8B%E6%88%96%E8%B7%A8%E5%B9%B3%E5%8F%B0%E7%9A%84%E8%BF%9B%E7%A8%8B/"/>
-    <id>http://example.com/2021/07/04/Windows%E7%B3%BB%E7%BB%9F%E4%B8%8B%E7%9A%84%E8%BF%9B%E7%A8%8B%E6%88%96%E8%B7%A8%E5%B9%B3%E5%8F%B0%E7%9A%84%E8%BF%9B%E7%A8%8B/</id>
-    <published>2021-07-04T15:55:21.610Z</published>
-    <updated>2021-05-16T04:35:41.699Z</updated>
-    
-    <content type="html"><![CDATA[<p>由于Python是跨平台的，Unix/Linux用fork函数。但是windows系统下没有fork函数，所以为支持多平台进程提供multiProcessing模块。</p><h2 id="multiProcessing模块"><a href="#multiProcessing模块" class="headerlink" title="multiProcessing模块"></a>multiProcessing模块</h2><p>multiProcessing模块提供一个Process类代表进程对象</p><p>栗子：<br> <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">from multiProcessing import Process</span><br><span class="line"></span><br><span class="line">def   task():</span><br><span class="line"></span><br><span class="line"> for i in range(3):</span><br><span class="line"></span><br><span class="line"> print(&#x27;子进程Pid = %d  i =%d&#x27; %(os.getpid(),i))</span><br><span class="line"></span><br><span class="line"> time.Sleep(1)</span><br><span class="line"></span><br><span class="line">def  main():</span><br><span class="line"></span><br><span class="line"> p = process(target = task)    #创建Process对象，指定Process进程对象</span><br><span class="line"></span><br><span class="line"> p.start()</span><br><span class="line"></span><br><span class="line"> print(p.is_alive())</span><br></pre></td></tr></table></figure></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;由于Python是跨平台的，Unix/Linux用fork函数。但是windows系统下没有fork函数，所以为支持多平台进程提供multiProcessing模块。&lt;/p&gt;
-&lt;h2 id=&quot;multiProcessing模块&quot;&gt;&lt;a href=&quot;#multiProcess</summary>
-      
-    
-    
-    
-    
-    <category term="技术" scheme="http://example.com/tags/%E6%8A%80%E6%9C%AF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>了解我</title>
-    <link href="http://example.com/2021/07/04/%E4%BA%86%E8%A7%A3%E6%88%91/"/>
-    <id>http://example.com/2021/07/04/%E4%BA%86%E8%A7%A3%E6%88%91/</id>
-    <published>2021-07-04T15:55:21.610Z</published>
-    <updated>2021-06-26T12:52:55.757Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="博客的初心"><a href="#博客的初心" class="headerlink" title="博客的初心"></a>博客的初心</h2><p>希望记录平时遇到的问题和知识或所思所想！</p><ul><li>其实一直以来喜欢瞎折腾;(Ps):其实我弄水晶头、拉网线、配 IP、装系统、给手机贴膜的技术还算可以的，其它都不行。</li></ul><h2 id="兴趣"><a href="#兴趣" class="headerlink" title="兴趣"></a>兴趣</h2><ul><li>运动：跑步、溜冰、羽毛球都喜欢</li><li>摄影：任何时候都有美好的一瞬间</li><li>唱歌：五音不全的我也能成为麦霸</li><li>哲学：人生是一场无止境的哲学</li><li>音乐：许嵩、轻音乐</li><li>旅行：遇到不一样的人和风景</li><li>读书：历史，专业书籍</li><li>动漫：哆啦A梦、纳米核心、全职高手、末世觉醒等等</li><li>分享：喜欢把自己的经验分享给大家</li><li>DIY：一切皆可创造<h2 id="欢迎留言"><a href="#欢迎留言" class="headerlink" title="欢迎留言"></a>欢迎留言</h2>曾就职于朵莓网络，实习僧一枚。如果有什么建议和想法，都可以和我留言，就算留言未必有回响————By:轩</li><li>电子邮箱：<a href="mailto:&#71;&#x65;&#114;&#x61;&#84;&#101;&#x61;&#x72;&#64;&#x67;&#109;&#97;&#x69;&#x6c;&#x2e;&#x63;&#111;&#109;">&#71;&#x65;&#114;&#x61;&#84;&#101;&#x61;&#x72;&#64;&#x67;&#109;&#97;&#x69;&#x6c;&#x2e;&#x63;&#111;&#109;</a></li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;博客的初心&quot;&gt;&lt;a href=&quot;#博客的初心&quot; class=&quot;headerlink&quot; title=&quot;博客的初心&quot;&gt;&lt;/a&gt;博客的初心&lt;/h2&gt;&lt;p&gt;希望记录平时遇到的问题和知识或所思所想！&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;其实一直以来喜欢瞎折腾;(Ps):其实我弄水晶头</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>互斥和互斥锁</title>
-    <link href="http://example.com/2021/07/04/%E4%BA%92%E6%96%A5%E5%92%8C%E4%BA%92%E6%96%A5%E9%94%81/"/>
-    <id>http://example.com/2021/07/04/%E4%BA%92%E6%96%A5%E5%92%8C%E4%BA%92%E6%96%A5%E9%94%81/</id>
-    <published>2021-07-04T15:55:21.610Z</published>
-    <updated>2021-05-16T04:36:51.224Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="互斥和互斥锁"><a href="#互斥和互斥锁" class="headerlink" title="互斥和互斥锁"></a>互斥和互斥锁</h2><p>线程的互斥：要求一次一个线程的执行访问资源</p><p>互斥锁：每个线程访问公共资源之前都要先申请锁。如果申请到锁，可以访问公共资源，当资源访问完毕，释放锁</p><p>如果没有申请到锁，线程需要停止等待，直到获得锁。</p><p>线程锁是全局变量访问</p><p>申请锁：访问资源之前<br>释放锁：访问资源之后结束</p><p>锁是访问资源过程加锁</p><p>锁的优缺点</p><p>锁的优点：确保资源访问的正确性执行</p><p>锁的缺点：阻止多个线程并发执行，降低执行效率。</p><pre><code>      由于多线程里存在多个锁，不同线程有不同的锁，并且不释放锁会造成死锁。</code></pre>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;互斥和互斥锁&quot;&gt;&lt;a href=&quot;#互斥和互斥锁&quot; class=&quot;headerlink&quot; title=&quot;互斥和互斥锁&quot;&gt;&lt;/a&gt;互斥和互斥锁&lt;/h2&gt;&lt;p&gt;线程的互斥：要求一次一个线程的执行访问资源&lt;/p&gt;
-&lt;p&gt;互斥锁：每个线程访问公共资源之前都要先申请锁。如果</summary>
-      
-    
-    
-    
-    
-    <category term="技术" scheme="http://example.com/tags/%E6%8A%80%E6%9C%AF/"/>
     
   </entry>
   

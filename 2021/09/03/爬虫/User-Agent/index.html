@@ -574,7 +574,7 @@
         <p>Urllib2默认的User-Agent 头为：Python-Urllib/x.y (python-urllib/2.7)</p>
 <p>伪装成一个合法的身份，用不同浏览器发送请求时，会有不同的User-Agnet报头</p>
 <p>栗子：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib2</span><br><span class="line">url = <span class="string">&#x27;http://www.bixuan.xyz&#x27;</span></span><br><span class="line"><span class="comment"># 添加 User-Agent报头</span></span><br><span class="line">User-agent =&#123;<span class="string">&#x27;User-Agent&#x27;</span>:<span class="string">&#x27;Mozilla/5.0(compatible;MSIE9.0;Windows NT6.1;Trident/5.0)&#x27;</span>&#125;</span><br><span class="line">request =urllib2.Request(url,headers = User_agent)</span><br><span class="line"><span class="comment"># 向服务器发送这个请求</span></span><br><span class="line">response = urllib2.urlopen(request)</span><br><span class="line">html = response.read()</span><br><span class="line"><span class="built_in">print</span> html</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib2</span><br><span class="line">url = <span class="string">&#x27;http://www.bixuan.xyz&#x27;</span></span><br><span class="line"><span class="comment"># 添加 User-Agent报头</span></span><br><span class="line">User_agent =&#123;<span class="string">&#x27;User-Agent&#x27;</span>:<span class="string">&#x27;Mozilla/5.0(compatible;MSIE9.0;Windows NT6.1;Trident/5.0)&#x27;</span>&#125;</span><br><span class="line">request =urllib2.Request(url,headers = User_agent)</span><br><span class="line"><span class="comment"># 向服务器发送这个请求</span></span><br><span class="line">response = urllib2.urlopen(request)</span><br><span class="line">html = response.read()</span><br><span class="line"><span class="built_in">print</span> html</span><br></pre></td></tr></table></figure>
 
 
       </div>
@@ -603,6 +603,24 @@
 <div class="post-nav">
 
 
+
+  
+  <div class="post-nav-prev post-nav-item">
+    <div class="post-nav-img lazyload" data-original="/medias/11.jpg" style="background-size: cover; 
+      background-position: center center;">
+    </div>
+    <a href="/2021/09/04/%E7%88%AC%E8%99%AB/%E7%99%BE%E5%BA%A6%E8%B4%B4%E5%90%A7%E7%88%AC%E5%8F%96/" class="post-nav-link">
+      <div class="title">
+        <i class="fa fa-angle-left"></i> 上一篇:
+        <div>爬虫基础篇——之百度贴吧爬取</div>
+      </div>
+      
+      <!-- <div class="content">
+        百度贴吧爬虫案例
+123456789101112131415161718192021222324252627282930
+      </div> -->
+    </a>
+  </div>
 
 
 
@@ -663,7 +681,7 @@
       </div>
       <div class="donate-box_img">
         <div class="AlipayImg" v-if="tabActive === 'Alipay'">
-          <img src="/medias/Alipay.jpg" alt="支付宝打赏" />
+          <img src="/medias/Alipay.png" alt="支付宝打赏" />
         </div> 
         <div class="WeChatpayImg" v-if="tabActive === 'WeChatpay'">
           <img src="/medias/wechat.png" alt="微信打赏" />

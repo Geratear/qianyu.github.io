@@ -11,7 +11,7 @@
   <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-  <title>彩虹弧度 | 千～葉(GeraTear)</title>
+  <title>爬虫基础篇——之百度贴吧爬取 | 千～葉(GeraTear)</title>
 
   
     
@@ -530,14 +530,14 @@
 
 
 
-<div class="post-detail-header lazyload" id="thumbnail_canvas" data-original="/medias/10.jpg" style="background-repeat: no-repeat; background-size: cover; 
+<div class="post-detail-header lazyload" id="thumbnail_canvas" data-original="/medias/11.jpg" style="background-repeat: no-repeat; background-size: cover; 
   background-position: center center;position: relative;">
   <div class="post-detail-header-mask"></div>
   <canvas id="header_canvas"style="position:absolute;bottom:0;pointer-events:none;"></canvas>
   
   <div class="title-box">
     <span class="title">
-      彩虹弧度
+      爬虫基础篇——之百度贴吧爬取
     </span>
   </div>
   
@@ -554,7 +554,7 @@
       
       <div class="post-meta">
         <i class="fa fa-clock-o" aria-hidden="true"></i>
-        <span class="post-time">2021-07-04</span>
+        <span class="post-time">2021-09-04</span>
       </div>
       
       <div class="post-tags-categories">
@@ -562,8 +562,8 @@
         <div class="tags">
           <i class="iconfont icontag"></i>
           
-            <a href="/tags/%E7%94%9F%E6%B4%BB/" class="">
-              生活
+            <a href="/tags/%E7%88%AC%E8%99%AB/" class="">
+              爬虫
             </a>
           
         </div>
@@ -571,7 +571,9 @@
         
       </div>
       <div class="post-content">
-        <h2 id="彩虹弧度"><a href="#彩虹弧度" class="headerlink" title="彩虹弧度"></a>彩虹弧度</h2><p>背影云彩之间的花朵唯美而触手可及<br>舒服的船只游过温暖的心房</p>
+        <p>百度贴吧爬虫案例</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#-*- coding:utf-8 -*-</span></span><br><span class="line"><span class="comment">#   作者:轩</span></span><br><span class="line"><span class="comment">#   日期:2021年9月3日</span></span><br><span class="line"><span class="comment">#   说明: 百度贴吧爬虫</span></span><br><span class="line"><span class="keyword">import</span> urllib</span><br><span class="line"><span class="keyword">import</span> urllib2</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">load_page</span>(<span class="params">url,filename</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    发送请求,返回响应</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span> <span class="string">&quot;[INFO]正在爬取 %...&quot;</span> % filename</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        response = urllib2.urlopen(url)</span><br><span class="line">        <span class="keyword">return</span> response.read()</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        <span class="built_in">print</span> <span class="string">&quot;[ERRoR]:%s 爬取失败&quot;</span> % filename</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">write_page</span>(<span class="params">html,filename</span>):</span></span><br><span class="line">    <span class="built_in">print</span> <span class="string">&quot;[info] 正在保存 %s ...&quot;</span>% filename</span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(filename,<span class="string">&#x27;w&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">        f.write(html)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">start_work</span>(<span class="params">tieba_name,start_page,end_page</span>):</span></span><br><span class="line">    base_url =<span class="string">&quot;http://tieba.baidu.com/f?&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> page <span class="keyword">in</span> <span class="built_in">range</span>(start_page,end_page +<span class="number">1</span>):</span><br><span class="line">        pn = (page -<span class="number">1</span>) *<span class="number">50</span></span><br><span class="line"></span><br><span class="line">        dict_kw =&#123;<span class="string">&quot;kw&quot;</span>:tieba_name,<span class="string">&quot;pn&quot;</span>:pn&#125;</span><br><span class="line">        str_kw = urllib.urlencode(dict_kw)</span><br><span class="line"></span><br><span class="line">        full_url = base_url +str_kw</span><br><span class="line"></span><br><span class="line">        <span class="built_in">print</span> full_url</span><br><span class="line">    <span class="built_in">print</span> <span class="string">&quot;\n爬取完成,谢谢使用&quot;</span></span><br><span class="line"><span class="keyword">if</span> __name__== <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    tieba_name = raw_input(<span class="string">&quot;请输入需要的爬取的贴吧名:&quot;</span>)</span><br><span class="line">    start_page = <span class="built_in">int</span>(raw_input(<span class="string">&quot;请输入爬取的起始页&quot;</span>))</span><br><span class="line">    end_page = <span class="built_in">int</span>(raw_input(<span class="string">&#x27;请输入爬取的结束页&#x27;</span>))</span><br><span class="line">    start_work(tieba_name,start_page,end_page)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 
       </div>
       
@@ -582,7 +584,7 @@
     </li>
     <li class="post-copyright-link">
     <strong>文章链接:  </strong>
-    <a href="/2021/07/04/彩虹弧度/" target="_blank" title="彩虹弧度">http://example.com/2021/07/04/彩虹弧度/</a>
+    <a href="/2021/09/04/爬虫/百度贴吧爬取/" target="_blank" title="爬虫基础篇——之百度贴吧爬取">http://example.com/2021/09/04/爬虫/百度贴吧爬取/</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明:   </strong>
@@ -602,19 +604,17 @@
 
   
   <div class="post-nav-prev post-nav-item">
-    <div class="post-nav-img lazyload" data-original="/medias/4.jpg" style="background-size: cover; 
+    <div class="post-nav-img lazyload" data-original="/medias/1.jpg" style="background-size: cover; 
       background-position: center center;">
     </div>
-    <a href="/2021/07/04/%E8%BF%9B%E7%A8%8B%E4%B9%8B%E9%97%B4%E9%80%9A%E4%BF%A1/" class="post-nav-link">
+    <a href="/2021/09/04/%E7%88%AC%E8%99%AB/%E8%AF%B7%E6%B1%82%E6%8A%A5%E5%A4%B4%E7%9A%84%E6%B7%BB%E5%8A%A0%E6%88%96%E4%BF%AE%E6%94%B9/" class="post-nav-link">
       <div class="title">
         <i class="fa fa-angle-left"></i> 上一篇:
-        <div>进程之间通信</div>
+        <div>爬虫基础篇——之请求报头的添加或修改</div>
       </div>
       
       <!-- <div class="content">
-        进程之间通信进程之间通信可连接公共空间进行通信，相互获取公共信息。
-Queue使用
-可以使用multiprocessin
+        12345678910111213141516171819202122232425#-*- coding:utf-8 -
       </div> -->
     </a>
   </div>
@@ -623,16 +623,16 @@ Queue使用
 
   
   <div class="post-nav-next post-nav-item">
-    <div class="post-nav-img lazyload" data-original="/medias/1.jpg" style="background-size: cover; 
+    <div class="post-nav-img lazyload" data-original="/medias/13.jpg" style="background-size: cover; 
       background-position: center center;">
     </div>
-    <a href="/2021/07/04/%E6%9C%AA%E5%AE%9A%E4%B9%89%E7%9A%84%E5%BF%B5/" class="post-nav-link">
+    <a href="/2021/09/03/%E7%88%AC%E8%99%AB/User-Agent/" class="post-nav-link">
       <div class="title">
         下一篇: <i class="fa fa-angle-right"></i>
-        <div>未定义的念</div>
+        <div>爬虫基础篇—之User-Agent</div>
       </div>
       <!-- <div class="content">
-        未定义的念谢谢你的每次背影与触手可及的靠近你说我们一起很舒适你的早，你的幼稚让我模糊，判若两人也许是时间的阻隔也许是心灵
+        Urllib2默认的User-Agent 头为：Python-Urllib/x.y (python-urllib/2.7
       </div> -->
     </a>
   </div>
