@@ -573,8 +573,9 @@
       <div class="post-content">
         <p>urllib2可以为HTTP请求验证SSL证书，如果网站的SSL证书是经过CA认证的，则能正常访问。</p>
 <p>如：<a target="_blank" rel="noopener" href="https://www.baidu.com/">https://www.baidu.com</a></p>
+<p>忽略12306网站数字证书认证</p>
 <p>栗子：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib2</span><br><span class="line">url = <span class="string">&quot;https//www.12306.cn/mormhweb/&quot;</span></span><br><span class="line">request =  urllib2.Request(url,headers = headers)</span><br><span class="line">headers =&#123;<span class="string">&#x27;User-Aget&#x27;</span>:<span class="string">&#x27;Mozilla/5.0(windows NT10.0;win64;x64) chrome/54.0.2840.99 safari/577.36&#x27;</span>&#125;</span><br><span class="line">response = urllib2.urlopen(request,context = context)</span><br><span class="line"><span class="built_in">print</span> response.read()</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib2</span><br><span class="line"><span class="keyword">import</span> ssl</span><br><span class="line"><span class="comment"># 1.表示忽略网站的数字证书认证</span></span><br><span class="line">context = ssl._create_unverified_context()</span><br><span class="line">url = <span class="string">&quot;https://www.12306.cn/mormhweb/&quot;</span></span><br><span class="line"></span><br><span class="line">headers = &#123;<span class="string">&quot;User-Agent&quot;</span>:<span class="string">&quot;Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36&quot;</span>&#125;</span><br><span class="line"></span><br><span class="line">request = urllib2.Request(url,headers= headers)</span><br><span class="line"><span class="comment"># 2.发送请求，在urlopen（）添加context</span></span><br><span class="line">response = urllib2.urlopen(request,context=context)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span> response.read()</span><br></pre></td></tr></table></figure>
 
 
       </div>
@@ -625,17 +626,17 @@
 
   
   <div class="post-nav-next post-nav-item">
-    <div class="post-nav-img lazyload" data-original="/medias/10.jpg" style="background-size: cover; 
+    <div class="post-nav-img lazyload" data-original="/medias/15.jpg" style="background-size: cover; 
       background-position: center center;">
     </div>
-    <a href="/2021/09/03/%E7%88%AC%E8%99%AB/Urllib2%E6%A8%A1%E5%9D%97/" class="post-nav-link">
+    <a href="/2021/09/03/%E7%88%AC%E8%99%AB/Handler%E5%A4%84%E7%90%86%E5%99%A8%E5%92%8C%E8%87%AA%E5%AE%9A%E4%B9%89Opener/" class="post-nav-link">
       <div class="title">
         下一篇: <i class="fa fa-angle-right"></i>
-        <div>爬虫基础篇——之Urllib2模块</div>
+        <div>爬虫基础篇—之Hanlder处理器和自定义opener</div>
       </div>
       <!-- <div class="content">
-        urllib2模块用于网络爬虫、抓取网页，urllib2支持Python2
-Python3中Urllib2被改为Urll
+        opener 是urllib2.Oopener是模块构建好的
+基本的Urlopen()方法 不支持代理、Cookie等其
       </div> -->
     </a>
   </div>

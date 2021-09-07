@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-09-04T13:18:13.306Z</updated>
+  <updated>2021-09-06T05:35:11.795Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>爬虫基础篇——之Cookie</title>
+    <link href="http://example.com/2021/09/06/%E7%88%AC%E8%99%AB/%E4%BD%BF%E7%94%A8Cookie%E8%BF%9B%E8%A1%8C%E7%BD%91%E7%AB%99%E7%99%BB%E5%BD%95%E7%8A%B6%E6%80%81%E4%BF%9D%E6%8C%81/"/>
+    <id>http://example.com/2021/09/06/%E7%88%AC%E8%99%AB/%E4%BD%BF%E7%94%A8Cookie%E8%BF%9B%E8%A1%8C%E7%BD%91%E7%AB%99%E7%99%BB%E5%BD%95%E7%8A%B6%E6%80%81%E4%BF%9D%E6%8C%81/</id>
+    <published>2021-09-06T04:39:06.293Z</published>
+    <updated>2021-09-06T05:35:11.795Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h2><p>HTTP是无状态的面向连接的协议，服务器和客户端的交互仅限于请求/响应过程，结束之后便断开，在下一次请求时，服务器会认为新的客户端。为了维护他们之间的链接，让服务器知道这是之前某个用户发送的请求，则必须在一个地方保存客户端的信息。</p><p><strong>Cookie</strong>：通过在 客户端 记录的信息确定用户的身份。</p><p><strong>Session</strong>：通过在 服务器端 记录的信息确定用户的身份。</p><p>Cookie 是指某些网站服务器为了辨别用户身份和进行Session跟踪，而储存在用户浏览器上的文本文件，Cookie可以保持登录信息到用户下次与服务器的会话</p><p>栗子：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> urllib2</span><br><span class="line"></span><br><span class="line">header = &#123;<span class="string">&quot;User-Agent&quot;</span>:<span class="string">&quot;Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36&quot;</span>,</span><br><span class="line">          <span class="string">&quot;Cookie&quot;</span>:<span class="string">&quot;uuid_tt_dd=-8029438850993860835_20171017; __gads=ID=e106ad9f58fb9c92-222de2144ccb0056:T=1630497961:RT=1630497961:S=ALNI_MbrSsuP1ydPHAyM2QuDx92EGyBppg; csrfToken=6bkjwDuaspuWKypI7yiqsScg; c_first_ref=default; c_first_page=https%3A//www.csdn.net/; dc_sid=a3f8fa77c2693870b4356b7fb76094a8; SESSION=e3766f16-2bc4-4fe5-b8ec-fedfee4e0e1c; ssxmod_itna=Yq0hDKAIqAxIox+xBPwKx9BtGC8tQGkKE0bI+DBdSeiNDnD8x7YDvI+OiIQTeThiDahqE4hh0fxjbhnrfxQ8zSeDIDmKDyDW5DlDDbH47DlPKKaIDBYDhxG=yHy4A6X5DB4wXDzdMHDTxGafxiitDDrDjuHDY9FHgKDmxGtsxGWDWWa7bBs7UBHaaaGDnW+EW3Dy2KDRxiOD0RHDmWFDQ91TePWA10e/IDWm0hqrBDqqWxqCG2DwBGqTB0Doi=qh024AlM95DDW=Ld34D===; ssxmod_itna2=Yq0hDKAIqAxIox+xBPwKx9BtGC8tQGkKE0bD8MekBDGXmxQGaK7KmH1x8hT/itbYt6nOu5i47YSAvUYDwehYdOSbikBNvRjY1iQOG4d=4qUDatux6x6+ldeiK6CCLDygsxI71gengS35Y0=OSoAF/g3FbljR8lKdYSEs+BN1FLbpj+KgISA5cgIviWWiyjNN=pn=w7=u3cR0iwY7ykoGA2hou=wNLQe+YAyGgmn+Tcy+SWgk/xmGcSotCYSfju8QEr36Fw2vnOKKMI6Hf8Bx4KCMIM31+w2cFzDXf8rHIgZ6kCLXN+x41q6rXF7KZZpFYiu0Yq3U9A0REPMnIlhU9jUR=QvlmxjdgxX1OiX6dErwKQGTDG2+xxUBN0DqSr4mD=0id1uTGEQEoqtDDFqD+1DxD===; UserName=qq_35681646; UserInfo=cbd262effcd8456a94bf003541ccc6a8; UserToken=cbd262effcd8456a94bf003541ccc6a8; UserNick=%E5%8D%83%7E%E8%91%89; AU=DCE; UN=qq_35681646; BT=1630904317563; p_uid=U010000; firstDie=1; log_Id_click=37; c_pref=https%3A//blog.csdn.net/qq_35681646; c_ref=https%3A//i.csdn.net/; c_segment=9; dc_session_id=10_1630904353724.702297; c_page_id=default; dc_tos=qyzy16; log_Id_pv=25; Hm_lvt_6bcd52f51e9b3dce32bec4a3997715ac=1630497988,1630499691,1630501187,1630904360; Hm_lpvt_6bcd52f51e9b3dce32bec4a3997715ac=1630904589; Hm_up_6bcd52f51e9b3dce32bec4a3997715ac=%7B%22islogin%22%3A%7B%22value%22%3A%221%22%2C%22scope%22%3A1%7D%2C%22isonline%22%3A%7B%22value%22%3A%221%22%2C%22scope%22%3A1%7D%2C%22isvip%22%3A%7B%22value%22%3A%220%22%2C%22scope%22%3A1%7D%2C%22uid_%22%3A%7B%22value%22%3A%22qq_35681646%22%2C%22scope%22%3A1%7D%7D; Hm_ct_6bcd52f51e9b3dce32bec4a3997715ac=6525*1*-8029438850993860835_20171017!5744*1*qq_35681646; log_Id_view=36&quot;</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">request = urllib2.Request(<span class="string">&quot;https://www.csdn.net/?spm=1010.2135.3001.4476&quot;</span>,headers= header)</span><br><span class="line"></span><br><span class="line">response = urllib2.urlopen(request)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span> response.read()</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;Cookie&quot;&gt;&lt;a href=&quot;#Cookie&quot; class=&quot;headerlink&quot; title=&quot;Cookie&quot;&gt;&lt;/a&gt;Cookie&lt;/h2&gt;&lt;p&gt;HTTP是无状态的面向连接的协议，服务器和客户端的交互仅限于请求/响应过程，结束之后便断开，在下一次请求时，</summary>
+      
+    
+    
+    
+    
+    <category term="爬虫" scheme="http://example.com/tags/%E7%88%AC%E8%99%AB/"/>
+    
+  </entry>
   
   <entry>
     <title>爬虫基础篇——之请求报头的添加或修改</title>
@@ -116,9 +138,9 @@
     <link href="http://example.com/2021/09/03/%E7%88%AC%E8%99%AB/Get%E5%92%8CPost%E6%96%B9%E6%B3%95/"/>
     <id>http://example.com/2021/09/03/%E7%88%AC%E8%99%AB/Get%E5%92%8CPost%E6%96%B9%E6%B3%95/</id>
     <published>2021-09-03T13:21:32.000Z</published>
-    <updated>2021-09-03T14:35:37.154Z</updated>
+    <updated>2021-09-06T02:53:54.857Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="urllib2默认只支持HTTP-HTTPS的GET和POST方法"><a href="#urllib2默认只支持HTTP-HTTPS的GET和POST方法" class="headerlink" title="urllib2默认只支持HTTP/HTTPS的GET和POST方法"></a>urllib2默认只支持HTTP/HTTPS的<code>GET</code>和<code>POST</code>方法</h2><h3 id="URL编码转换：urllib的urlencode"><a href="#URL编码转换：urllib的urlencode" class="headerlink" title="URL编码转换：urllib的urlencode()"></a>URL编码转换：urllib的urlencode()</h3><p>Urlencode方法用来产生get查询字符串，而urllib2则没有（这是urllib和urllib2经常一起使用主要原因）</p><p>Urlencode()函数，将key：value 键值对，转换成’key = value’ 这样的字符串</p><p>urllib 的Unquote()函数</p><p>栗子：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">import urllib</span><br><span class="line">word = &#123;&#x27;wd&#x27;:&#x27;轩轩&#x27;&#125;</span><br><span class="line">urllib.urlencode(word)</span><br><span class="line">#运行结果：wd =%DO%F9DO%F9%DO%F9%DO%F9</span><br><span class="line">print urllib.unquote(&#x27;wd=%DO%F9%DO%F9 )</span><br><span class="line">#运行结果：wd = 轩轩</span><br></pre></td></tr></table></figure><h5 id="一般HTTP请求提交数据，需要编码成-URL编码格式，然后做为url的一部分，或者作为参数传到Request对象中。"><a href="#一般HTTP请求提交数据，需要编码成-URL编码格式，然后做为url的一部分，或者作为参数传到Request对象中。" class="headerlink" title="一般HTTP请求提交数据，需要编码成 URL编码格式，然后做为url的一部分，或者作为参数传到Request对象中。"></a>一般HTTP请求提交数据，需要编码成 URL编码格式，然后做为url的一部分，或者作为参数传到Request对象中。</h5><p>Get方式</p><p>get请求一般用于服务器获取数据 ，比如用百度搜索  轩轩: <a href="https://www.baidu.com/">https://www.baidu.com/</a>? wd = 轩轩</p><p>浏览器的url跳转成：<a href="https://www.baidu.com/s%EF%BC%9Fwd">https://www.baidu.com/s？wd</a> =轩轩</p><p><a href="http://www.baidu.com/s">http://www.baidu.com/s</a>? wd=%DO%F9%D%F9</p><p><a href="http://www.baidu.com/S">http://www.baidu.com/S</a>? 之后出现长字符串，其中就包含要查询的关键字，于是尝试用默认get方式发送请求</p><p>例子：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib</span><br><span class="line"><span class="keyword">import</span> urllib2</span><br><span class="line">url = <span class="string">&#x27;http://www.baidu.com/S&#x27;</span></span><br><span class="line">word = &#123;<span class="string">&#x27;wd&#x27;</span>:<span class="string">&#x27;轩轩&#x27;</span>&#125;</span><br><span class="line">word = urllib.urlencode(word) <span class="comment">#转换成url编码格式（字符串）</span></span><br><span class="line">newurl = url +<span class="string">&#x27;?&#x27;</span>+word  <span class="comment"># url首个分隔符就是？</span></span><br><span class="line">headers = &#123;<span class="string">&#x27;User-Agent&#x27;</span>:<span class="string">&#x27;&quot;Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36&quot;&#x27;</span>&#125;</span><br><span class="line">request = urllib2.Request(newurl, headers=headers)</span><br><span class="line"></span><br><span class="line">response = urllib2.urlopen(request)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span> response.read()</span><br><span class="line"></span><br></pre></td></tr></table></figure><p>Post方式：</p><p>Request请求对象的里有data参数，它就是用在POST里的，我们要传送的数据就是这个参数data，data是一个字典，里面要匹配键值对。</p><p>Post请求向服务器发送请求数据并不是在url里</p><ul><li>POST方式则不会在网址上显示所有的参数，服务器端用Request.Form获取提交的数据，在Form提交的时候。但是HTML代码里如果不指定 method 属性，则默认为GET请求，Form中提交的数据将会附加在url之后，以<code>?</code>分开与url分开。</li><li>表单数据可以作为 URL 字段（method=”get”）或者 HTTP POST （method=”post”）的方式来发送。</li><li>GET方式是直接以链接形式访问，链接中包含了所有的参数，服务器端用Request.QueryString获取变量的值。如果包含了密码的话是一种不安全的选择，不过你可以直观地看到自己提交了什么内容。</li></ul>]]></content>
+    <content type="html"><![CDATA[<h2 id="urllib2默认只支持HTTP-HTTPS的GET和POST方法"><a href="#urllib2默认只支持HTTP-HTTPS的GET和POST方法" class="headerlink" title="urllib2默认只支持HTTP/HTTPS的GET和POST方法"></a>urllib2默认只支持HTTP/HTTPS的<code>GET</code>和<code>POST</code>方法</h2><h3 id="URL编码转换：urllib的urlencode"><a href="#URL编码转换：urllib的urlencode" class="headerlink" title="URL编码转换：urllib的urlencode()"></a>URL编码转换：urllib的urlencode()</h3><p>Urlencode方法用来产生get查询字符串，而urllib2则没有（这是urllib和urllib2经常一起使用主要原因）</p><p>Urlencode()函数，将key：value 键值对，转换成’key = value’ 这样的字符串</p><p>urllib 的Unquote()函数</p><p>栗子：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">import urllib</span><br><span class="line">word = &#123;&#x27;wd&#x27;:&#x27;轩轩&#x27;&#125;</span><br><span class="line">urllib.urlencode(word)</span><br><span class="line">#运行结果：wd =%DO%F9DO%F9%DO%F9%DO%F9</span><br><span class="line">print urllib.unquote(&#x27;wd=%DO%F9%DO%F9 )</span><br><span class="line">#运行结果：wd = 轩轩</span><br></pre></td></tr></table></figure><h5 id="一般HTTP请求提交数据，需要编码成-URL编码格式，然后做为url的一部分，或者作为参数传到Request对象中。"><a href="#一般HTTP请求提交数据，需要编码成-URL编码格式，然后做为url的一部分，或者作为参数传到Request对象中。" class="headerlink" title="一般HTTP请求提交数据，需要编码成 URL编码格式，然后做为url的一部分，或者作为参数传到Request对象中。"></a>一般HTTP请求提交数据，需要编码成 URL编码格式，然后做为url的一部分，或者作为参数传到Request对象中。</h5><p>Get方式</p><p>get请求一般用于服务器获取数据 ，比如用百度搜索  轩轩: <a href="https://www.baidu.com/">https://www.baidu.com/</a>? wd = 轩轩</p><p>浏览器的url跳转成：<a href="https://www.baidu.com/s%EF%BC%9Fwd">https://www.baidu.com/s？wd</a> =轩轩</p><p><a href="http://www.baidu.com/s">http://www.baidu.com/s</a>? wd=%DO%F9%D%F9</p><p><a href="http://www.baidu.com/S">http://www.baidu.com/S</a>? 之后出现长字符串，其中就包含要查询的关键字，于是尝试用默认get方式发送请求</p><p>例子：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib</span><br><span class="line"><span class="keyword">import</span> urllib2</span><br><span class="line">url = <span class="string">&#x27;http://www.baidu.com/S&#x27;</span></span><br><span class="line">word = &#123;<span class="string">&#x27;wd&#x27;</span>:<span class="string">&#x27;轩轩&#x27;</span>&#125;</span><br><span class="line">word = urllib.urlencode(word) <span class="comment">#转换成url编码格式（字符串）</span></span><br><span class="line">newurl = url +<span class="string">&#x27;?&#x27;</span>+word  <span class="comment"># url首个分隔符就是？</span></span><br><span class="line">headers = &#123;<span class="string">&#x27;User-Agent&#x27;</span>:<span class="string">&#x27;&quot;Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36&quot;&#x27;</span>&#125;</span><br><span class="line">request = urllib2.Request(newurl, headers=headers)</span><br><span class="line"></span><br><span class="line">response = urllib2.urlopen(request)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span> response.read()</span><br><span class="line"></span><br></pre></td></tr></table></figure><p>Post方式：</p><p>Request请求对象的里有data参数，它就是用在POST里的，我们要传送的数据就是这个参数data，data是一个字典，里面要匹配键值对。</p><p>Post请求向服务器发送请求数据并不是在url里，Post请求一定要抓包。</p><ul><li>POST方式则不会在网址上显示所有的参数，服务器端用Request.Form获取提交的数据，在Form提交的时候。但是HTML代码里如果不指定 method 属性，则默认为GET请求，Form中提交的数据将会附加在url之后，以<code>?</code>分开与url分开。</li><li>表单数据可以作为 URL 字段（method=”get”）或者 HTTP POST （method=”post”）的方式来发送。</li><li>GET方式是直接以链接形式访问，链接中包含了所有的参数，服务器端用Request.QueryString获取变量的值。如果包含了密码的话是一种不安全的选择，不过你可以直观地看到自己提交了什么内容。</li></ul>]]></content>
     
     
       
@@ -138,17 +160,67 @@
     <link href="http://example.com/2021/09/03/%E7%88%AC%E8%99%AB/%E5%A4%84%E7%90%86HTTPS%E8%AF%B7%E6%B1%82%20SSL%E8%AF%81%E4%B9%A6%E9%AA%8C%E8%AF%81/"/>
     <id>http://example.com/2021/09/03/%E7%88%AC%E8%99%AB/%E5%A4%84%E7%90%86HTTPS%E8%AF%B7%E6%B1%82%20SSL%E8%AF%81%E4%B9%A6%E9%AA%8C%E8%AF%81/</id>
     <published>2021-09-03T13:21:32.000Z</published>
-    <updated>2021-09-03T14:48:10.932Z</updated>
+    <updated>2021-09-06T03:18:42.872Z</updated>
     
-    <content type="html"><![CDATA[<p>urllib2可以为HTTP请求验证SSL证书，如果网站的SSL证书是经过CA认证的，则能正常访问。</p><p>如：<a href="https://www.baidu.com/">https://www.baidu.com</a></p><p>栗子：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib2</span><br><span class="line">url = <span class="string">&quot;https//www.12306.cn/mormhweb/&quot;</span></span><br><span class="line">request =  urllib2.Request(url,headers = headers)</span><br><span class="line">headers =&#123;<span class="string">&#x27;User-Aget&#x27;</span>:<span class="string">&#x27;Mozilla/5.0(windows NT10.0;win64;x64) chrome/54.0.2840.99 safari/577.36&#x27;</span>&#125;</span><br><span class="line">response = urllib2.urlopen(request,context = context)</span><br><span class="line"><span class="built_in">print</span> response.read()</span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<p>urllib2可以为HTTP请求验证SSL证书，如果网站的SSL证书是经过CA认证的，则能正常访问。</p><p>如：<a href="https://www.baidu.com/">https://www.baidu.com</a></p><p>忽略12306网站数字证书认证</p><p>栗子：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib2</span><br><span class="line"><span class="keyword">import</span> ssl</span><br><span class="line"><span class="comment"># 1.表示忽略网站的数字证书认证</span></span><br><span class="line">context = ssl._create_unverified_context()</span><br><span class="line">url = <span class="string">&quot;https://www.12306.cn/mormhweb/&quot;</span></span><br><span class="line"></span><br><span class="line">headers = &#123;<span class="string">&quot;User-Agent&quot;</span>:<span class="string">&quot;Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36&quot;</span>&#125;</span><br><span class="line"></span><br><span class="line">request = urllib2.Request(url,headers= headers)</span><br><span class="line"><span class="comment"># 2.发送请求，在urlopen（）添加context</span></span><br><span class="line">response = urllib2.urlopen(request,context=context)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span> response.read()</span><br></pre></td></tr></table></figure>]]></content>
     
     
       
       
     <summary type="html">&lt;p&gt;urllib2可以为HTTP请求验证SSL证书，如果网站的SSL证书是经过CA认证的，则能正常访问。&lt;/p&gt;
 &lt;p&gt;如：&lt;a href=&quot;https://www.baidu.com/&quot;&gt;https://www.baidu.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;忽略12306网站数字</summary>
+      
+    
+    
+    
+    
+    <category term="爬虫" scheme="http://example.com/tags/%E7%88%AC%E8%99%AB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>爬虫基础篇—之Hanlder处理器和自定义opener</title>
+    <link href="http://example.com/2021/09/03/%E7%88%AC%E8%99%AB/Handler%E5%A4%84%E7%90%86%E5%99%A8%E5%92%8C%E8%87%AA%E5%AE%9A%E4%B9%89Opener/"/>
+    <id>http://example.com/2021/09/03/%E7%88%AC%E8%99%AB/Handler%E5%A4%84%E7%90%86%E5%99%A8%E5%92%8C%E8%87%AA%E5%AE%9A%E4%B9%89Opener/</id>
+    <published>2021-09-03T13:21:32.000Z</published>
+    <updated>2021-09-06T03:41:38.230Z</updated>
+    
+    <content type="html"><![CDATA[<p>opener 是urllib2.Oopener是模块构建好的</p><p>基本的Urlopen()方法 不支持代理、Cookie等其它的HTTP/HTTPS高级功能</p><p>要支持这些功能：</p><p>1.使用相关的Handler 处理器来创建特定功能的处理器对象</p><p>2.然后通过Urllib2.buid_open()方法使用这些处理器对象</p><p>3.使用自定义的Opener对象，调用Open()方法发送请求</p><p>如果程序里的所有请求 都是使用自定义的Opener对象定义为全局Opener，表示如果之后凡是调用Urlopen，都将使用这个Opener</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib2</span><br><span class="line">request = urllib2.Request(<span class="string">&quot;http://www.baidu.com/&quot;</span>)</span><br><span class="line"><span class="comment"># 1.创建一个能够处理Http请求 处理器对象</span></span><br><span class="line">http_handler = urllib2.HTTPHandler(debuglevel = <span class="number">1</span>)</span><br><span class="line"><span class="comment"># 2.使用处理器对象，创建opener对象</span></span><br><span class="line">opener = urllib2.build_opener(http_handler)</span><br><span class="line"></span><br><span class="line">response = opener.<span class="built_in">open</span>(request)</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;opener 是urllib2.Oopener是模块构建好的&lt;/p&gt;
+&lt;p&gt;基本的Urlopen()方法 不支持代理、Cookie等其它的HTTP/HTTPS高级功能&lt;/p&gt;
+&lt;p&gt;要支持这些功能：&lt;/p&gt;
+&lt;p&gt;1.使用相关的Handler 处理器来创建特定功能的处理器对</summary>
+      
+    
+    
+    
+    
+    <category term="爬虫" scheme="http://example.com/tags/%E7%88%AC%E8%99%AB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>爬虫基础篇—之ProxyHandler(代理设置)</title>
+    <link href="http://example.com/2021/09/03/%E7%88%AC%E8%99%AB/%E7%88%AC%E8%99%AB%E5%9F%BA%E7%A1%80%E7%AF%87%E2%80%94%E4%B9%8BProxyHandler(%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE)/"/>
+    <id>http://example.com/2021/09/03/%E7%88%AC%E8%99%AB/%E7%88%AC%E8%99%AB%E5%9F%BA%E7%A1%80%E7%AF%87%E2%80%94%E4%B9%8BProxyHandler(%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE)/</id>
+    <published>2021-09-03T13:21:32.000Z</published>
+    <updated>2021-09-06T04:30:12.256Z</updated>
+    
+    <content type="html"><![CDATA[<p>使用代理IP,   是爬虫/ 反爬虫通常最好用的第二种方式</p><p>设置代理服务器，每隔一段时间换一个代理，就算IP被禁止，可以换个IP继续爬取</p><p>urllib2中通过ProxyHandler来设置使用代理服务器</p><p>栗子：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib2</span><br><span class="line"></span><br><span class="line"><span class="comment"># 免费代理用法</span></span><br><span class="line"><span class="comment"># proxy = &#123;&quot;http&quot;:&quot;IP:端口号&quot;&#125;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 私密代理(需要进行账户验证) </span></span><br><span class="line"><span class="comment"># 注意：如果账号密码或者IP：端口出错，程序会报错</span></span><br><span class="line"><span class="comment"># 如果协议写错，那么不使用这个代理，相当于proxy = &#123;&#125;</span></span><br><span class="line">proxy = &#123;<span class="string">&quot;http&quot;</span>:<span class="string">&quot;账户名:密码@IP:端口号&quot;</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 构建一个代理处理器对象,参数就是设置的可用代理</span></span><br><span class="line">proxy_handler=urllib2.ProxyHandler(proxy)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用这个代理处理器对象,构建一个opener对象,这个opener发送请求时,就会附带这个代理</span></span><br><span class="line">opener = urllib2.build_opener(proxy_handler)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 发送请求</span></span><br><span class="line">response = opener.<span class="built_in">open</span>(<span class="string">&quot;http://wwww.baidu.com/&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span> response.read()</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;使用代理IP,   是爬虫/ 反爬虫通常最好用的第二种方式&lt;/p&gt;
+&lt;p&gt;设置代理服务器，每隔一段时间换一个代理，就算IP被禁止，可以换个IP继续爬取&lt;/p&gt;
+&lt;p&gt;urllib2中通过ProxyHandler来设置使用代理服务器&lt;/p&gt;
 &lt;p&gt;栗子：&lt;/p&gt;
-&lt;fi</summary>
+&lt;figur</summary>
       
     
     
@@ -394,73 +466,6 @@
       
     <summary type="html">&lt;h2 id=&quot;彩虹弧度&quot;&gt;&lt;a href=&quot;#彩虹弧度&quot; class=&quot;headerlink&quot; title=&quot;彩虹弧度&quot;&gt;&lt;/a&gt;彩虹弧度&lt;/h2&gt;&lt;p&gt;背影云彩之间的花朵唯美而触手可及&lt;br&gt;舒服的船只游过温暖的心房&lt;/p&gt;
 </summary>
-      
-    
-    
-    
-    
-    <category term="生活" scheme="http://example.com/tags/%E7%94%9F%E6%B4%BB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>未定义的念</title>
-    <link href="http://example.com/2021/07/04/%E6%9C%AA%E5%AE%9A%E4%B9%89%E7%9A%84%E5%BF%B5/"/>
-    <id>http://example.com/2021/07/04/%E6%9C%AA%E5%AE%9A%E4%B9%89%E7%9A%84%E5%BF%B5/</id>
-    <published>2021-07-04T15:55:21.626Z</published>
-    <updated>2021-05-16T04:38:32.801Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="未定义的念"><a href="#未定义的念" class="headerlink" title="未定义的念"></a>未定义的念</h2><p>谢谢你的每次背影与触手可及的靠近<br>你说我们一起很舒适<br>你的早，你的幼稚<br>让我模糊，判若两人<br>也许是时间的阻隔<br>也许是心灵的阻隔<br>你我对视一份迷<br>同时同路同眼眸<br>曾让内心喜悦的你<br>曾让攻击心房的你<br>相册存储相片反复渗透<br>一个手势，一种眼眸<br>一种状态，一种请求<br>等待响应的心灵与数据</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;未定义的念&quot;&gt;&lt;a href=&quot;#未定义的念&quot; class=&quot;headerlink&quot; title=&quot;未定义的念&quot;&gt;&lt;/a&gt;未定义的念&lt;/h2&gt;&lt;p&gt;谢谢你的每次背影与触手可及的靠近&lt;br&gt;你说我们一起很舒适&lt;br&gt;你的早，你的幼稚&lt;br&gt;让我模糊，判若两人&lt;br&gt;</summary>
-      
-    
-    
-    
-    
-    <category term="生活" scheme="http://example.com/tags/%E7%94%9F%E6%B4%BB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>机器学习基础</title>
-    <link href="http://example.com/2021/07/04/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    <id>http://example.com/2021/07/04/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</id>
-    <published>2021-07-04T15:55:21.626Z</published>
-    <updated>2021-05-16T04:37:08.091Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="人工智能"><a href="#人工智能" class="headerlink" title="人工智能"></a>人工智能</h2><p>人工智能之父，艾伦.图灵。图灵测试是1950年进行的一项科研测试。</p><p>马文·李·闵斯基（英语：Marvin Lee Minsky，1927年8月9日－2016年1月24日），科学家，专长于认知科学与人工智能领域，麻省理工学院人工智能实验室的创始人之一，著有几部人工智能和哲学方面的作品。1969年，因为在人工智能领域的贡献，获得图灵奖。</p><p>机器学习框架:</p><ul><li>Tensorflow</li><li>PyToRCH</li><li>theano</li><li>Caffe2</li><li>CHaine</li></ul><p>数据特征处理分析与归一化</p><p>例子：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">from sklearn.metrics import silhouette_score</span><br><span class="line">from sklearn.cluster import KMeans</span><br><span class="line"></span><br><span class="line">def kmeans():</span><br><span class="line">    </span><br><span class="line">    # 加载数据</span><br><span class="line"></span><br><span class="line">    ld = load_digits()</span><br><span class="line"></span><br><span class="line">    print(ld.target[:20])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    km = KMeans(n_clusters=810)</span><br><span class="line"></span><br><span class="line">    km.fit_transform(ld.data)</span><br><span class="line"></span><br><span class="line">    print(km.labels_[:20])</span><br><span class="line"></span><br><span class="line">    print(silhouette_score(ld.data,km.labels_))</span><br><span class="line"></span><br><span class="line">    return None</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__==&quot;__main__&quot;:</span><br><span class="line">    kmeans()</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;人工智能&quot;&gt;&lt;a href=&quot;#人工智能&quot; class=&quot;headerlink&quot; title=&quot;人工智能&quot;&gt;&lt;/a&gt;人工智能&lt;/h2&gt;&lt;p&gt;人工智能之父，艾伦.图灵。图灵测试是1950年进行的一项科研测试。&lt;/p&gt;
-&lt;p&gt;马文·李·闵斯基（英语：Marvin Le</summary>
-      
-    
-    
-    
-    
-    <category term="技术" scheme="http://example.com/tags/%E6%8A%80%E6%9C%AF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>漫步行者</title>
-    <link href="http://example.com/2021/07/04/%E6%BC%AB%E6%AD%A5%E8%A1%8C%E8%80%85/"/>
-    <id>http://example.com/2021/07/04/%E6%BC%AB%E6%AD%A5%E8%A1%8C%E8%80%85/</id>
-    <published>2021-07-04T15:55:21.626Z</published>
-    <updated>2021-05-16T04:38:06.363Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="漫步行者"><a href="#漫步行者" class="headerlink" title="漫步行者"></a>漫步行者</h2><p>我行黑夜里的雨步<br>黑夜里迷失自我<br>是我拥有了黑夜<br>还是黑夜拥有了我<br>我们只是黑夜里的独行者<br>雨点是黑夜里的见证者<br>滴答雨滴划过黑夜<br>点点滴滴划过足迹<br>偶然见证我们的事迹<br>待雨滴消散时的彩虹<br>醒时是泡沫的彩虹梦<br>时光匆匆 泡沫蒸发的岁月<br>时间曼曼 已是无声的告别<br>岁月无期 已成残缺的记忆</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;漫步行者&quot;&gt;&lt;a href=&quot;#漫步行者&quot; class=&quot;headerlink&quot; title=&quot;漫步行者&quot;&gt;&lt;/a&gt;漫步行者&lt;/h2&gt;&lt;p&gt;我行黑夜里的雨步&lt;br&gt;黑夜里迷失自我&lt;br&gt;是我拥有了黑夜&lt;br&gt;还是黑夜拥有了我&lt;br&gt;我们只是黑夜里的独行者&lt;br&gt;雨</summary>
       
     
     

@@ -587,7 +587,7 @@
 
 <p>Post方式：</p>
 <p>Request请求对象的里有data参数，它就是用在POST里的，我们要传送的数据就是这个参数data，data是一个字典，里面要匹配键值对。</p>
-<p>Post请求向服务器发送请求数据并不是在url里</p>
+<p>Post请求向服务器发送请求数据并不是在url里，Post请求一定要抓包。</p>
 <ul>
 <li>POST方式则不会在网址上显示所有的参数，服务器端用Request.Form获取提交的数据，在Form提交的时候。但是HTML代码里如果不指定 method 属性，则默认为GET请求，Form中提交的数据将会附加在url之后，以<code>?</code>分开与url分开。</li>
 <li>表单数据可以作为 URL 字段（method=”get”）或者 HTTP POST （method=”post”）的方式来发送。</li>
