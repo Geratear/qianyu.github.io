@@ -11,7 +11,7 @@
   <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-  <title>爬虫基础篇——之Cookie | 千～葉(GeraTear)</title>
+  <title>爬虫基础篇——之单线程爬虫 | 千～葉(GeraTear)</title>
 
   
     
@@ -530,14 +530,14 @@
 
 
 
-<div class="post-detail-header lazyload" id="thumbnail_canvas" data-original="/medias/7.jpg" style="background-repeat: no-repeat; background-size: cover; 
+<div class="post-detail-header lazyload" id="thumbnail_canvas" data-original="/medias/14.jpg" style="background-repeat: no-repeat; background-size: cover; 
   background-position: center center;position: relative;">
   <div class="post-detail-header-mask"></div>
   <canvas id="header_canvas"style="position:absolute;bottom:0;pointer-events:none;"></canvas>
   
   <div class="title-box">
     <span class="title">
-      爬虫基础篇——之Cookie
+      爬虫基础篇——之单线程爬虫
     </span>
   </div>
   
@@ -554,7 +554,7 @@
       
       <div class="post-meta">
         <i class="fa fa-clock-o" aria-hidden="true"></i>
-        <span class="post-time">2021-09-06</span>
+        <span class="post-time">2021-09-07</span>
       </div>
       
       <div class="post-tags-categories">
@@ -571,12 +571,9 @@
         
       </div>
       <div class="post-content">
-        <h2 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h2><p>HTTP是无状态的面向连接的协议，服务器和客户端的交互仅限于请求/响应过程，结束之后便断开，在下一次请求时，服务器会认为新的客户端。为了维护他们之间的链接，让服务器知道这是之前某个用户发送的请求，则必须在一个地方保存客户端的信息。</p>
-<p><strong>Cookie</strong>：通过在 客户端 记录的信息确定用户的身份。</p>
-<p><strong>Session</strong>：通过在 服务器端 记录的信息确定用户的身份。</p>
-<p>Cookie 是指某些网站服务器为了辨别用户身份和进行Session跟踪，而储存在用户浏览器上的文本文件，Cookie可以保持登录信息到用户下次与服务器的会话</p>
+        <p>单线程爬虫案例：</p>
 <p>栗子：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> urllib2</span><br><span class="line"></span><br><span class="line">header = &#123;<span class="string">&quot;User-Agent&quot;</span>:<span class="string">&quot;Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36&quot;</span>,</span><br><span class="line">          <span class="string">&quot;Cookie&quot;</span>:<span class="string">&quot;uuid_tt_dd=-8029438850993860835_20171017; __gads=ID=e106ad9f58fb9c92-222de2144ccb0056:T=1630497961:RT=1630497961:S=ALNI_MbrSsuP1ydPHAyM2QuDx92EGyBppg; csrfToken=6bkjwDuaspuWKypI7yiqsScg; c_first_ref=default; c_first_page=https%3A//www.csdn.net/; dc_sid=a3f8fa77c2693870b4356b7fb76094a8; SESSION=e3766f16-2bc4-4fe5-b8ec-fedfee4e0e1c; ssxmod_itna=Yq0hDKAIqAxIox+xBPwKx9BtGC8tQGkKE0bI+DBdSeiNDnD8x7YDvI+OiIQTeThiDahqE4hh0fxjbhnrfxQ8zSeDIDmKDyDW5DlDDbH47DlPKKaIDBYDhxG=yHy4A6X5DB4wXDzdMHDTxGafxiitDDrDjuHDY9FHgKDmxGtsxGWDWWa7bBs7UBHaaaGDnW+EW3Dy2KDRxiOD0RHDmWFDQ91TePWA10e/IDWm0hqrBDqqWxqCG2DwBGqTB0Doi=qh024AlM95DDW=Ld34D===; ssxmod_itna2=Yq0hDKAIqAxIox+xBPwKx9BtGC8tQGkKE0bD8MekBDGXmxQGaK7KmH1x8hT/itbYt6nOu5i47YSAvUYDwehYdOSbikBNvRjY1iQOG4d=4qUDatux6x6+ldeiK6CCLDygsxI71gengS35Y0=OSoAF/g3FbljR8lKdYSEs+BN1FLbpj+KgISA5cgIviWWiyjNN=pn=w7=u3cR0iwY7ykoGA2hou=wNLQe+YAyGgmn+Tcy+SWgk/xmGcSotCYSfju8QEr36Fw2vnOKKMI6Hf8Bx4KCMIM31+w2cFzDXf8rHIgZ6kCLXN+x41q6rXF7KZZpFYiu0Yq3U9A0REPMnIlhU9jUR=QvlmxjdgxX1OiX6dErwKQGTDG2+xxUBN0DqSr4mD=0id1uTGEQEoqtDDFqD+1DxD===; UserName=qq_35681646; UserInfo=cbd262effcd8456a94bf003541ccc6a8; UserToken=cbd262effcd8456a94bf003541ccc6a8; UserNick=%E5%8D%83%7E%E8%91%89; AU=DCE; UN=qq_35681646; BT=1630904317563; p_uid=U010000; firstDie=1; log_Id_click=37; c_pref=https%3A//blog.csdn.net/qq_35681646; c_ref=https%3A//i.csdn.net/; c_segment=9; dc_session_id=10_1630904353724.702297; c_page_id=default; dc_tos=qyzy16; log_Id_pv=25; Hm_lvt_6bcd52f51e9b3dce32bec4a3997715ac=1630497988,1630499691,1630501187,1630904360; Hm_lpvt_6bcd52f51e9b3dce32bec4a3997715ac=1630904589; Hm_up_6bcd52f51e9b3dce32bec4a3997715ac=%7B%22islogin%22%3A%7B%22value%22%3A%221%22%2C%22scope%22%3A1%7D%2C%22isonline%22%3A%7B%22value%22%3A%221%22%2C%22scope%22%3A1%7D%2C%22isvip%22%3A%7B%22value%22%3A%220%22%2C%22scope%22%3A1%7D%2C%22uid_%22%3A%7B%22value%22%3A%22qq_35681646%22%2C%22scope%22%3A1%7D%7D; Hm_ct_6bcd52f51e9b3dce32bec4a3997715ac=6525*1*-8029438850993860835_20171017!5744*1*qq_35681646; log_Id_view=36&quot;</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">request = urllib2.Request(<span class="string">&quot;https://www.csdn.net/?spm=1010.2135.3001.4476&quot;</span>,headers= header)</span><br><span class="line"></span><br><span class="line">response = urllib2.urlopen(request)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span> response.read()</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="comment"># 日期：2021年9月7日19:14:47</span></span><br><span class="line"><span class="comment"># 作者：GeraTear</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> Queue</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">from</span> lxml <span class="keyword">import</span> etree</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DoubanSpider</span>(<span class="params"><span class="built_in">object</span></span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>):</span></span><br><span class="line">        self.data_queue = Queue.Queue()</span><br><span class="line">        self.base_url = <span class="string">&quot;http://movie.douban.com/top250?start=&quot;</span></span><br><span class="line">        self.headers = &#123;<span class="string">&quot;User-Agent&quot;</span> : <span class="string">&quot;Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; rv:11.0) like Gecko&quot;</span>&#125;</span><br><span class="line">        self.num = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">load_page</span>(<span class="params">self, url</span>):</span></span><br><span class="line">        <span class="built_in">print</span> <span class="string">&quot;[INFO]: 正在抓取 %s &quot;</span> % url</span><br><span class="line">        html = requests.get(url, headers = self.headers).content</span><br><span class="line">        time.sleep(<span class="number">1</span>)</span><br><span class="line">        <span class="keyword">return</span> html</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">parse_page</span>(<span class="params">self, url</span>):</span></span><br><span class="line">        html = self.load_page(url)</span><br><span class="line">        html_obj = etree.HTML(html)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 当前页面的所有电影结点的列表</span></span><br><span class="line">        node_list = html_obj.xpath(<span class="string">&quot;//div[@class=&#x27;info&#x27;]&quot;</span>)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 迭代每个结点，进行取值</span></span><br><span class="line">        <span class="keyword">for</span> node <span class="keyword">in</span> node_list:</span><br><span class="line">            <span class="comment"># 电影标题</span></span><br><span class="line">            title = node.xpath(<span class="string">&quot;.//span[@class=&#x27;title&#x27;]/text()&quot;</span>)[<span class="number">0</span>]</span><br><span class="line">            <span class="comment"># 电影评分</span></span><br><span class="line">            score = node.xpath(<span class="string">&quot;.//span[@class=&#x27;rating_num&#x27;]/text()&quot;</span>)[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line">            self.data_queue.put(score + <span class="string">&quot;\t&quot;</span> + title)</span><br><span class="line">            self.num += <span class="number">1</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">main</span>(<span class="params">self</span>):</span></span><br><span class="line">        url_list = [self.base_url + <span class="built_in">str</span>(num) <span class="keyword">for</span> num <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="number">225</span> + <span class="number">1</span>, <span class="number">25</span>)]</span><br><span class="line">        <span class="keyword">for</span> url <span class="keyword">in</span> url_list:</span><br><span class="line">            self.parse_page(url)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> <span class="keyword">not</span> self.data_queue.empty():</span><br><span class="line">            <span class="built_in">print</span> self.data_queue.get()</span><br><span class="line"></span><br><span class="line">        <span class="built_in">print</span> self.num</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    douban = DoubanSpider()</span><br><span class="line">    start = time.time()</span><br><span class="line">    douban.main()</span><br><span class="line">    <span class="built_in">print</span> <span class="string">&quot;[INFO]: Useing time %f seconds.&quot;</span> % (time.time() - start)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
       </div>
@@ -588,7 +585,7 @@
     </li>
     <li class="post-copyright-link">
     <strong>文章链接:  </strong>
-    <a href="/2021/09/06/爬虫/使用Cookie进行网站登录状态保持/" target="_blank" title="爬虫基础篇——之Cookie">http://example.com/2021/09/06/爬虫/使用Cookie进行网站登录状态保持/</a>
+    <a href="/2021/09/07/爬虫/单线程爬虫—之豆瓣爬取/" target="_blank" title="爬虫基础篇——之单线程爬虫">http://example.com/2021/09/07/爬虫/单线程爬虫—之豆瓣爬取/</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明:   </strong>
@@ -611,14 +608,14 @@
     <div class="post-nav-img lazyload" data-original="/medias/14.jpg" style="background-size: cover; 
       background-position: center center;">
     </div>
-    <a href="/2021/09/07/%E7%88%AC%E8%99%AB/%E5%8D%95%E7%BA%BF%E7%A8%8B%E7%88%AC%E8%99%AB%E2%80%94%E4%B9%8B%E8%B1%86%E7%93%A3%E7%88%AC%E5%8F%96/" class="post-nav-link">
+    <a href="/2021/09/07/%E7%88%AC%E8%99%AB/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%88%AC%E8%99%AB%E2%80%94%E4%B9%8B%E8%B1%86%E7%93%A3%E7%88%AC%E5%8F%96/" class="post-nav-link">
       <div class="title">
         <i class="fa fa-angle-left"></i> 上一篇:
         <div>爬虫基础篇——之单线程爬虫</div>
       </div>
       
       <!-- <div class="content">
-        单线程爬虫案例：
+        多线程爬虫案例：
 栗子：
 12345678910111213141516171819202122232425262728
       </div> -->
@@ -629,16 +626,16 @@
 
   
   <div class="post-nav-next post-nav-item">
-    <div class="post-nav-img lazyload" data-original="/medias/1.jpg" style="background-size: cover; 
+    <div class="post-nav-img lazyload" data-original="/medias/7.jpg" style="background-size: cover; 
       background-position: center center;">
     </div>
-    <a href="/2021/09/04/%E7%88%AC%E8%99%AB/%E8%AF%B7%E6%B1%82%E6%8A%A5%E5%A4%B4%E7%9A%84%E6%B7%BB%E5%8A%A0%E6%88%96%E4%BF%AE%E6%94%B9/" class="post-nav-link">
+    <a href="/2021/09/06/%E7%88%AC%E8%99%AB/%E4%BD%BF%E7%94%A8Cookie%E8%BF%9B%E8%A1%8C%E7%BD%91%E7%AB%99%E7%99%BB%E5%BD%95%E7%8A%B6%E6%80%81%E4%BF%9D%E6%8C%81/" class="post-nav-link">
       <div class="title">
         下一篇: <i class="fa fa-angle-right"></i>
-        <div>爬虫基础篇——之请求报头的添加或修改</div>
+        <div>爬虫基础篇——之Cookie</div>
       </div>
       <!-- <div class="content">
-        12345678910111213141516171819202122232425#-*- coding:utf-8 -
+        CookieHTTP是无状态的面向连接的协议，服务器和客户端的交互仅限于请求/响应过程，结束之后便断开，在下一次请求时，
       </div> -->
     </a>
   </div>
