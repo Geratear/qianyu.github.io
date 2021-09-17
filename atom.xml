@@ -6,7 +6,7 @@
   <link href="http://www.bixuan.xyz/atom.xml" rel="self"/>
   
   <link href="http://www.bixuan.xyz/"/>
-  <updated>2021-09-12T08:07:48.669Z</updated>
+  <updated>2021-09-17T13:04:05.497Z</updated>
   <id>http://www.bixuan.xyz/</id>
   
   <author>
@@ -17,9 +17,32 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>闲暇的无聊</title>
+    <link href="http://www.bixuan.xyz/2021/09/17/%E7%94%9F%E6%B4%BB/%E9%97%B2%E6%9A%87%E7%9A%84%E6%97%A0%E8%81%8A/"/>
+    <id>http://www.bixuan.xyz/2021/09/17/%E7%94%9F%E6%B4%BB/%E9%97%B2%E6%9A%87%E7%9A%84%E6%97%A0%E8%81%8A/</id>
+    <published>2021-09-17T12:27:39.975Z</published>
+    <updated>2021-09-17T13:04:05.497Z</updated>
+    
+    <content type="html"><![CDATA[<p>由于最近把游戏给卸载了，所以空闲时间还挺多的。本来是下定决心做点什么的，最后也想不出能做什么。</p><p>看过一个很好的节目（新城商业）<a href="%E6%96%B0%E5%9F%8E%E5%95%86%E4%B8%9A">https://i.youku.com/i/UMTgwNDU5NjY4MA==?spm=a2hzp.8253869.0.0</a></p><p>结果由于新城的运营导致停止运营了，很可惜的一个节目，在国内算是很好的节目了，对科技感兴趣的童鞋可以好好看看。</p><p>又找回以前的LED小灯泡，本来这个灯泡是打算DIY一个广州小蛮腰的灯塔的。现在只有灯泡了，本来这个LED灯是送给一个女生的。这个灯泡还是2019年的圣诞节前一个星期买的，可惜DIY失败，女生也没了。</p><p>由于实在太无聊了，只好听歌了，把《相见恨晚》听了很多遍。其中的心情可能和一个女生有关吧。听歌和听电台是一种享受吧。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;由于最近把游戏给卸载了，所以空闲时间还挺多的。本来是下定决心做点什么的，最后也想不出能做什么。&lt;/p&gt;
+&lt;p&gt;看过一个很好的节目（新城商业）&lt;a href=&quot;%E6%96%B0%E5%9F%8E%E5%95%86%E4%B8%9A&quot;&gt;https://i.youku.com/</summary>
+      
+    
+    
+    
+    
+    <category term="生活" scheme="http://www.bixuan.xyz/tags/%E7%94%9F%E6%B4%BB/"/>
+    
+  </entry>
+  
+  <entry>
     <title>近期畅谈</title>
-    <link href="http://www.bixuan.xyz/2021/09/12/%E7%94%9F%E6%B4%BB/%E5%85%B6%E5%AE%83/"/>
-    <id>http://www.bixuan.xyz/2021/09/12/%E7%94%9F%E6%B4%BB/%E5%85%B6%E5%AE%83/</id>
+    <link href="http://www.bixuan.xyz/2021/09/12/%E7%94%9F%E6%B4%BB/%E8%BF%91%E6%9C%9F%E7%95%85%E8%B0%88/"/>
+    <id>http://www.bixuan.xyz/2021/09/12/%E7%94%9F%E6%B4%BB/%E8%BF%91%E6%9C%9F%E7%95%85%E8%B0%88/</id>
     <published>2021-09-12T07:19:22.652Z</published>
     <updated>2021-09-12T08:07:48.669Z</updated>
     
@@ -350,8 +373,8 @@
   
   <entry>
     <title>黑夜</title>
-    <link href="http://www.bixuan.xyz/2021/08/29/%E9%BB%91%E5%A4%9C/"/>
-    <id>http://www.bixuan.xyz/2021/08/29/%E9%BB%91%E5%A4%9C/</id>
+    <link href="http://www.bixuan.xyz/2021/08/29/%E7%94%9F%E6%B4%BB/%E9%BB%91%E5%A4%9C/"/>
+    <id>http://www.bixuan.xyz/2021/08/29/%E7%94%9F%E6%B4%BB/%E9%BB%91%E5%A4%9C/</id>
     <published>2021-08-29T09:38:37.721Z</published>
     <updated>2021-09-12T07:00:18.941Z</updated>
     
@@ -367,6 +390,68 @@
     
     
     <category term="生活" scheme="http://www.bixuan.xyz/tags/%E7%94%9F%E6%B4%BB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>进程之间通信</title>
+    <link href="http://www.bixuan.xyz/2021/08/29/%E6%8A%80%E6%9C%AF/%E8%BF%9B%E7%A8%8B%E4%B9%8B%E9%97%B4%E9%80%9A%E4%BF%A1/"/>
+    <id>http://www.bixuan.xyz/2021/08/29/%E6%8A%80%E6%9C%AF/%E8%BF%9B%E7%A8%8B%E4%B9%8B%E9%97%B4%E9%80%9A%E4%BF%A1/</id>
+    <published>2021-08-29T09:38:37.711Z</published>
+    <updated>2021-05-16T01:43:55.741Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="进程之间通信"><a href="#进程之间通信" class="headerlink" title="进程之间通信"></a>进程之间通信</h2><p>进程之间通信可连接公共空间进行通信，相互获取公共信息。</p><p>Queue使用</p><p>可以使用multiprocessing模块的Queue实现多进程之间的数据传递，Queue本身是一个消息队列。</p><p>Queue()函数在内存中申请一段缓冲区</p><p>存放数据 q.put(msg)</p><p>获取数据 sg = q.get()</p><p>消息队列特点：先进先出</p><ul><li><p>   q.put()列为满时候，可能会阻塞（调用q.qut()任务等待)</p></li><li><p>   q.get()在队列为空时候，可能会阻塞（调用者等待）</p></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;进程之间通信&quot;&gt;&lt;a href=&quot;#进程之间通信&quot; class=&quot;headerlink&quot; title=&quot;进程之间通信&quot;&gt;&lt;/a&gt;进程之间通信&lt;/h2&gt;&lt;p&gt;进程之间通信可连接公共空间进行通信，相互获取公共信息。&lt;/p&gt;
+&lt;p&gt;Queue使用&lt;/p&gt;
+&lt;p&gt;可以使用</summary>
+      
+    
+    
+    
+    
+    <category term="技术" scheme="http://www.bixuan.xyz/tags/%E6%8A%80%E6%9C%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>进程</title>
+    <link href="http://www.bixuan.xyz/2021/08/29/%E6%8A%80%E6%9C%AF/%E8%BF%9B%E7%A8%8B/"/>
+    <id>http://www.bixuan.xyz/2021/08/29/%E6%8A%80%E6%9C%AF/%E8%BF%9B%E7%A8%8B/</id>
+    <published>2021-08-29T09:38:37.702Z</published>
+    <updated>2021-05-16T04:39:34.517Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h2><p>进程就是执行程序，进程是一种任务的执行，多进程是多种任务的执行，目的主要是解决多个请求时减少请求时间与速度</p><h2 id="多进程"><a href="#多进程" class="headerlink" title="多进程"></a>多进程</h2><p>多进程是主要为了解决多个任务的请求，同时做多个事情。</p><ul><li>单核CPU实现多个任务的多进程</li><li>单核CPU实现多任务的进程就是多进程</li><li>单核CPU实现多任务就是依次执行时间片，实现时间片轮转。</li><li>时间片就是CPU执行时间分成相同的小段，每一小段称为时间片。</li></ul><h2 id="时间片"><a href="#时间片" class="headerlink" title="时间片"></a>时间片</h2><p>时间片就是CPU执行时间划分成相同的小段，每一小段称为时间片。<br>时间片轮转就是CPU轮转执行多个程序，每个程序只执行一个时间片长度，保存当时任务执行状态切换到下一次任务执行。（因为CPU计算的速度非常快，所以会以为是多进程执行）</p><p>CPU速度：CPU主频：2.5GHz<br>         1Hz=1秒10次<br>         10Hz=1秒10次<br>         1KHz=1000Hz/每秒=1秒1000次执行<br>         1MHz=1000KHz/每秒=1000*1000/每秒 1秒=10^6 (10的6次方)<br>         1GHz=1000MHz/每秒=1秒10的9次方=10亿</p><ul><li><p>并发执行：在计算机（CPU）是多个任务是顺序执行，在用户的角度上是多个任务同时执行</p></li><li><p>并行执行：在计算机角度和用户角度上都是多任务同时执行<br>（平时计算机（CPU）执行任务是并发执行）<br>（如果计算机（CPU）是4核到32核，执行任务是两个任务或小于核数的任务是并行执行）</p></li></ul><h2 id="程序与进程"><a href="#程序与进程" class="headerlink" title="程序与进程"></a>程序与进程</h2><p>编写完毕的代码，在没有运行时称为程序<br>正在运行的过程称为进程</p><ul><li><p>进程是操作系统分配系统资源基本单位，进程之间是相互独立的</p></li><li><p>进程中至少有一个线程称为主线程</p></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;进程&quot;&gt;&lt;a href=&quot;#进程&quot; class=&quot;headerlink&quot; title=&quot;进程&quot;&gt;&lt;/a&gt;进程&lt;/h2&gt;&lt;p&gt;进程就是执行程序，进程是一种任务的执行，多进程是多种任务的执行，目的主要是解决多个请求时减少请求时间与速度&lt;/p&gt;
+&lt;h2 id=&quot;多进程&quot;</summary>
+      
+    
+    
+    
+    
+    <category term="技术" scheme="http://www.bixuan.xyz/tags/%E6%8A%80%E6%9C%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>线程</title>
+    <link href="http://www.bixuan.xyz/2021/08/29/%E6%8A%80%E6%9C%AF/%E7%BA%BF%E7%A8%8B/"/>
+    <id>http://www.bixuan.xyz/2021/08/29/%E6%8A%80%E6%9C%AF/%E7%BA%BF%E7%A8%8B/</id>
+    <published>2021-08-29T09:38:37.694Z</published>
+    <updated>2021-05-25T07:02:35.477Z</updated>
+    
+    
+    
+    
+    
+    <category term="技术" scheme="http://www.bixuan.xyz/tags/%E6%8A%80%E6%9C%AF/"/>
     
   </entry>
   
@@ -390,98 +475,6 @@
     
     
     <category term="爬虫" scheme="http://www.bixuan.xyz/tags/%E7%88%AC%E8%99%AB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>漫步行者</title>
-    <link href="http://www.bixuan.xyz/2021/08/29/%E6%BC%AB%E6%AD%A5%E8%A1%8C%E8%80%85/"/>
-    <id>http://www.bixuan.xyz/2021/08/29/%E6%BC%AB%E6%AD%A5%E8%A1%8C%E8%80%85/</id>
-    <published>2021-08-29T09:38:37.676Z</published>
-    <updated>2021-09-12T06:59:33.095Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="漫步行者"><a href="#漫步行者" class="headerlink" title="漫步行者"></a>漫步行者</h2><p>我行黑夜里的雨步<br>黑夜里迷失自我<br>是我拥有了黑夜<br>还是黑夜拥有了我<br>我们只是黑夜里的独行者<br>雨点是黑夜里的见证者<br>滴答雨滴划过黑夜<br>点点滴滴划过足迹<br>偶然见证我们的事迹<br>待雨滴消散时的彩虹<br>醒时是泡沫的彩虹梦<br>时光匆匆 泡沫蒸发的岁月<br>时间曼曼 已是无声的告别<br>岁月无期 已成残缺的记忆</p><p>​                                By:轩</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;漫步行者&quot;&gt;&lt;a href=&quot;#漫步行者&quot; class=&quot;headerlink&quot; title=&quot;漫步行者&quot;&gt;&lt;/a&gt;漫步行者&lt;/h2&gt;&lt;p&gt;我行黑夜里的雨步&lt;br&gt;黑夜里迷失自我&lt;br&gt;是我拥有了黑夜&lt;br&gt;还是黑夜拥有了我&lt;br&gt;我们只是黑夜里的独行者&lt;br&gt;雨</summary>
-      
-    
-    
-    
-    
-    <category term="生活" scheme="http://www.bixuan.xyz/tags/%E7%94%9F%E6%B4%BB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>未定义的念</title>
-    <link href="http://www.bixuan.xyz/2021/08/29/%E6%9C%AA%E5%AE%9A%E4%B9%89%E7%9A%84%E5%BF%B5/"/>
-    <id>http://www.bixuan.xyz/2021/08/29/%E6%9C%AA%E5%AE%9A%E4%B9%89%E7%9A%84%E5%BF%B5/</id>
-    <published>2021-08-29T09:38:37.658Z</published>
-    <updated>2021-09-12T06:59:13.378Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="未定义的念"><a href="#未定义的念" class="headerlink" title="未定义的念"></a>未定义的念</h2><p>谢谢你的每次背影与触手可及的靠近<br>你说我们一起很舒适<br>你的早，你的幼稚<br>让我模糊，判若两人<br>也许是时间的阻隔<br>也许是心灵的阻隔<br>你我对视一份迷<br>同时同路同眼眸<br>曾让内心喜悦的你<br>曾让攻击心房的你<br>相册存储相片反复渗透<br>一个手势，一种眼眸<br>一种状态，一种请求<br>等待响应的心灵与数据</p><p>​                          By:轩</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;未定义的念&quot;&gt;&lt;a href=&quot;#未定义的念&quot; class=&quot;headerlink&quot; title=&quot;未定义的念&quot;&gt;&lt;/a&gt;未定义的念&lt;/h2&gt;&lt;p&gt;谢谢你的每次背影与触手可及的靠近&lt;br&gt;你说我们一起很舒适&lt;br&gt;你的早，你的幼稚&lt;br&gt;让我模糊，判若两人&lt;br&gt;</summary>
-      
-    
-    
-    
-    
-    <category term="生活" scheme="http://www.bixuan.xyz/tags/%E7%94%9F%E6%B4%BB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>彩虹弧度</title>
-    <link href="http://www.bixuan.xyz/2021/08/29/%E5%BD%A9%E8%99%B9%E5%BC%A7%E5%BA%A6/"/>
-    <id>http://www.bixuan.xyz/2021/08/29/%E5%BD%A9%E8%99%B9%E5%BC%A7%E5%BA%A6/</id>
-    <published>2021-08-29T09:38:37.649Z</published>
-    <updated>2021-09-12T07:01:43.955Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="彩虹弧度"><a href="#彩虹弧度" class="headerlink" title="彩虹弧度"></a>彩虹弧度</h2><p>背影云彩之间的花朵唯美而触手可及<br>舒服的船只游过温暖的心房</p><p>待续。。。。。。</p><p>​       By:轩</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;彩虹弧度&quot;&gt;&lt;a href=&quot;#彩虹弧度&quot; class=&quot;headerlink&quot; title=&quot;彩虹弧度&quot;&gt;&lt;/a&gt;彩虹弧度&lt;/h2&gt;&lt;p&gt;背影云彩之间的花朵唯美而触手可及&lt;br&gt;舒服的船只游过温暖的心房&lt;/p&gt;
-&lt;p&gt;待续。。。。。。&lt;/p&gt;
-&lt;p&gt;​     </summary>
-      
-    
-    
-    
-    
-    <category term="生活" scheme="http://www.bixuan.xyz/tags/%E7%94%9F%E6%B4%BB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>了解我</title>
-    <link href="http://www.bixuan.xyz/2021/08/29/%E4%BA%86%E8%A7%A3%E6%88%91/"/>
-    <id>http://www.bixuan.xyz/2021/08/29/%E4%BA%86%E8%A7%A3%E6%88%91/</id>
-    <published>2021-08-29T09:38:37.630Z</published>
-    <updated>2021-09-04T05:49:46.830Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="博客的初心"><a href="#博客的初心" class="headerlink" title="博客的初心"></a>博客的初心</h2><p>希望记录平时遇到的问题和知识或所思所想！</p><ul><li>其实一直以来喜欢瞎折腾;(Ps):其实我弄水晶头、拉网线、配 IP、装系统、给手机贴膜的技术还算可以的，其它都不行。</li></ul><h2 id="兴趣"><a href="#兴趣" class="headerlink" title="兴趣"></a>兴趣</h2><ul><li>运动：跑步、溜冰、羽毛球都喜欢</li><li>摄影：任何时候都有美好的一瞬间</li><li>唱歌：五音不全的我也能成为麦霸</li><li>哲学：人生是一场无止境的哲学</li><li>音乐：许嵩、轻音乐</li><li>旅行：遇到不一样的人和风景</li><li>读书：历史，专业书籍</li><li>动漫：哆啦A梦、纳米核心、全职高手、末世觉醒等等</li><li>分享：喜欢把自己的经验分享给大家</li><li>DIY：一切皆可创造<h2 id="欢迎留言"><a href="#欢迎留言" class="headerlink" title="欢迎留言"></a>欢迎留言</h2>曾就职于朵莓网络，实习僧一枚。如果有什么建议和想法，都可以和我留言，就算留言未必有回响————By:轩</li><li>电子邮箱：<a href="mailto:&#x47;&#x65;&#x72;&#97;&#84;&#x65;&#97;&#114;&#64;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#x63;&#111;&#x6d;">&#x47;&#x65;&#x72;&#97;&#84;&#x65;&#97;&#114;&#64;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#x63;&#111;&#x6d;</a></li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;博客的初心&quot;&gt;&lt;a href=&quot;#博客的初心&quot; class=&quot;headerlink&quot; title=&quot;博客的初心&quot;&gt;&lt;/a&gt;博客的初心&lt;/h2&gt;&lt;p&gt;希望记录平时遇到的问题和知识或所思所想！&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;其实一直以来喜欢瞎折腾;(Ps):其实我弄水晶头</summary>
-      
-    
-    
-    
-    
-    <category term="生活" scheme="http://www.bixuan.xyz/tags/%E7%94%9F%E6%B4%BB/"/>
     
   </entry>
   
