@@ -6,7 +6,7 @@
   <link href="http://www.bixuan.xyz/atom.xml" rel="self"/>
   
   <link href="http://www.bixuan.xyz/"/>
-  <updated>2022-05-10T10:25:18.892Z</updated>
+  <updated>2022-05-17T00:54:50.931Z</updated>
   <id>http://www.bixuan.xyz/</id>
   
   <author>
@@ -15,6 +15,51 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>保护线</title>
+    <link href="http://www.bixuan.xyz/2022/05/17/%E7%94%9F%E6%B4%BB/%E4%BF%9D%E6%8A%A4%E7%BA%BF/"/>
+    <id>http://www.bixuan.xyz/2022/05/17/%E7%94%9F%E6%B4%BB/%E4%BF%9D%E6%8A%A4%E7%BA%BF/</id>
+    <published>2022-05-17T00:49:07.130Z</published>
+    <updated>2022-05-17T00:54:50.931Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>保护线</strong><br>微风拂过天空中的笑容<br>两人相约十一号站台路口<br>一路心灵璀璨闪耀着<br>路过一则树林<br>行则一水浮花<br>优雅的步伐透过云儿的清香<br>相片拟成爱的保护线</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;strong&gt;保护线&lt;/strong&gt;&lt;br&gt;微风拂过天空中的笑容&lt;br&gt;两人相约十一号站台路口&lt;br&gt;一路心灵璀璨闪耀着&lt;br&gt;路过一则树林&lt;br&gt;行则一水浮花&lt;br&gt;优雅的步伐透过云儿的清香&lt;br&gt;相片拟成爱的保护线&lt;/p&gt;
+</summary>
+      
+    
+    
+    
+    
+    <category term="生活" scheme="http://www.bixuan.xyz/tags/%E7%94%9F%E6%B4%BB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>相遇的心门</title>
+    <link href="http://www.bixuan.xyz/2022/05/17/%E7%94%9F%E6%B4%BB/%E7%9B%B8%E9%81%87%E7%9A%84%E5%BF%83%E9%97%A8/"/>
+    <id>http://www.bixuan.xyz/2022/05/17/%E7%94%9F%E6%B4%BB/%E7%9B%B8%E9%81%87%E7%9A%84%E5%BF%83%E9%97%A8/</id>
+    <published>2022-05-17T00:34:19.922Z</published>
+    <updated>2022-05-17T00:44:09.328Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>相遇的心门</strong><br>相遇的心门<br>只是两人的心灵颤动的眼眸<br>两人如诗词般的结合<br>相遇是天俞之翼<br>两人心儿以飞向天空之时<br>心儿心儿快快<br>勇敢的踏出心门<br>她的背影是一副美丽的山水图<br>她的笑容是那么的可爱而从容<br>君可否知晓<br>君可否期待</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;strong&gt;相遇的心门&lt;/strong&gt;&lt;br&gt;相遇的心门&lt;br&gt;只是两人的心灵颤动的眼眸&lt;br&gt;两人如诗词般的结合&lt;br&gt;相遇是天俞之翼&lt;br&gt;两人心儿以飞向天空之时&lt;br&gt;心儿心儿快快&lt;br&gt;勇敢的踏出心门&lt;br&gt;她的背影是一副美丽的山水图&lt;br&gt;她的笑容是那么的可</summary>
+      
+    
+    
+    
+    
+    <category term="生活" scheme="http://www.bixuan.xyz/tags/%E7%94%9F%E6%B4%BB/"/>
+    
+  </entry>
   
   <entry>
     <title>雪中的太阳</title>
@@ -427,57 +472,6 @@
 &lt;p&gt;基本的Urlopen()方法 不支持代理、Cookie等其它的HTTP/HTTPS高级功能&lt;/p&gt;
 &lt;p&gt;要支持这些功能：&lt;/p&gt;
 &lt;p&gt;1.使用相关的Handler 处理器来创建特定功能的处理器对</summary>
-      
-    
-    
-    
-    
-    <category term="爬虫" scheme="http://www.bixuan.xyz/tags/%E7%88%AC%E8%99%AB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>爬虫基础篇—之ProxyHandler(代理设置)</title>
-    <link href="http://www.bixuan.xyz/2021/09/03/%E7%88%AC%E8%99%AB/%E7%88%AC%E8%99%AB%E5%9F%BA%E7%A1%80%E7%AF%87%E2%80%94%E4%B9%8BProxyHandler(%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE)/"/>
-    <id>http://www.bixuan.xyz/2021/09/03/%E7%88%AC%E8%99%AB/%E7%88%AC%E8%99%AB%E5%9F%BA%E7%A1%80%E7%AF%87%E2%80%94%E4%B9%8BProxyHandler(%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE)/</id>
-    <published>2021-09-03T13:21:32.000Z</published>
-    <updated>2021-09-06T04:30:12.256Z</updated>
-    
-    <content type="html"><![CDATA[<p>使用代理IP,   是爬虫/ 反爬虫通常最好用的第二种方式</p><p>设置代理服务器，每隔一段时间换一个代理，就算IP被禁止，可以换个IP继续爬取</p><p>urllib2中通过ProxyHandler来设置使用代理服务器</p><p>栗子：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib2</span><br><span class="line"></span><br><span class="line"><span class="comment"># 免费代理用法</span></span><br><span class="line"><span class="comment"># proxy = &#123;&quot;http&quot;:&quot;IP:端口号&quot;&#125;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 私密代理(需要进行账户验证) </span></span><br><span class="line"><span class="comment"># 注意：如果账号密码或者IP：端口出错，程序会报错</span></span><br><span class="line"><span class="comment"># 如果协议写错，那么不使用这个代理，相当于proxy = &#123;&#125;</span></span><br><span class="line">proxy = &#123;<span class="string">&quot;http&quot;</span>:<span class="string">&quot;账户名:密码@IP:端口号&quot;</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 构建一个代理处理器对象,参数就是设置的可用代理</span></span><br><span class="line">proxy_handler=urllib2.ProxyHandler(proxy)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用这个代理处理器对象,构建一个opener对象,这个opener发送请求时,就会附带这个代理</span></span><br><span class="line">opener = urllib2.build_opener(proxy_handler)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 发送请求</span></span><br><span class="line">response = opener.<span class="built_in">open</span>(<span class="string">&quot;http://wwww.baidu.com/&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span> response.read()</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;使用代理IP,   是爬虫/ 反爬虫通常最好用的第二种方式&lt;/p&gt;
-&lt;p&gt;设置代理服务器，每隔一段时间换一个代理，就算IP被禁止，可以换个IP继续爬取&lt;/p&gt;
-&lt;p&gt;urllib2中通过ProxyHandler来设置使用代理服务器&lt;/p&gt;
-&lt;p&gt;栗子：&lt;/p&gt;
-&lt;figur</summary>
-      
-    
-    
-    
-    
-    <category term="爬虫" scheme="http://www.bixuan.xyz/tags/%E7%88%AC%E8%99%AB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>爬虫基础篇——之Urllib2模块</title>
-    <link href="http://www.bixuan.xyz/2021/09/03/%E7%88%AC%E8%99%AB/Urllib2%E6%A8%A1%E5%9D%97/"/>
-    <id>http://www.bixuan.xyz/2021/09/03/%E7%88%AC%E8%99%AB/Urllib2%E6%A8%A1%E5%9D%97/</id>
-    <published>2021-09-02T22:49:38.772Z</published>
-    <updated>2021-09-03T13:03:15.250Z</updated>
-    
-    <content type="html"><![CDATA[<p>urllib2模块用于网络爬虫、抓取网页，urllib2支持Python2</p><p>Python3中Urllib2被改为Urllib.request</p><p>模块安装：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip intsall urllib2</span><br></pre></td></tr></table></figure><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 导入模块</span></span><br><span class="line"><span class="keyword">import</span> urllib2</span><br><span class="line"><span class="comment"># urllib2.urlopen 向指定的URL发送请求，并返回服务器响应的类文件对象</span></span><br><span class="line">respnse = urllib2.urlopen(<span class="string">&#x27;http://www.bixuan.xyz&#x27;</span>)</span><br><span class="line"><span class="comment"># read()方法读取文件全部内容，返回字符串</span></span><br><span class="line">html =response.read()</span><br><span class="line"><span class="built_in">print</span> html</span><br></pre></td></tr></table></figure><p>栗子2：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 导入urllib2模块</span></span><br><span class="line"><span class="keyword">import</span> urllib2</span><br><span class="line"><span class="comment"># url作为Request()方法的参数，构造并返回一个Request对象</span></span><br><span class="line">request = urllib2.Request(<span class="string">&#x27;http://www.bixuan.xyz&#x27;</span>)</span><br><span class="line"><span class="comment"># request对象作为urlopen()方法参数，发送给服务器并接收响应</span></span><br><span class="line">response = urllib2.urlopen(request)</span><br><span class="line"><span class="comment"># 读取文件</span></span><br><span class="line">html = response.read()</span><br><span class="line"><span class="built_in">print</span> html</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;urllib2模块用于网络爬虫、抓取网页，urllib2支持Python2&lt;/p&gt;
-&lt;p&gt;Python3中Urllib2被改为Urllib.request&lt;/p&gt;
-&lt;p&gt;模块安装：&lt;/p&gt;
-&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;t</summary>
       
     
     
